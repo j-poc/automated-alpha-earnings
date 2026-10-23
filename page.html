@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Earnings Season Pulse</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<style>
+:root { color-scheme: light dark;
+  --color-fg: #1d1d1b; --color-fg-muted: #6b6a66; --color-bg: #faf9f6; --color-panel: #ffffff; --color-border-line: #e6e3dc;
+  --color-ok: #1f7a4d; --color-warn: #a86400; --color-bad: #b3261e;
+  --c0: #2b6cb0; --c1: #d9822b;
+  --cds-chart-grid: #efede8; --cds-chart-muted: #b9b6ae; --cds-chart-reference: #8a877f;
+  --cds-surface-popover: #ffffff; --cds-border: #e6e3dc; --cds-shadow-popover: 0 4px 16px rgba(0,0,0,.12); --cds-text-secondary: #6b6a66;
+  --font-anthropic-sans: ui-sans-serif, -apple-system, "Segoe UI", sans-serif; --font-anthropic-serif: ui-serif, Georgia, serif;
+  --cds-font-size-caption: 12px; --cds-font-size-body: 14px; --cds-font-size-heading: 16px; --cds-font-size-title: 28px; --cds-font-weight-medium: 600;
+  --cds-gap-xs: 4px; --cds-gap-sm: 8px; --cds-gap-md: 16px; --cds-gap-lg: 24px;
+  --cds-pad-xs: 4px; --cds-pad-sm: 8px; --cds-pad-md: 12px; --cds-pad-lg: 20px; --cds-radius: 10px; --cds-dur-slow: .3s; }
+@media (prefers-color-scheme: dark) { :root {
+  --color-fg: #ecebe7; --color-fg-muted: #a09e97; --color-bg: #1a1a18; --color-panel: #242422; --color-border-line: #3a3936;
+  --color-ok: #5cc28e; --color-bad: #f07167; --c0: #6fa8ff; --c1: #f0a35e;
+  --cds-chart-grid: #2f2e2b; --cds-chart-muted: #6a6862; --cds-chart-reference: #8a877f;
+  --cds-surface-popover: #2c2c29; --cds-border: #3a3936; --cds-text-secondary: #a09e97; } }
+body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-family: var(--font-anthropic-sans); font-size: var(--cds-font-size-body); }
+#dash-root { max-width: 1200px; margin: 0 auto; padding: 24px 16px 48px; }
+a { color: var(--c0); }
+</style>
+<script>
+// Stand-in for the Claude dashboard runtime: same dash.* calls, data inlined by season.py render.
+window.dash = (() => {
+  const DATA = /*DATA*/null;
+  const sets = { season: DATA.rows }, subs = [];
+  const get = id => sets[id];
+  window.ES_GENERATED = DATA.generated_at;
+  addEventListener('resize', () => subs.forEach(f => f()));
+  return {
+    colors: ['var(--c0)', 'var(--c1)'],
+    data: id => ({ status: get(id) ? 'ok' : 'missing', data: get(id) || [] }),
+    calc: (id, { inputs, fn }) => { sets[id] = fn(...inputs.map(get)); },
+    onData: fn => { subs.push(fn); fn(); },
+  };
+})();
+</script>
+</head><body><div id="dash-root">
+<style>
+.es { font-family: var(--font-anthropic-sans); font-variant-numeric: tabular-nums; display: grid; gap: var(--cds-gap-lg); }
+.es h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; }
+.es h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+.es .take { color: var(--color-fg-muted); margin: var(--cds-gap-xs) 0 0; max-width: 60rem; }
+.es .note { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); margin: var(--cds-gap-xs) 0 var(--cds-gap-sm); }
+.es .card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); min-width: 0; position: relative; }
+.es .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); gap: var(--cds-gap-md); }
+.es .tile .v { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); }
+.es .tile .l { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.es .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: var(--cds-gap-md); }
+.es .scroll { max-height: 34rem; overflow: auto; }
+.es table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); }
+.es th { position: sticky; top: 0; background: var(--color-panel); text-align: right; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+.es td { text-align: right; padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+.es th:first-child, .es td:first-child, .es td.txt, .es th.txt { text-align: left; }
+.es td.txt { white-space: normal; }
+.es .lg { width: 20px; height: 20px; border-radius: 5px; object-fit: contain; background: #fff; vertical-align: middle; margin-right: var(--cds-gap-sm); box-shadow: 0 0 0 1px var(--color-border-line); }
+.es .lg.big { width: 40px; height: 40px; border-radius: 9px; }
+.es .cal { display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: var(--cds-gap-sm); }
+.es .day { border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-sm); display: grid; gap: var(--cds-gap-xs); align-content: start; }
+.es .day.today { border-color: var(--c0); }
+.es .day h3 { margin: 0; font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); }
+.es .day.past h3 { color: var(--color-fg-muted); }
+.es .chip { display: flex; align-items: center; gap: var(--cds-gap-sm); padding: 2px; border-radius: 6px; cursor: pointer; font-size: var(--cds-font-size-caption); }
+.es .chip:hover, .es .chip.sel { background: var(--cds-chart-grid); }
+.es .chip .lg { margin: 0; width: 26px; height: 26px; }
+.es .chip b { font-weight: var(--cds-font-weight-medium); }
+.es .chip .m { margin-left: auto; white-space: nowrap; }
+.es .tk { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.es tbody tr { cursor: pointer; }
+.es tbody tr:hover, .es tbody tr.sel { background: var(--cds-chart-grid); }
+.es .up { color: var(--color-ok); } .es .dn { color: var(--color-bad); }
+.es .tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); display: none; z-index: 2; }
+.es .tip .k { color: var(--cds-text-secondary); }
+.es .detail { display: grid; gap: var(--cds-gap-sm); }
+.es .detail blockquote { margin: 0; padding-left: var(--cds-pad-md); border-left: 2px solid var(--color-border-line); }
+.es .detail .k { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.es .chart { min-height: 22rem; }
+.es .hide-narrow { }
+@media (max-width: 40rem) { .es .hide-narrow { display: none; } }
+.es [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+</style>
+
+<div class="es">
+  <header>
+    <h1 id="title">Q3 2026 earnings season</h1>
+    <p class="note" id="asof"></p>
+    <p class="take" id="takeaway">
+      <span data-source="pulse" data-field="reported">—</span> of
+      <span data-source="pulse" data-field="tracked">—</span> tracked companies have reported verified numbers.
+      <span data-source="pulse" data-field="growing_pct">—</span>% grew revenue year over year, but only
+      <span data-source="pulse" data-field="accel_pct">—</span>% grew faster than last quarter, and
+      <span data-source="pulse" data-field="rev_beat_pct">—</span>% beat the revenue consensus. Next up:
+      <span data-source="pulse" data-field="next_up">—</span>.
+    </p>
+  </header>
+
+  <section class="tiles" id="pulse">
+    <div class="card tile"><div class="v"><span data-source="pulse" data-field="reported">—</span>/<span data-source="pulse" data-field="tracked">—</span></div><div class="l">Reported, numbers verified against SEC filings</div></div>
+    <div class="card tile"><div class="v"><span data-source="pulse" data-field="median_yoy_pct">—</span>%</div><div class="l">Median revenue growth vs a year ago</div></div>
+    <div class="card tile"><div class="v"><span data-source="pulse" data-field="accel_pct">—</span>%</div><div class="l">Accelerating: growth above last quarter's</div></div>
+    <div class="card tile"><div class="v"><span data-source="pulse" data-field="rev_beat_pct">—</span>%</div><div class="l">Beat revenue consensus</div></div>
+    <div class="card tile"><div class="v"><span data-source="pulse" data-field="eps_beat_pct">—</span>%</div><div class="l">Beat EPS consensus</div></div>
+    <div class="card tile"><div class="v"><span data-source="pulse" data-field="median_r2">—</span>%</div><div class="l">Median stock move, two days after the report</div></div>
+  </section>
+
+  <section class="grid">
+    <div class="card" id="accel-card">
+      <h2>Who is speeding up</h2>
+      <p class="note">Revenue growth vs a year ago: last quarter (across) and this quarter (up). Above the diagonal means growth sped up.</p>
+      <div class="chart" id="scatter" data-source="season"></div>
+      <div class="tip" id="scatter-tip"></div>
+    </div>
+    <div class="card" id="detail-card">
+      <h2 id="d-title">Pick a company</h2>
+      <p class="note" id="d-sub">Click a dot or a row to see what management said, with the source filing.</p>
+      <div class="detail" id="detail"></div>
+    </div>
+  </section>
+
+  <section class="card" id="calendar">
+    <h2>Who reports when</h2>
+    <p class="note">Reported days show the stock's two-day move after the report. Upcoming days show the move options are pricing (±). ☀ before the open, ☾ after the close.</p>
+    <div class="cal" id="cal"></div>
+  </section>
+
+  <section class="card" id="reported">
+    <h2>Reported</h2>
+    <p class="note">Year-over-year figures are read from each company's own press release, and the year-ago revenue is checked against what the company originally filed. EPS is GAAP diluted, so one-off charges and gains can swing it hard (META, GM and JNJ this quarter). Surprises are against the analyst consensus, on the consensus's own basis. "Move" is the stock's return two trading days after the report.</p>
+    <div class="scroll">
+      <table id="rep-table" data-source="season" data-row-key="ticker">
+        <thead><tr>
+          <th data-field="ticker">Company</th>
+          <th data-field="date" class="hide-narrow">Reported</th>
+          <th data-field="yoy">Revenue YoY</th>
+          <th data-field="accel">vs last qtr</th>
+          <th data-field="eps_yoy" class="hide-narrow">EPS YoY</th>
+          <th data-field="rev_surprise">Rev surprise</th>
+          <th data-field="eps_surprise" class="hide-narrow">EPS surprise</th>
+          <th data-field="r2">Move</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card" id="upcoming">
+    <h2>Coming up</h2>
+    <p class="note">The bar is the move options are pricing for the report. The tick is the stock's average two-day move over its recent reports. Orange bars reach past the tick: options expect a bigger move than usual.</p>
+    <div class="scroll">
+      <table id="up-table" data-source="season" data-row-key="ticker">
+        <thead><tr>
+          <th data-field="ticker">Company</th>
+          <th data-field="date">Reports</th>
+          <th data-field="hour" class="hide-narrow">When</th>
+          <th data-field="implied_move" class="txt">Implied move vs usual</th>
+          <th data-field="verdict" class="txt hide-narrow">After past reports</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card" id="withheld">
+    <h2>Withheld</h2>
+    <p class="note">These companies have reported, but their numbers are not shown here: the year-ago figure in the press release did not match the original filing, usually because of a restatement or a spin-off, or the right table could not be verified.</p>
+    <table id="held-table" data-source="season" data-row-key="ticker">
+      <thead><tr><th data-field="ticker">Company</th><th data-field="date">Reported</th><th data-field="reason" class="txt">Why</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+</div>
+
+<script>
+dash.calc('pulse', {
+  title: 'Season pulse',
+  description: 'Counts and medians over reported companies whose year-ago revenue tied to the SEC filing.',
+  inputs: ['season'],
+  fn: (season) => {
+    const rep = season.filter(r => r.status === 'reported');
+    const pct = (xs, f) => xs.length ? Math.round(100 * xs.filter(f).length / xs.length) : null;
+    const withAccel = rep.filter(r => r.accel != null), withRev = rep.filter(r => r.rev_surprise != null), withEps = rep.filter(r => r.eps_surprise != null);
+    const next = season.filter(r => r.status === 'upcoming' && r.date).sort((a, b) => a.date < b.date ? -1 : 1);
+    const day = next.length ? next[0].date : null;
+    const m = d3.median(rep, r => r.yoy), r2 = d3.median(rep, r => r.r2);  // d3.median skips nulls; even counts average the middle two
+    return [{
+      reported: rep.length,
+      tracked: season.filter(r => r.status !== 'not_earnings').length,
+      growing_pct: pct(rep, r => r.yoy > 0),
+      accel_pct: pct(withAccel, r => r.accel > 0),
+      rev_beat_pct: pct(withRev, r => r.rev_surprise > 0),
+      eps_beat_pct: pct(withEps, r => r.eps_surprise > 0),
+      median_yoy_pct: m == null ? null : +(m * 100).toFixed(1),
+      median_r2: r2 == null ? null : +r2.toFixed(1),
+      next_up: day ? next.filter(r => r.date === day).map(r => r.ticker).join(', ') + ' on ' + d3.utcFormat('%b %-d')(new Date(day)) : 'none scheduled'
+    }];
+  }
+});
+
+const S = { sel: null };
+const sp = v => v == null ? '—' : Math.abs(v) < 0.0005 ? '0.0%' : (v > 0 ? '+' : '') + (v * 100).toFixed(1) + '%';
+const pp = v => v == null ? '—' : (v > 0 ? '+' : '') + (v * 100).toFixed(1) + ' pts';
+const mv = v => v == null ? 'too early' : (v > 0 ? '+' : '') + v.toFixed(1) + '%';
+const cls = v => v == null ? '' : v > 0 ? 'up' : v < 0 ? 'dn' : '';
+const img = (sel, d, c) => d.logo ? sel.append('img').attr('class', 'lg' + (c ? ' ' + c : '')).attr('src', d.logo).attr('alt', '') : sel;
+const co = d => node => { const s = d3.select(node); img(s, d); s.append('span').text(d.name + ' '); s.append('span').attr('class', 'tk').text(d.ticker); };
+const fdate = d => d ? d3.utcFormat('%b %-d')(new Date(d)) : '—';
+
+function select(t) {
+  S.sel = t;
+  d3.selectAll('.es tbody tr').classed('sel', function () { return this.dataset.key === t; });
+  d3.selectAll('#scatter circle.dot').attr('stroke', d => d.ticker === S.sel ? 'var(--color-fg)' : d.yoy > d.prev_yoy ? dash.colors[0] : 'var(--cds-chart-muted)');
+  d3.selectAll('.es .chip').classed('sel', function () { return this.dataset.key === t; });
+  drawDetail();
+}
+
+function drawDetail() {
+  const box = d3.select('#detail').html('');
+  const rows = dash.data('season').data || [];
+  const r = rows.find(x => x.ticker === S.sel);
+  if (!r) { d3.select('#d-title').text('Pick a company'); d3.select('#d-sub').text('Click a dot or a row to see what management said, with the source filing.'); return; }
+  d3.select('#d-title').text('').call(h => { img(h, r, 'big'); h.append('span').text(r.name + ' (' + r.ticker + ')'); });
+  const q = r.quarter && r.quarter[0].toUpperCase() + r.quarter.slice(1).toLowerCase().replace('-', ' ');  // releases mix 'Third Quarter', 'third-quarter', 'third quarter'
+  d3.select('#d-sub').text([q, r.date && 'reported ' + fdate(r.date)].filter(Boolean).join(', '));
+  const w = 'ticker=' + encodeURIComponent(r.ticker);
+  const line = (k, field, text, c) => {
+    const p = box.append('div');
+    p.append('div').attr('class', 'k').text(k);
+    p.append('div').attr('class', c || '').attr('data-source', 'season').attr('data-where', w).attr('data-field', field).text(text);
+  };
+  if (r.status === 'reported') {
+    line('Revenue vs a year ago', 'yoy', sp(r.yoy) + ' (last quarter ' + sp(r.prev_yoy) + ')', cls(r.yoy));
+    line('Stock move, two days after', 'r2', mv(r.r2) + (r.implied_move != null ? ', options priced ±' + r.implied_move.toFixed(1) + '%' : ''), cls(r.r2));
+    if (r.headline) { box.append('div').attr('class', 'k').text('Headline'); box.append('blockquote').attr('data-source', 'season').attr('data-where', w).attr('data-field', 'headline').text(r.headline); }
+    if (r.guidance) { box.append('div').attr('class', 'k').text('Outlook'); box.append('blockquote').attr('data-source', 'season').attr('data-where', w).attr('data-field', 'guidance').text(r.guidance); }
+  } else if (r.status === 'upcoming') {
+    line('Options imply', 'implied_move', r.implied_move != null ? '±' + r.implied_move.toFixed(1) + '%' : '—');
+    line('After past reports', 'verdict', r.verdict || '—');
+  } else if (r.status === 'withheld') {
+    line('Why withheld', 'reason', r.reason || '—');
+  }
+  if (r.source_url) box.append('a').attr('href', r.source_url).attr('target', '_blank').attr('rel', 'noopener').text('Press release on SEC EDGAR');
+}
+
+function drawScatter(st) {
+  const el = document.getElementById('scatter');
+  el.innerHTML = '';
+  if (st.status === 'error') { el.textContent = 'Failed to load'; return; }
+  if (st.status !== 'ok') return;
+  const pts = st.data.filter(r => r.status === 'reported' && r.prev_yoy != null && r.yoy != null);
+  const W = el.clientWidth || 400, H = Math.min(420, Math.max(300, W * 0.7)), m = { t: 12, r: 16, b: 34, l: 44 };
+  const ext = d3.extent(pts.flatMap(p => [p.prev_yoy, p.yoy]).concat([0]));
+  const pad = (ext[1] - ext[0]) * 0.06 || 0.05, dom = [ext[0] - pad, ext[1] + pad];
+  const x = d3.scaleLinear(dom, [m.l, W - m.r]), y = d3.scaleLinear(dom, [H - m.b, m.t]);
+  const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`);
+  const f = d3.format('.0%');
+  svg.append('g').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).ticks(Math.max(3, Math.floor(W / 90))).tickFormat(f).tickSize(-(H - m.t - m.b)))
+    .attr('font-size', null).attr('font-family', null).call(g => { g.select('.domain').remove(); g.selectAll('line').attr('stroke', 'var(--cds-chart-grid)'); g.selectAll('text').attr('fill', 'var(--color-fg-muted)'); });
+  svg.append('g').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(5).tickFormat(f).tickSize(-(W - m.l - m.r)))
+    .attr('font-size', null).attr('font-family', null).call(g => { g.select('.domain').remove(); g.selectAll('line').attr('stroke', 'var(--cds-chart-grid)'); g.selectAll('text').attr('fill', 'var(--color-fg-muted)'); });
+  svg.append('line').attr('x1', x(dom[0])).attr('y1', y(dom[0])).attr('x2', x(dom[1])).attr('y2', y(dom[1]))
+    .attr('stroke', 'var(--cds-chart-reference)').attr('stroke-dasharray', '4 4');
+  svg.append('text').attr('x', x(dom[0]) + 6).attr('y', m.t + 12).attr('fill', 'var(--color-fg-muted)').attr('font-size', 'var(--cds-font-size-caption)').text('↑ speeding up');
+  svg.append('text').attr('x', W - m.r).attr('y', H - m.b - 6).attr('text-anchor', 'end').attr('fill', 'var(--color-fg-muted)').attr('font-size', 'var(--cds-font-size-caption)').text('slowing down ↓');
+  const tip = d3.select('#scatter-tip');
+  const g = svg.append('g').selectAll('g').data(pts).join('g').style('cursor', 'pointer');
+  svg.append('clipPath').attr('id', 'lgclip').attr('clipPathUnits', 'objectBoundingBox').append('circle').attr('cx', .5).attr('cy', .5).attr('r', .5);
+  g.append('circle').attr('class', 'dot').attr('cx', d => x(d.prev_yoy)).attr('cy', d => y(d.yoy)).attr('r', 10).attr('fill', '#fff')
+    .attr('stroke', d => d.ticker === S.sel ? 'var(--color-fg)' : d.yoy > d.prev_yoy ? dash.colors[0] : 'var(--cds-chart-muted)').attr('stroke-width', 2.5);
+  g.filter(d => d.logo).append('image').attr('href', d => d.logo).attr('x', d => x(d.prev_yoy) - 7).attr('y', d => y(d.yoy) - 7)
+    .attr('width', 14).attr('height', 14).attr('clip-path', 'url(#lgclip)').attr('pointer-events', 'none');
+  g.append('text').attr('x', d => x(d.prev_yoy) + 13).attr('y', d => y(d.yoy) + 4)
+    .attr('font-size', 'var(--cds-font-size-caption)').attr('fill', 'var(--color-fg-muted)').text(d => d.ticker);
+  const boxes = pts.map(d => ({ x: x(d.prev_yoy) - 11, y: y(d.yoy) - 11, width: 22, height: 22 })), hit = (a, b) => a.x < b.x + b.width && b.x < a.x + a.width && a.y < b.y + b.height && b.y < a.y + a.height;
+  g.select('text').each(function () {  // try right, left, above, below the dot, clear of other labels and dots; hide only if no room (hover still names it)
+    const b = this.getBBox(), cx = b.x - 13;
+    const side = dys => dys.flatMap(dy => [{ dx: 0, dy }, { dx: -b.width - 26, dy }]);
+    const spots = [...side([0, -10, 10]), { dx: -b.width / 2 - 13, dy: -18 }, { dx: -b.width / 2 - 13, dy: 18 }, ...side([-20, 20])];
+    const s = spots.find(o => !boxes.some(p => hit({ x: b.x + o.dx, y: b.y + o.dy, width: b.width, height: b.height }, p)));
+    if (!s) return d3.select(this).attr('display', 'none');
+    d3.select(this).attr('x', cx + 13 + s.dx).attr('y', +this.getAttribute('y') + s.dy);
+    boxes.push({ x: b.x + s.dx, y: b.y + s.dy, width: b.width, height: b.height });
+  });
+  g.on('mousemove', (ev, d) => {
+    const [px, py] = d3.pointer(ev, el.parentNode);
+    tip.style('display', 'block').html('');
+    tip.append('div').attr('class', 'k').text(d.name);
+    tip.append('div').text('This quarter ' + sp(d.yoy));
+    tip.append('div').text('Last quarter ' + sp(d.prev_yoy));
+    const tw = tip.node().offsetWidth, cw = el.parentNode.clientWidth;
+    tip.style('left', Math.min(px + 12, cw - tw - 8) + 'px').style('top', (py + 12) + 'px');
+  }).on('mouseleave', () => tip.style('display', 'none')).on('click', (ev, d) => select(d.ticker));
+}
+
+function drawCal(rows) {
+  const today = new Date().toISOString().slice(0, 10);
+  const shown = rows.filter(r => r.date && r.status !== 'not_earnings');
+  const days = d3.groups(shown, r => r.date).sort((a, b) => a[0] < b[0] ? -1 : 1);
+  const order = { bmo: 0, amc: 1 };
+  const box = d3.select('#cal').html('');
+  days.forEach(([day, rs]) => {
+    const col = box.append('div').attr('class', 'day' + (day < today ? ' past' : day === today ? ' today' : '')).attr('data-day', day);
+    col.append('h3').text(d3.utcFormat('%a %b %-d')(new Date(day)));
+    rs.sort((a, b) => (order[a.hour] ?? 2) - (order[b.hour] ?? 2) || (a.ticker < b.ticker ? -1 : 1)).forEach(d => {
+      const c = col.append('div').attr('class', 'chip' + (d.ticker === S.sel ? ' sel' : '')).attr('data-key', d.ticker).attr('title', d.name).on('click', () => select(d.ticker));
+      img(c, d); c.append('b').text(d.ticker);
+      c.append('span').attr('class', 'tk').text(d.hour === 'bmo' ? '☀' : d.hour === 'amc' ? '☾' : '');
+      const m = c.append('span').attr('class', 'm');
+      if (d.status === 'reported') m.attr('class', 'm ' + cls(d.r2)).text(d.r2 == null ? '' : mv(d.r2));
+      else if (d.status === 'upcoming' && d.implied_move != null) m.attr('class', 'm tk').text('±' + d.implied_move.toFixed(1) + '%');
+      else if (d.status === 'withheld') m.attr('class', 'm tk').text('held');
+    });
+  });
+}
+
+function fillTable(id, rows, cells) {
+  const tb = d3.select(id).select('tbody');
+  tb.selectAll('tr').data(rows, d => d.ticker).join('tr')
+    .attr('data-key', d => d.ticker).classed('sel', d => d.ticker === S.sel)
+    .on('click', (ev, d) => select(d.ticker))
+    .each(function (d) {
+      const tr = d3.select(this).html('');
+      cells.forEach(([fn, c]) => { const v = fn(d); tr.append('td').attr('class', typeof c === 'function' ? c(d) : (c || '')).each(function () { typeof v === 'function' ? v(this) : this.textContent = v; }); });
+    });
+}
+
+function moveBar(d) {
+  return node => {
+    const max = 12, w = 140, h = 14;
+    const svg = d3.select(node).append('svg').attr('width', w + 46).attr('height', h).style('vertical-align', 'middle');
+    if (d.implied_move == null) { node.append(' —'); return; }
+    const x = d3.scaleLinear([0, max], [0, w]).clamp(true);
+    const hot = d.avg_abs_r2 != null && d.implied_move > d.avg_abs_r2;
+    svg.append('rect').attr('y', 3).attr('height', h - 6).attr('width', x(d.implied_move)).attr('rx', 4).attr('fill', hot ? dash.colors[1] : dash.colors[0]);
+    if (d.avg_abs_r2 != null) svg.append('line').attr('x1', x(d.avg_abs_r2)).attr('x2', x(d.avg_abs_r2)).attr('y1', 0).attr('y2', h).attr('stroke', 'var(--color-fg)').attr('stroke-width', 2);
+    svg.append('text').attr('x', w + 6).attr('y', h - 3).attr('font-size', 'var(--cds-font-size-caption)').attr('fill', 'var(--color-fg)').text('±' + d.implied_move.toFixed(1) + '%');
+  };
+}
+
+dash.onData(() => {
+  const st = dash.data('season'), rows = st.status === 'ok' ? st.data : [];
+  const pulse = (dash.data('pulse').data || [])[0] || {};
+  document.querySelectorAll('[data-source=pulse]').forEach(el => { const v = pulse[el.dataset.field]; el.textContent = v == null ? '—' : v; });
+  drawScatter(st);
+  const rep = rows.filter(r => r.status === 'reported').sort((a, b) => b.date < a.date ? -1 : b.date > a.date ? 1 : (b.yoy - a.yoy));
+  if (!S.sel && rep.length) S.sel = rep[0].ticker;
+  fillTable('#rep-table', rep, [
+    [co], [d => fdate(d.date), 'hide-narrow'],
+    [d => sp(d.yoy), d => cls(d.yoy)], [d => pp(d.accel), d => cls(d.accel)],
+    [d => sp(d.eps_yoy), d => 'hide-narrow ' + cls(d.eps_yoy)],
+    [d => sp(d.rev_surprise), d => cls(d.rev_surprise)], [d => sp(d.eps_surprise), d => 'hide-narrow ' + cls(d.eps_surprise)],
+    [d => mv(d.r2), d => cls(d.r2)]
+  ]);
+  const up = rows.filter(r => r.status === 'upcoming').sort((a, b) => (a.date || '9') < (b.date || '9') ? -1 : 1);
+  fillTable('#up-table', up, [
+    [co], [d => fdate(d.date)],
+    [d => d.hour === 'bmo' ? 'before open' : d.hour === 'amc' ? 'after close' : '—', 'hide-narrow'],
+    [d => moveBar(d), 'txt'], [d => d.verdict || '—', 'txt hide-narrow']
+  ]);
+  drawCal(rows);
+  const held = rows.filter(r => r.status === 'withheld');
+  fillTable('#held-table', held, [[co], [d => fdate(d.date)], [d => d.reason || '—', 'txt']]);
+  drawDetail();
+  if (window.ES_GENERATED) d3.select('#asof').text('Data as of ' + new Date(window.ES_GENERATED).toLocaleString());
+});
+</script>
+
+</div></body></html>

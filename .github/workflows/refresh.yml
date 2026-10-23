@@ -1,0 +1,36 @@
+# Rebuild from EDGAR/Finnhub/Yahoo and redeploy; nothing ships if a check fails.
+name: refresh
+on:
+  schedule:  # UTC; times shown are EDT, one hour earlier in ET after Nov 1
+    - cron: "30 12 * * 1-5"  # 8:30 ET (EDT): after pre-market releases
+    - cron: "30 20 * * 1-5"  # 16:30 ET: close
+    - cron: "0 1 * * 2-6"    # 21:00 ET: after-close releases
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: refresh
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - uses: actions/cache@v4
+        with:
+          path: cache
+          key: cache-${{ github.run_id }}
+          restore-keys: cache-
+      - run: pip install pillow && npm i -g vercel
+      - run: python3 season.py build && python3 test_season.py
+        env:
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      - run: python3 season.py deploy
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      - run: |
+          git config user.name "refresh-bot" && git config user.email "refresh-bot@users.noreply.github.com"
+          git add data && git commit -qm "Refresh data $(date -u +%FT%RZ)" && git push || echo "no data change"
