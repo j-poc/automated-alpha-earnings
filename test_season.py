@@ -1,6 +1,10 @@
 """Done condition: python3 test_season.py exits 0 (parsers hold, withheld rows have a reason, market data reached the rows)."""
 
 import season
+import unittest
+
+regressions = unittest.defaultTestLoader.discover(str(season.ROOT / "tests"))
+assert unittest.TextTestRunner(verbosity=1).run(regressions).wasSuccessful(), "extraction regressions failed"
 
 assert season.in_order("Revenue | 1,234 | 1,100", "1,234", "1,100")
 assert not season.in_order("Revenue | 1,100 | 1,234", "1,234", "1,100")

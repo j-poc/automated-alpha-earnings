@@ -24,13 +24,25 @@ jobs:
           key: cache-${{ github.run_id }}
           restore-keys: cache-
       - run: pip install pillow && npm i -g vercel
-      - run: python3 season.py build && python3 test_season.py
+      - name: Build and verify the snapshot
+        run: python3 season.py build && python3 test_season.py
         env:
           FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      - run: python3 season.py deploy
+      - name: Deploy the verified snapshot
+        run: python3 season.py deploy
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-      - run: |
-          git config user.name "refresh-bot" && git config user.email "refresh-bot@users.noreply.github.com"
-          git add data && git commit -qm "Refresh data $(date -u +%FT%RZ)" && git push || echo "no data change"
+          VERCEL_ORG_ID: team_3frY5U1rw8Yv6c0EVZeDBqwB
+          VERCEL_PROJECT_ID: prj_dO9tkbP1346TU7HTrLnQTuxxuqBJ
+      - name: Commit the deployed snapshot
+        run: |
+          git config user.name "refresh-bot"
+          git config user.email "refresh-bot@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "No data change"
+          else
+            git commit -qm "Refresh data $(date -u +%FT%RZ)"
+            git push
+          fi

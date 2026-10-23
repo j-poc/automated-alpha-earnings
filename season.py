@@ -14,6 +14,7 @@ every number appears verbatim in the filing before it is used.
 import hashlib, json, os, re, subprocess, sys, threading, time, urllib.request
 from concurrent.futures import ThreadPoolExecutor
 from datetime import date, datetime, timedelta, timezone
+from decimal import Decimal
 from html import unescape
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -26,7 +27,7 @@ DATA = ROOT / "data"
 UA = "DC dreamcllectr@gmail.com"
 SEASON_START = "2026-10-01"
 MODEL = "gemini-flash-lite-latest"
-EXTRACT_VERSION = "v1"
+EXTRACT_VERSION = "v2"
 
 UNIVERSE = """JPM GS MS BAC WFC C BLK SCHW AXP JNJ UNH ELV ABT ISRG LLY MRK ABBV PFE TMO
 NFLX TSLA GOOGL MSFT META AMZN AAPL INTC IBM TXN NOW V MA KO PEP PG PM MCD SBUX CMCSA
@@ -95,7 +96,12 @@ BAD_RE = re.compile(r"supplement|commentary|slide|presentation|transcript|webcas
 
 
 def ex99_url(rel):
-    """Press-release exhibit. Ranking from earnings-copilot's locator (1.5% miss on 2,702 releases)."""
+    """Use the filing's exhibit type before guessing from a filename."""
+    page = fetch(rel["base"] + "/" + rel["accession"] + "-index.htm")
+    for row in re.findall(r"<tr[^>]*>(.*?)</tr>", page, re.S | re.I):
+        m = re.search(r'href="([^"]+\.html?)"', row, re.I)
+        if m and re.search(r">\s*EX-99(\.1|\.01)?\s*<", row, re.I):
+            return "https://www.sec.gov" + m.group(1) if m.group(1).startswith("/") else rel["base"] + "/" + m.group(1).split("/")[-1]
     idx = json.loads(fetch(rel["base"] + "/index.json"))["directory"]["item"]
     cands = []
     for it in idx:
@@ -107,12 +113,6 @@ def ex99_url(rel):
             cands.append((rank, len(low), name))
     if cands:
         return rel["base"] + "/" + sorted(cands)[0][2]
-    # fall back to the -index.htm table, whose type column is authoritative
-    page = fetch(rel["base"] + "/" + rel["accession"] + "-index.htm")
-    for row in re.findall(r"<tr[^>]*>(.*?)</tr>", page, re.S | re.I):
-        m = re.search(r'href="([^"]+\.html?)"', row, re.I)
-        if m and re.search(r">\s*EX-99(\.1|\.01)?\s*<", row):
-            return "https://www.sec.gov" + m.group(1) if m.group(1).startswith("/") else rel["base"] + "/" + m.group(1).split("/")[-1]
     return None
 
 
@@ -134,20 +134,31 @@ Return JSON only. Copy text EXACTLY as it appears in the document (character for
 {
  "period_end": "YYYY-MM-DD end date of the quarter being reported",
  "fiscal_label": "how the company names the quarter, e.g. 'third quarter 2026' or 'Q1 FY27'",
- "revenue": {"row": "exact table row text containing the quarter's total revenue (current and year-ago values)",
+ "revenue": {"row": "exact table row OR narrative passage containing consolidated revenue for both quarters, or null if in separate rows",
+             "current_row": "if separate: exact full row or passage containing the current value; otherwise null",
+             "prior_row": "if separate: exact full row or passage containing the year-ago value; otherwise null",
              "label": "exact row label, e.g. 'Total net revenue'",
              "current": "exact current-quarter value string from that row, e.g. '92,512'",
              "prior": "exact year-ago same-quarter value string from that row",
              "scale": "exact unit header text governing that table, e.g. 'In millions, except per share amounts'"},
- "eps": {"row": "exact table row text with GAAP diluted EPS for the quarter (current and year-ago)",
+ "eps": {"row": "exact row or passage with GAAP diluted EPS for both quarters, or null if in separate rows",
+         "current_row": "if separate: exact row or passage with current GAAP diluted EPS; otherwise null",
+         "prior_row": "if separate: exact row or passage with year-ago GAAP diluted EPS; otherwise null",
          "label": "exact row label",
          "current": "exact current-quarter value string, e.g. '3.72' or '(0.12)'",
          "prior": "exact year-ago value string"},
  "headline": "one exact sentence from the release that best summarizes the quarter (often CEO quote)",
  "guidance": "one exact sentence giving forward revenue or EPS guidance, or null if none"
 }
-Rules: revenue = the company's top-line total (banks: total net revenue / net revenue; insurers: total revenues).
-Use the three-month columns, not year-to-date. If a field is truly absent use null.
+Rules: revenue = the PARENT COMPANY'S CONSOLIDATED GAAP top-line total (banks: total net revenue / net revenue; insurers: total revenues).
+Never use an operating segment's revenue or an adjusted / organic / tax-equivalent figure in place of consolidated GAAP revenue.
+current and prior must contain ONLY the numeric substring (e.g. "32.3"), without the word billion or million. Put the exact unit word/header in scale.
+Use the three-month columns, not year-to-date. Check the year headers: some releases place each year's results in a separate table.
+When a row has segment columns and a consolidated company column, use the consolidated company column.
+The quote must retain ALL intervening columns (including YTD or last quarter). Do not remove columns to create an invented row.
+If the consolidated total appears only in narrative, quote that passage and keep its stated precision and unit (e.g. billion).
+Never join separate rows into an invented quote: use current_row and prior_row instead. Keep the metric label in each quote.
+If a field is truly absent use null.
 
 DOCUMENT:
 """
@@ -169,7 +180,7 @@ def norm(s):
 
 def in_order(text, a, b):
     """a then b as whole numeric tokens in text."""
-    tok = lambda v: r"(?<![\d.,])\(?" + re.escape(v) + r"\)?(?![\d]|[.,]\d)"
+    tok = lambda v: r"(?<![\d.,(\-])" + re.escape(v) + r"(?![\d)]|[.,]\d)"
     return re.search(tok(a) + r".*?" + tok(b), text) is not None
 
 
@@ -180,7 +191,7 @@ def parse_num(s):
     s = s.strip("()").strip()
     if not re.fullmatch(r"-?\d+(\.\d+)?", s):
         return None
-    return -float(s) if neg else float(s)
+    return -Decimal(s) if neg else Decimal(s)
 
 
 def scale_of(header):
@@ -189,32 +200,58 @@ def scale_of(header):
 
 
 def verified_pair(doc, field, scale=1.0):
-    """Both values must sit inside the quoted row, and the row inside the document."""
-    if not field or not field.get("row"):
+    """Require exact source quotes for both values, including their signs."""
+    if not field or not (field.get("row") or field.get("current_row") and field.get("prior_row")):
         return None, "missing"
-    row, d = norm(field["row"]), norm(doc)
+    d = norm(doc)
     vals = [parse_num(field.get(k)) for k in ("current", "prior")]
     if None in vals:
         return None, "value is not a plain number"
-    cur, pri = (norm(field[k]).strip("()") for k in ("current", "prior"))
-    # The quoted row must be verbatim; failing that, both values must follow the row label within 400 chars.
+    cur, pri = (norm(field[k]) for k in ("current", "prior"))
     label = norm(field.get("label"))
-    windows = [row] if row in d else [d[m.end():m.end() + 400] for m in re.finditer(re.escape(label), d)] if label else []
-    if not windows:
-        return None, "row not found verbatim in filing"
-    if not any(in_order(w, cur, pri) for w in windows):
-        return None, "values not found in order after the row label"
-    return {"current": vals[0] * scale, "prior": vals[1] * scale, "label": field.get("label"), "row": field["row"]}, "ok"
+    if field.get("row"):
+        row = norm(field["row"])
+        if row not in d or not label or label not in row:
+            return None, "row and label not found verbatim in filing"
+        if not in_order(row, cur, pri):
+            return None, "values or signs not found in order in quoted row"
+    else:
+        for key, value in (("current_row", cur), ("prior_row", pri)):
+            row = norm(field[key])
+            if row not in d or not label or label not in row:
+                return None, f"{key} and label not found verbatim in filing"
+            if not re.search(r"(?<![\d.,(\-])" + re.escape(value) + r"(?![\d)]|[.,]\d)", row):
+                return None, f"value or sign not found in {key}"
+    result = {k: field[k] for k in ("label", "row", "current_row", "prior_row") if field.get(k)}
+    result.update(current=float(vals[0] * Decimal(str(scale))), prior=float(vals[1] * Decimal(str(scale))))
+    return result, "ok"
 
 
 def verified_sentence(doc, s):
     return s if s and norm(s) in norm(doc) else None
 
 
+def recheck_cached(doc, field, scales):
+    """Revalidate saved source evidence without spending another model request."""
+    if not field:
+        return None
+    quotes = " ".join(field.get(k, "") for k in ("row", "current_row", "prior_row"))
+    tokens = re.findall(r"\(?-?\d[\d,]*(?:\.\d+)?\)?", quotes)
+    for scale in scales:
+        values = [[s for s in tokens if parse_num(s) is not None and
+                   parse_num(s) * Decimal(str(scale)) == Decimal(str(field[k]))] for k in ("current", "prior")]
+        for current in values[0]:
+            for prior in values[1]:
+                pair, status = verified_pair(doc, {**field, "current": current, "prior": prior}, scale)
+                if status == "ok":
+                    return pair
+    return None
+
+
 def extract(url, feedback=""):
     doc = html_to_text(fetch(url))
     raw = gemini(PROMPT + doc[:120000] + (f"\n\nYOUR PREVIOUS ANSWER FAILED VERIFICATION: {feedback}\n"
-                                           "Quote a row from a financial table, copied exactly." if feedback else ""))
+                                           "Copy the actual consolidated row(s) or narrative passage exactly; never invent a quote or change the stated basis." if feedback else ""))
     rev_scale = scale_of((raw.get("revenue") or {}).get("scale"))
     if rev_scale and norm(raw["revenue"]["scale"]) not in norm(doc):
         rev_scale = None
@@ -232,7 +269,7 @@ def extract(url, feedback=""):
 
 REV_CONCEPTS = ["Revenues", "RevenueFromContractWithCustomerExcludingAssessedTax",
                 "RevenuesNetOfInterestExpense", "SalesRevenueNet", "RevenueFromContractWithCustomerIncludingAssessedTax",
-                "InterestAndNoninterestIncome", "NoninterestIncomeAndNetInterestIncome"]
+                "InterestAndNoninterestIncome", "NoninterestIncomeAndNetInterestIncome", "RegulatedAndUnregulatedOperatingRevenue"]
 
 
 def quarterly(facts, concept, unit):
@@ -272,7 +309,7 @@ def shift(d, months):
 def xbrl_context(cik, period_end, rev_prior):
     """Pick the revenue concept matching the press release's year-ago value, then pull
     last quarter's YoY growth from the same concept."""
-    facts = json.loads(fetch(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json", ttl=86400))["facts"]
+    facts = json.loads(fetch(f"https://data.sec.gov/api/xbrl/companyfacts/CIK{cik}.json", ttl=1800))["facts"]
     yr_ago = shift(period_end, -12)
     best = None
     for c in REV_CONCEPTS:
@@ -286,8 +323,19 @@ def xbrl_context(cik, period_end, rev_prior):
     if best:
         err, c, s, v = best
         out.update(concept=c, xbrl_prior=v, tie_err=err)
+        observations = facts["us-gaap"][c]["units"]["USD"]
+        same_period = [f for f in observations if f.get("start") and
+                       80 <= (date.fromisoformat(f["end"]) - date.fromisoformat(f["start"])).days <= 100 and
+                       abs((date.fromisoformat(f["end"]) - date.fromisoformat(yr_ago)).days) <= 10]
+        if same_period:
+            original = min(same_period, key=lambda f: f.get("filed", "9999"))
+            matched = [f for f in same_period if f["val"] == v]
+            latest = max(matched, key=lambda f: f.get("filed", "")) if matched else None
+            out.update(original_prior=original["val"], comparison_filed=latest.get("filed") if latest else None,
+                       comparison_accession=latest.get("accn") if latest else None,
+                       comparison_revised=bool(original["val"] and abs(v / original["val"] - 1) > TIE_TOL))
         pq, pq_ya = near(s, shift(period_end, -3)), near(s, shift(period_end, -15))
-        if pq and pq_ya:
+        if pq and pq_ya and not out.get("comparison_revised"):
             out["prev_q_growth"] = pq / pq_ya - 1
     eps = quarterly(facts, "EarningsPerShareDiluted", "USD/shares")
     out["xbrl_eps_prior"] = near(eps, yr_ago)
@@ -313,7 +361,7 @@ def market(t, reported):
     except Exception as e:
         m["finnhub_error"] = str(e)[:120]
     try:
-        p = CACHE / f"yahoo-{t}.json"
+        p = CACHE / f"yahoo-closed-v2-{t}.json"
         if p.exists() and time.time() - p.stat().st_mtime < 3 * 3600:
             d = json.loads(p.read_text())
         else:
@@ -367,8 +415,18 @@ def company(t, ciks, old=None):
         row.update(filed=rel["filed"], accession=rel["accession"], filing_index=rel["base"] + "/")
         url = ex99_url(rel)
         row["source_url"] = url
-        if old and old.get("accession") == rel["accession"] and not old.get("error"):
+        if old and old.get("accession") == rel["accession"] and old.get("source_url") == url and not old.get("error") and old.get("revenue"):
+            doc = html_to_text(fetch(url))
+            scales = [s for word, s in (("billion", 1e9), ("million", 1e6), ("thousand", 1e3)) if word in doc.lower()]
+            revenue = recheck_cached(doc, old["revenue"], scales)
+            eps = recheck_cached(doc, old.get("eps"), [1])
+            old = {**old, "revenue": revenue, "eps": eps} if revenue and (eps or not old.get("eps")) else None
+        elif old and not old.get("not_earnings"):
+            old = None
+        if old and old.get("accession") == rel["accession"] and old.get("source_url") == url and not old.get("error"):
             row.update({k: v for k, v in old.items() if k != "market"})  # same filing, same extractor: no new Gemini call
+            if row.get("revenue") and row.get("period_end"):
+                row["xbrl"] = xbrl_context(cik, row["period_end"], row["revenue"]["prior"])
         elif url:
             try:
                 feedback = ""
@@ -381,7 +439,8 @@ def company(t, ciks, old=None):
                     feedback = f"revenue: {x['revenue_status']}; eps: {x['eps_status']}."
                     if xb.get("xbrl_prior") and not tied:
                         feedback += (f" Your year-ago revenue {x['revenue']['prior']:,.0f} does not match the company's "
-                                     f"originally filed {xb['xbrl_prior']:,.0f} (USD); find the consolidated total revenue row.")
+                                     f"XBRL history {xb['xbrl_prior']:,.0f} (USD); check the consolidated total revenue row. "
+                                     "A revised comparison can be genuine: do not substitute a different metric just to match it.")
                 row.update(x, xbrl=xb, attempts=attempt + 1)
                 if x["revenue_status"] == x["eps_status"] == "missing":
                     row["not_earnings"] = True  # Item 2.02 8-K without results (deliveries, guidance updates)
@@ -396,7 +455,7 @@ def build():
     ciks = cik_map()
     p = DATA / "season.json"
     prev = json.loads(p.read_text()) if p.exists() else {}
-    old = {r["ticker"]: r for r in prev.get("companies", [])} if prev.get("extract") == f"{MODEL}/{EXTRACT_VERSION}" else {}
+    old = {r["ticker"]: r for r in prev.get("companies", [])} if prev.get("extract", "").split("/")[0] == MODEL else {}
     with ThreadPoolExecutor(6) as ex:
         rows = list(ex.map(lambda t: company(t, ciks, old.get(t)), UNIVERSE))
     DATA.mkdir(exist_ok=True)
@@ -421,12 +480,12 @@ def hold_reason(r):
     if x.get("tie_err") is None:
         return "No prior-year filing to check the numbers against"
     if x["tie_err"] > TIE_TOL:
-        return (f"Last year's revenue is ${r['revenue']['prior'] / 1e9:.1f}B in the release but "
-                f"${x['xbrl_prior'] / 1e9:.1f}B as originally filed, likely restated or reorganized")
+        return (f"Comparison needs review: last year's revenue is ${r['revenue']['prior'] / 1e9:.1f}B in the release but "
+                f"${x['xbrl_prior'] / 1e9:.1f}B in the XBRL history; the cause has not been verified")
     fh = (r.get("market") or {}).get("rev_act")
     if fh and abs(r["revenue"]["current"] / fh - 1) > XCHECK_TOL:
         return (f"Revenue is ${r['revenue']['current'] / 1e9:.1f}B in the release but ${fh / 1e9:.1f}B at Finnhub, "
-                f"likely reported vs adjusted revenue")
+                f"the basis difference needs review")
     return None
 
 
@@ -495,7 +554,9 @@ def export(data=None):
                        eps_yoy=g(eps.get("current"), eps.get("prior")) if (eps.get("prior") or 0) > 0 else None,
                        eps_surprise=mk.get("eps_surprise"), rev_surprise=mk.get("rev_surprise"),
                        r2=mk.get("r2"), r5=mk.get("r5"), headline=r.get("headline"), guidance=r.get("guidance"),
-                       quarter=r.get("fiscal_label"))
+                       quarter=r.get("fiscal_label"),
+                       comparison_note=("The year-ago revenue comparison changed in a newer filing. Growth versus last quarter is omitted until the bases are reconciled."
+                                        if x.get("comparison_revised") else None))
         rows.append(row)
     out = {"generated_at": data["generated_at"], "rows": rows}
     (DATA / "dashboard.json").write_text(json.dumps(out, indent=1))
@@ -529,4 +590,6 @@ if __name__ == "__main__":
         site.mkdir(exist_ok=True)
         (site / "index.html").write_bytes((ROOT / "out" / "season.html").read_bytes())
         tok = ["--token", os.environ["VERCEL_TOKEN"]] if os.environ.get("VERCEL_TOKEN") else []  # CI; locally the CLI login
-        sys.exit(subprocess.run(["vercel", "deploy", str(site), "--prod", "--yes", "--project", site.name, "--scope", "evoa2", *tok]).returncode)
+        project = os.environ.get("VERCEL_PROJECT_ID", "prj_dO9tkbP1346TU7HTrLnQTuxxuqBJ")
+        scope = os.environ.get("VERCEL_ORG_ID", "team_3frY5U1rw8Yv6c0EVZeDBqwB")
+        sys.exit(subprocess.run(["vercel", "deploy", str(site), "--prod", "--yes", "--project", project, "--scope", scope, *tok]).returncode)

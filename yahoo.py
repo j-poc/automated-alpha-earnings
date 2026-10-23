@@ -57,7 +57,13 @@ def reaction(qs, chart):
             if (q.get("actual") or {}).get("raw") is not None and (q.get("reportedDate") or {}).get("raw")]
     dates = [day(t) for t in chart.get("timestamp") or []]
     closes = chart["indicators"]["quote"][0]["close"]
-    cl = lambda i: closes[i] if 0 <= i < len(closes) and closes[i] else None
+    now = datetime.now(ET)
+    today = now.date().isoformat()
+    session_end = ((chart.get("meta") or {}).get("currentTradingPeriod") or {}).get("regular", {}).get("end")
+    session_end = session_end or now.replace(hour=16, minute=0, second=0, microsecond=0).timestamp()
+    # Yahoo includes today's unfinished daily candle during the trading session.
+    closed = [d < today or d == today and now.timestamp() >= session_end for d in dates]
+    cl = lambda i: closes[i] if 0 <= i < len(closes) and closed[i] and closes[i] else None
     rows = []
     for rep, sp in hist:
         i0 = next((i for i, d in enumerate(dates) if d >= rep), None)

@@ -1,6 +1,6 @@
 {
- "generated_at": "2026-10-23T10:07:07+00:00",
- "extract": "gemini-flash-lite-latest/v1",
+ "generated_at": "2026-10-23T17:40:10+00:00",
+ "extract": "gemini-flash-lite-latest/v2",
  "companies": [
   {
    "ticker": "JPM",
@@ -13,26 +13,30 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 50172000000.0,
-    "prior": 46427000000.0,
     "label": "Net revenue - reported",
-    "row": "Net revenue - reported | $ | 50,172 | $ | 57,347 | $ | 46,427 | $ | (7,175) | (13) | % | $ | 3,745 | 8 | %"
+    "row": "Net revenue - reported | $ | 50,172 | $ | 57,347 | $ | 46,427 | $ | (7,175) | (13) | % | $ | 3,745 | 8 | %",
+    "current": 50172000000.0,
+    "prior": 46427000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 5.57,
-    "prior": 5.07,
     "label": "Earnings per share - diluted",
-    "row": "Earnings per share - diluted | $ | 5.57 | $ | 7.70 | $ | 5.07 | $ | (2.13) | (28) | % | $ | 0.50 | 10 | %"
+    "row": "Earnings per share - diluted | $ | 5.57 | $ | 7.70 | $ | 5.07 | $ | (2.13) | (28) | % | $ | 0.50 | 10 | %",
+    "current": 5.57,
+    "prior": 5.07
    },
    "eps_status": "ok",
-   "headline": "\u201cThe Firm reported another quarter of strong results, generating net income of $15.8 billion and an ROTCE of 21%, excluding discretionary investment securities losses totaling $498 million after tax.\u201d",
+   "headline": "JPMORGANCHASE REPORTS THIRD-QUARTER 2026 NET INCOME OF $15.3 BILLION ( $5.57 PER SHARE), NET INCOME OF $15.8 BILLION ($5.75 PER SHARE) EXCLUDING A SIGNIFICANT ITEM",
    "guidance": null,
    "xbrl": {
     "concept": "RevenuesNetOfInterestExpense",
     "tie_err": 0.0,
     "prev_q_growth": 0.2768747773423583,
     "xbrl_prior": 46427000000,
+    "original_prior": 46427000000,
+    "comparison_filed": "2025-11-04",
+    "comparison_accession": "0001628280-25-048859",
+    "comparison_revised": false,
     "xbrl_eps_prior": 5.07
    },
    "attempts": 1,
@@ -45,7 +49,7 @@
     "rev_act": 50907000000,
     "eps_surprise": -0.06512252433702581,
     "rev_surprise": -0.01589613778485921,
-    "price": 336.54,
+    "price": 331.45,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 50,
@@ -64,16 +68,36 @@
    "filed": "2026-10-13",
    "accession": "0000886982-26-000529",
    "filing_index": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000529/",
-   "source_url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000529/a3q26gsearningsresultspr.htm",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000529/a3q26gsearningsresults.htm",
    "period_end": "2026-09-30",
-   "fiscal_label": "Third Quarter 2026",
-   "revenue": null,
-   "revenue_status": "values not found in order after the row label",
-   "eps": null,
-   "eps_status": "values not found in order after the row label",
-   "headline": "Against the backdrop of a complicated operating environment, our clients continued to turn to Goldman Sachs for our world-class advice, execution and financing capabilities, resulting in our second highest quarterly net revenues and record year-to-date net revenues.",
+   "fiscal_label": "third quarter 2026",
+   "revenue": {
+    "label": "Total net revenues",
+    "row": "Total net revenues\n$ 18,679\n$ 20,338\n$ 15,184",
+    "current": 18679000000.0,
+    "prior": 15184000000.0
+   },
+   "revenue_status": "ok",
+   "eps": {
+    "label": "Diluted 1",
+    "row": "Diluted 1\n$ 17.01\n$ 20.98\n$ 12.25",
+    "current": 17.01,
+    "prior": 12.25
+   },
+   "eps_status": "ok",
+   "headline": "The Goldman Sachs Group, Inc. (NYSE: GS) today reported net revenues of $ 18.68 billion and net earnings of $ 5.29 billion for the third quarter ended September 30, 2026.",
    "guidance": null,
-   "xbrl": {},
+   "xbrl": {
+    "concept": "RevenuesNetOfInterestExpense",
+    "tie_err": 0.0,
+    "prev_q_growth": 0.394637591716382,
+    "xbrl_prior": 15184000000,
+    "original_prior": 15184000000,
+    "comparison_filed": "2025-10-31",
+    "comparison_accession": "0000886982-25-001411",
+    "comparison_revised": false,
+    "xbrl_eps_prior": 12.25
+   },
    "attempts": 2,
    "market": {
     "date": "2026-10-13",
@@ -84,7 +108,7 @@
     "rev_act": 18679000000,
     "eps_surprise": 0.26792689108202405,
     "rev_surprise": 0.0855999469566533,
-    "price": 891.3,
+    "price": 880.75,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 25,
@@ -107,17 +131,17 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 20338000000.0,
-    "prior": 18224000000.0,
     "label": "Net revenues",
-    "row": "Net revenues | 20,338 | 21,348 | 18,224 | (5 | %) | 12 | % | 62,266 | 52,755 | 18 | %"
+    "row": "Net revenues | 20,338 | 21,348 | 18,224 | (5 | %) | 12 | % | 62,266 | 52,755 | 18 | %",
+    "current": 20338000000.0,
+    "prior": 18224000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 3.03,
-    "prior": 2.8,
     "label": "Earnings per diluted share",
-    "row": "Earnings per diluted share | $ | 3.03 | $ | 3.46 | $ | 2.80 | (12 | %) | 8 | % | $ | 9.93 | $ | 7.53 | 32 | %"
+    "row": "Earnings per diluted share | $ | 3.03 | $ | 3.46 | $ | 2.80 | (12 | %) | 8 | % | $ | 9.93 | $ | 7.53 | 32 | %",
+    "current": 3.03,
+    "prior": 2.8
    },
    "eps_status": "ok",
    "headline": "Morgan Stanley Reports Net Revenues of $20.3 Billion, EPS of $3.03 and ROTCE of 22.6%",
@@ -127,6 +151,10 @@
     "tie_err": 0.0,
     "prev_q_growth": 0.27131967603620777,
     "xbrl_prior": 18224000000,
+    "original_prior": 18224000000,
+    "comparison_filed": "2025-11-03",
+    "comparison_accession": "0000895421-25-000539",
+    "comparison_revised": false,
     "xbrl_eps_prior": 2.8
    },
    "attempts": 1,
@@ -139,7 +167,7 @@
     "rev_act": 20338000000,
     "eps_surprise": 0.011415982375325484,
     "rev_surprise": -0.010426244454956213,
-    "price": 183.97,
+    "price": 180.52,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 50,
@@ -162,17 +190,17 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 29958000000.0,
-    "prior": 29040000000.0,
     "label": "Total revenue, net of interest expense",
-    "row": "Total revenue, net of interest expense $ 29,958 $ 31,558 $ 29,040"
+    "row": "Total revenue, net of interest expense 91,788 84,730 29,958 31,558 29,040",
+    "current": 29958000000.0,
+    "prior": 29040000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 0.91,
-    "prior": 1.04,
     "label": "Diluted earnings",
-    "row": "Diluted earnings 0.91 1.21 1.04"
+    "row": "Diluted earnings 3.23 2.84 0.91 1.21 1.04",
+    "current": 0.91,
+    "prior": 1.04
    },
    "eps_status": "ok",
    "headline": "Bank of America Reports 3Q26 Net Income of $6.9 Billion; EPS of $0.91",
@@ -182,9 +210,14 @@
     "tie_err": 0.03278236914600551,
     "prev_q_growth": 0.1499471632110192,
     "xbrl_prior": 28088000000,
+    "original_prior": 28088000000,
+    "comparison_filed": "2025-10-31",
+    "comparison_accession": "0000070858-25-000405",
+    "comparison_revised": false,
     "xbrl_eps_prior": 1.06
    },
    "attempts": 2,
+   "review_note": "Exact revenue and diluted EPS rows checked against the release; historical comparison still requires reconciliation.",
    "market": {
     "date": "2026-10-14",
     "hour": "bmo",
@@ -194,7 +227,7 @@
     "rev_act": 30119000000,
     "eps_surprise": -0.03052064631956919,
     "rev_surprise": -0.028173211270693055,
-    "price": 51.08,
+    "price": 50.67,
     "history": {
      "verdict": "mixed",
      "fade_pct": 33,
@@ -217,17 +250,17 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 21870000000.0,
-    "prior": 21436000000.0,
     "label": "Total revenue",
-    "row": "Total revenue | 21,870 | 22,622 | 21,436 | (3) | 2"
+    "row": "Total revenue | 21,870 | 22,622 | 21,436 | (3) | 2",
+    "current": 21870000000.0,
+    "prior": 21436000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 1.87,
-    "prior": 1.66,
     "label": "Diluted earnings per common share",
-    "row": "Diluted earnings per common share | 1.87 | 2.00 | 1.66 | (6) | 13"
+    "row": "Diluted earnings per common share | 1.87 | 2.00 | 1.66 | (6) | 13",
+    "current": 1.87,
+    "prior": 1.66
    },
    "eps_status": "ok",
    "headline": "Wells Fargo Reports Third Quarter 2026 Net Income of $6.0 billion, or $1.87 per Diluted Share",
@@ -237,6 +270,10 @@
     "tie_err": 0.0,
     "prev_q_growth": 0.08644702718278752,
     "xbrl_prior": 21436000000,
+    "original_prior": 21436000000,
+    "comparison_filed": "2025-10-31",
+    "comparison_accession": "0000072971-25-000253",
+    "comparison_revised": false,
     "xbrl_eps_prior": 1.66
    },
    "attempts": 1,
@@ -249,7 +286,7 @@
     "rev_act": 21870000000,
     "eps_surprise": -0.0012817773979918456,
     "rev_surprise": -0.029450313102191372,
-    "price": 83.01,
+    "price": 82.31,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 100,
@@ -272,26 +309,31 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 23845000000.0,
-    "prior": 22090000000.0,
     "label": "Total revenues, net of interest expense",
-    "row": "Total revenues, net of interest expense\r\n\r\n23,845\r\n\r\n24,766\r\n\r\n22,090\r\n\r\n(4)%\r\n\r\n8%"
+    "row": "Total revenues, net of interest expense\n\n23,845\n\n24,766\n\n22,090\n\n(4)%\n\n8%",
+    "current": 23845000000.0,
+    "prior": 22090000000.0
    },
    "revenue_status": "ok",
    "eps": {
+    "label": "diluted share",
+    "current_row": "Citigroup Inc. today reported net income for the third quarter 2026 of $5.2 billion, or $2.85 per diluted share, on revenues of $23.8 billion.",
+    "prior_row": "This compares to net income of $3.8 billion, or $1.86 per diluted share, on revenues of $22.1 billion for the third quarter 2025.",
     "current": 2.85,
-    "prior": 1.86,
-    "label": "per diluted share",
-    "row": "New York, October 13, 2026 \u2013 Citigroup Inc. today reported net income for the third quarter 2026 of $5.2 billion, or $2.85 per diluted share, on revenues of $23.8 billion. This compares to net income of $3.8 billion, or $1.86 per diluted share, on revenues of $22.1 billion for the third quarter 2025."
+    "prior": 1.86
    },
    "eps_status": "ok",
-   "headline": "Citi Chair and CEO Jane Fraser said, \u201cOur performance in the quarter, which included the best third-quarter revenue in a decade, positive operating leverage and meaningful improvement in our returns, reflects the continued disciplined and consistent execution of our strategy.",
-   "guidance": "We expect to exceed this year's return target, even as we pull forward investments toward our 11-13% near-term goal \u2014the next waypoints on our path to sustainable returns of 14-15%,\u201d Ms. Fraser concluded.",
+   "headline": "Our performance in the quarter, which included the best third-quarter revenue in a decade, positive operating leverage and meaningful improvement in our returns, reflects the continued disciplined and consistent execution of our strategy.",
+   "guidance": null,
    "xbrl": {
     "concept": "Revenues",
     "tie_err": 0.0,
     "prev_q_growth": null,
     "xbrl_prior": 22090000000,
+    "original_prior": 22090000000,
+    "comparison_filed": "2025-11-06",
+    "comparison_accession": "0000831001-25-000154",
+    "comparison_revised": false,
     "xbrl_eps_prior": 1.86
    },
    "attempts": 1,
@@ -304,7 +346,7 @@
     "rev_act": 23845000000,
     "eps_surprise": 0.05084620773570303,
     "rev_surprise": -0.014406327764368898,
-    "price": 122.51,
+    "price": 120.93,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 67,
@@ -327,17 +369,17 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 7752000000.0,
-    "prior": 6509000000.0,
     "label": "Total revenue",
-    "row": "Total revenue\n7,752\n6,509\n1,243\n7,084\n668"
+    "row": "Total revenue\n7,752\n6,509\n1,243\n7,084\n668",
+    "current": 7752000000.0,
+    "prior": 6509000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 10.57,
-    "prior": 8.43,
     "label": "Diluted",
-    "row": "Diluted\n$\n10.57\n$\n8.43\n$\n2.14\n$\n12.19\n$\n(1.62\n)"
+    "row": "Diluted\n$\n10.57\n$\n8.43\n$\n2.14\n$\n12.19\n$\n(1.62\n)",
+    "current": 10.57,
+    "prior": 8.43
    },
    "eps_status": "ok",
    "headline": "BlackRock Reports Third Quarter 2026 Diluted EPS of $10.57, or $15.93 as adjusted",
@@ -347,6 +389,10 @@
     "tie_err": 0.0,
     "prev_q_growth": 0.3062880324543611,
     "xbrl_prior": 6509000000,
+    "original_prior": 6509000000,
+    "comparison_filed": "2025-11-05",
+    "comparison_accession": "0001193125-25-267043",
+    "comparison_revised": false,
     "xbrl_eps_prior": 8.43
    },
    "attempts": 1,
@@ -359,7 +405,7 @@
     "rev_act": 7752000000,
     "eps_surprise": 0.11599167735020277,
     "rev_surprise": 0.020706341950369245,
-    "price": 1137.29,
+    "price": 1107.585,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 0,
@@ -383,29 +429,33 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
+    "label": "Total net revenues",
+    "row": "Total net revenues | 7,171 | 6,135 | 20,725 | 17,585",
     "current": 7171000000.0,
-    "prior": 6135000000.0,
-    "label": "Net revenues",
-    "row": "Net revenues (in millions) | $ | 7,171 | $ | 6,135 | 17% | $ | 20,725 | $ | 17,585 | 18%"
+    "prior": 6135000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 1.62,
-    "prior": 1.26,
     "label": "Diluted",
-    "row": "Diluted | $ | 1.62 | $ | 1.26 | $ | 4.53 | $ | 3.33"
+    "row": "Diluted | $ | 1.62 | $ | 1.26 | $ | 4.53 | $ | 3.33",
+    "current": 1.62,
+    "prior": 1.26
    },
    "eps_status": "ok",
-   "headline": "3Q Net Revenues Reached a Record $7.2 Billion, Up 17% Year-Over-Year",
+   "headline": "Record GAAP Earnings Per Share of $1.62; $1.69 Adjusted (1) \u2013 Up 29% versus 3Q25",
    "guidance": null,
    "xbrl": {
     "concept": "Revenues",
     "tie_err": 0.0,
     "prev_q_growth": 0.2086822765339258,
     "xbrl_prior": 6135000000,
+    "original_prior": 6135000000,
+    "comparison_filed": "2025-11-07",
+    "comparison_accession": "0000316709-25-000051",
+    "comparison_revised": false,
     "xbrl_eps_prior": 1.26
    },
-   "attempts": 1,
+   "attempts": 2,
    "market": {
     "date": "2026-10-15",
     "hour": "dmh",
@@ -415,7 +465,7 @@
     "rev_act": 7171000000,
     "eps_surprise": -0.001595084775802058,
     "rev_surprise": -0.021163108517762486,
-    "price": 91.44,
+    "price": 90.5,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 100,
@@ -432,14 +482,50 @@
    "name": "AMERICAN EXPRESS CO",
    "cik": "0000004962",
    "expected": "2026-10-16",
+   "filed": "2026-10-23",
+   "accession": "0000004962-26-000405",
+   "filing_index": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000405/",
+   "source_url": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000405/q326exhibit991.htm",
+   "period_end": "2026-09-30",
+   "fiscal_label": "third quarter 2026",
+   "revenue": {
+    "label": "Total Revenues Net of Interest Expense",
+    "row": "Total Revenues Net of Interest Expense\nFX-adjusted 2\n$20,062\n$18,426\n$18,413\n9%\n9%",
+    "current": 20062000000.0,
+    "prior": 18426000000.0
+   },
+   "revenue_status": "ok",
+   "eps": {
+    "label": "Diluted Earnings Per Common Share (EPS)",
+    "row": "Diluted Earnings Per Common Share (EPS) 3\n$5.42\n$4.14\n31%\n$14.22\n$11.85\n20%",
+    "current": 5.42,
+    "prior": 4.14
+   },
+   "eps_status": "ok",
+   "headline": "COMPANY DELIVERED RECORD Q3 REVENUE OF $20.1 BILLION, UP 9% YOY",
+   "guidance": "\u201cGiven our performance year-to-date, we are raising our full-year EPS guidance to between $18.30 and $18.60 ($17.60-$17.90 adjusted), 4 and we're on track to deliver another year of 10 percent revenue growth.",
+   "xbrl": {
+    "concept": "RevenuesNetOfInterestExpense",
+    "tie_err": 0.0,
+    "prev_q_growth": 0.09974238351254483,
+    "xbrl_prior": 18426000000,
+    "original_prior": 18426000000,
+    "comparison_filed": "2026-10-23",
+    "comparison_accession": "0000004962-26-000409",
+    "comparison_revised": false,
+    "xbrl_eps_prior": 4.14
+   },
+   "attempts": 2,
    "market": {
     "date": "2026-10-23",
     "hour": "bmo",
     "eps_est": 4.5287,
-    "eps_act": null,
+    "eps_act": 4.68,
     "rev_est": 20323276176,
-    "rev_act": null,
-    "price": 325.17,
+    "rev_act": 20062000000,
+    "eps_surprise": 0.03340914611257095,
+    "rev_surprise": -0.012856006764723538,
+    "price": 312.5801,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 67,
@@ -447,7 +533,12 @@
      "n_miss": 1,
      "avg_abs_r2": 4.3
     },
-    "next_date": "2026-10-23"
+    "implied": {
+     "move_pct": 3.8,
+     "expiry": "2026-10-23",
+     "taken": "2026-10-22",
+     "report": "2026-10-23"
+    }
    }
   },
   {
@@ -462,26 +553,30 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third-quarter 2026",
    "revenue": {
-    "current": 25399000000.0,
-    "prior": 23993000000.0,
     "label": "Reported Sales",
-    "row": "Reported Sales\n$25,399\n$23,993\n5.9\n%"
+    "row": "Reported Sales\n$25,399\n$23,993\n5.9\n%",
+    "current": 25399000000.0,
+    "prior": 23993000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 0.09,
-    "prior": 2.12,
     "label": "EPS (diluted)",
-    "row": "EPS (diluted)\n$0.09\n$2.12\n(95.8)\n%"
+    "row": "EPS (diluted)\n$0.09\n$2.12\n(95.8)\n%",
+    "current": 0.09,
+    "prior": 2.12
    },
    "eps_status": "ok",
-   "headline": "Johnson & Johnson reports Q3 2026 results, raises 2026 guidance",
+   "headline": "\u201cJohnson & Johnson\u2019s strong third-quarter performance and increased sequential growth reflect the accelerating momentum of our focused portfolio,\u201d said Joaquin Duato, Chairman and Chief Executive Officer.",
    "guidance": "Strong operational performance results in the Company increasing 2026 guidance with estimated reported sales of $101.2 Billion or 7.4% at the midpoint and increasing adjusted EPS* guidance by $0.06 to $11.10 or 2.9% at the midpoint",
    "xbrl": {
     "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
     "tie_err": 0.0,
     "prev_q_growth": 0.06599839952828201,
     "xbrl_prior": 23993000000,
+    "original_prior": 23993000000,
+    "comparison_filed": "2026-10-21",
+    "comparison_accession": "0000200406-26-000197",
+    "comparison_revised": false,
     "xbrl_eps_prior": 2.12
    },
    "attempts": 1,
@@ -494,7 +589,7 @@
     "rev_act": 25399000000,
     "eps_surprise": 0.010495103585501875,
     "rev_surprise": -0.005219824176224019,
-    "price": 267.61,
+    "price": 263.405,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 67,
@@ -518,26 +613,32 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 112694000000.0,
-    "prior": 113161000000.0,
     "label": "Total revenues",
-    "row": "Total revenues 112,694 113,161 336,447 334,352"
+    "current_row": "Total revenues $112,694 $113,161 336,447 334,352",
+    "prior_row": "Total revenues $112,694 $113,161 336,447 334,352",
+    "current": 112694000000.0,
+    "prior": 113161000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 4.56,
-    "prior": 2.59,
     "label": "Diluted earnings per share attributable to UnitedHealth Group common shareholders (a)",
-    "row": "Diluted earnings per share attributable to UnitedHealth Group common shareholders (a) ...................................................................................................... $4.56 $2.59 $17.50 $13.21"
+    "current_row": "Diluted earnings per share attributable to UnitedHealth Group common shareholders (a) $4.56 $2.59 $17.50 $13.21",
+    "prior_row": "Diluted earnings per share attributable to UnitedHealth Group common shareholders (a) $4.56 $2.59 $17.50 $13.21",
+    "current": 4.56,
+    "prior": 2.59
    },
    "eps_status": "ok",
-   "headline": "\u201cOur third quarter results reflect the discipline and execution our teams are bringing to every part of our business, as we continue evolving UnitedHealth Group to deliver a simpler, more supportive experience for patients and the clinicians who care for them,\u201d said Stephen Hemsley, chief executive officer of UnitedHealth Group.",
+   "headline": "Third Quarter 2026 Revenues of $112.7 Billion; Earnings from Operations of $6.6 Billion",
    "guidance": "The company now expects full year 2026 adjusted net earnings of at least $20.50 per share, incorporating experience through the third quarter 2026.",
    "xbrl": {
     "concept": "Revenues",
     "tie_err": 0.0,
     "prev_q_growth": 0.003727064220183429,
     "xbrl_prior": 113161000000,
+    "original_prior": 113161000000,
+    "comparison_filed": "2025-10-28",
+    "comparison_accession": "0000731766-25-000305",
+    "comparison_revised": false,
     "xbrl_eps_prior": 2.59
    },
    "attempts": 1,
@@ -550,7 +651,7 @@
     "rev_act": 112694000000,
     "eps_surprise": 0.12176804037408218,
     "rev_surprise": 0.0015705494793487595,
-    "price": 424.98,
+    "price": 419.27,
     "history": {
      "verdict": "mixed",
      "fade_pct": 25,
@@ -574,17 +675,17 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 51429000000.0,
-    "prior": 50711000000.0,
     "label": "Total revenues",
-    "row": "Total revenues | 51,429 | 50,711 | 1.4% | 152,084 | 149,378 | 1.8%"
+    "row": "Total revenues | 51,429 | 50,711 | 1.4% | 152,084 | 149,378 | 1.8%",
+    "current": 51429000000.0,
+    "prior": 50711000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 6.27,
-    "prior": 5.32,
     "label": "Shareholders' earnings per diluted share",
-    "row": "Shareholders' earnings per diluted share\n$ | 6.27 | $ | 5.32 | 17.9% | $ | 21.01 | $ | 22.67 | (7.3)%"
+    "row": "Shareholders' earnings per diluted share\n$ | 6.27 | $ | 5.32 | 17.9% | $ | 21.01 | $ | 22.67 | (7.3)%",
+    "current": 6.27,
+    "prior": 5.32
    },
    "eps_status": "ok",
    "headline": "ELEVANCE HEALTH REPORTS THIRD QUARTER 2026 RESULTS; RAISES FULL-YEAR GUIDANCE",
@@ -594,6 +695,10 @@
     "tie_err": 0.0,
     "prev_q_growth": 0.01402282224365159,
     "xbrl_prior": 50711000000,
+    "original_prior": 50711000000,
+    "comparison_filed": "2026-10-21",
+    "comparison_accession": "0001156039-26-000071",
+    "comparison_revised": false,
     "xbrl_eps_prior": 5.32
    },
    "attempts": 2,
@@ -606,7 +711,7 @@
     "rev_act": 50440000000,
     "eps_surprise": 0.4780825104142439,
     "rev_surprise": 0.016355081986290543,
-    "price": 445.28,
+    "price": 441.985,
     "history": {
      "verdict": "mixed",
      "fade_pct": 25,
@@ -630,17 +735,17 @@
    "period_end": "2026-09-30",
    "fiscal_label": "Third-Quarter 2026",
    "revenue": {
-    "current": 13013000000.0,
-    "prior": 11369000000.0,
     "label": "Net Sales",
-    "row": "Net Sales | $13,013 | $11,369 | 14.5"
+    "row": "Net Sales | $13,013 | $11,369 | 14.5",
+    "current": 13013000000.0,
+    "prior": 11369000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 0.53,
-    "prior": 0.94,
     "label": "Diluted Earnings per Common Share",
-    "row": "Diluted Earnings per Common Share | $0.53 | $0.94 | (43.6)"
+    "row": "Diluted Earnings per Common Share | $0.53 | $0.94 | (43.6)",
+    "current": 0.53,
+    "prior": 0.94
    },
    "eps_status": "ok",
    "headline": "\"Abbott delivered strong third-quarter results, reflecting balanced growth across our portfolio,\" said Robert B. Ford, chairman and chief executive officer, Abbott.",
@@ -650,6 +755,10 @@
     "tie_err": 0.0,
     "prev_q_growth": null,
     "xbrl_prior": 11369000000,
+    "original_prior": 11369000000,
+    "comparison_filed": "2025-10-29",
+    "comparison_accession": "0001628280-25-047131",
+    "comparison_revised": false,
     "xbrl_eps_prior": 0.94
    },
    "attempts": 1,
@@ -662,7 +771,7 @@
     "rev_act": 13013000000,
     "eps_surprise": -0.006784640134293918,
     "rev_surprise": -0.008752694813737194,
-    "price": 102.51,
+    "price": 103.41,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 50,
@@ -686,17 +795,17 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 3048700000.0,
-    "prior": 2505100000.0,
     "label": "Total revenue",
-    "row": "Total revenue | 3,048.7 | 2,892.3 | 2,505.1"
+    "row": "Total revenue | 3,048.7 | 2,892.3 | 2,505.1",
+    "current": 3048700000.0,
+    "prior": 2505100000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 1.49,
-    "prior": 1.95,
     "label": "Diluted",
-    "row": "Diluted (5)\n$ | 1.49 | $ | 2.29 | $ | 1.95"
+    "row": "Diluted (5)\n$ | 1.49 | $ | 2.29 | $ | 1.95",
+    "current": 1.49,
+    "prior": 1.95
    },
    "eps_status": "ok",
    "headline": "\u201cOur strong performance this quarter was marked by broad-based adoption across our multi-port, single-port, and Ion platforms, with customers using our systems to perform, on average, over 10,000 procedures per day throughout the period,\u201d said Dave Rosa, Intuitive CEO.",
@@ -706,6 +815,10 @@
     "tie_err": 0.0,
     "prev_q_growth": 0.18536885245901646,
     "xbrl_prior": 2505100000,
+    "original_prior": 2505100000,
+    "comparison_filed": "2026-10-21",
+    "comparison_accession": "0001035267-26-000071",
+    "comparison_revised": false,
     "xbrl_eps_prior": 1.95
    },
    "attempts": 1,
@@ -718,7 +831,7 @@
     "rev_act": 3048700000,
     "eps_surprise": 0.11292476628579906,
     "rev_surprise": 0.028641690955568455,
-    "price": 443.85,
+    "price": 456.3801,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 50,
@@ -742,7 +855,7 @@
     "eps_act": null,
     "rev_est": 22817870631,
     "rev_act": null,
-    "price": 1306.69,
+    "price": 1269.46,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 0,
@@ -751,7 +864,7 @@
      "avg_abs_r2": 6.9
     },
     "implied": {
-     "move_pct": 7.0,
+     "move_pct": 6.9,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -770,7 +883,7 @@
     "eps_act": null,
     "rev_est": 17480092512,
     "rev_act": null,
-    "price": 147.24,
+    "price": 144.88,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 25,
@@ -779,7 +892,7 @@
      "avg_abs_r2": 1.7
     },
     "implied": {
-     "move_pct": 5.4,
+     "move_pct": 5.1,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -813,7 +926,7 @@
     "eps_act": null,
     "rev_est": 17702881065,
     "rev_act": null,
-    "price": 285.19,
+    "price": 286.41,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 100,
@@ -835,7 +948,7 @@
     "eps_act": null,
     "rev_est": 16072017768,
     "rev_act": null,
-    "price": 30.42,
+    "price": 30.0299,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 25,
@@ -844,7 +957,7 @@
      "avg_abs_r2": 1.2
     },
     "implied": {
-     "move_pct": 6.1,
+     "move_pct": 5.3,
      "expiry": "2026-11-06",
      "taken": "2026-10-23"
     },
@@ -863,17 +976,17 @@
    "period_end": "2026-09-26",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 12137000000.0,
-    "prior": 11122000000.0,
     "label": "Revenues",
-    "row": "Revenues | $ | 12,137 | $ | 11,122"
+    "row": "Revenues | $ | 12,137 | $ | 11,122",
+    "current": 12137000000.0,
+    "prior": 11122000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 4.64,
-    "prior": 4.27,
     "label": "Diluted",
-    "row": "Diluted | $ | 4.64 | $ | 4.27"
+    "row": "Diluted | $ | 4.64 | $ | 4.27",
+    "current": 4.64,
+    "prior": 4.27
    },
    "eps_status": "ok",
    "headline": "Thermo Fisher Scientific Reports Third Quarter 2026 Results",
@@ -883,6 +996,10 @@
     "tie_err": 0.0,
     "prev_q_growth": 0.10492860432980189,
     "xbrl_prior": 11122000000,
+    "original_prior": 11122000000,
+    "comparison_filed": "2025-10-31",
+    "comparison_accession": "0000097745-25-000159",
+    "comparison_revised": false,
     "xbrl_eps_prior": 4.27
    },
    "attempts": 1,
@@ -895,7 +1012,7 @@
     "rev_act": 12137000000,
     "eps_surprise": 0.03288853153557114,
     "rev_surprise": 0.005922497375513647,
-    "price": 676.54,
+    "price": 668.855,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 75,
@@ -919,17 +1036,17 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 12874176000.0,
-    "prior": 11510307000.0,
     "label": "Revenues",
-    "row": "Revenues | $ | 12,874,176 | $ | 12,559,938 | $ | 11,510,307 | $ | 37,683,871 | $ | 33,132,274"
+    "row": "Revenues | $ | 12,874,176 | $ | 12,559,938 | $ | 11,510,307 | $ | 37,683,871 | $ | 33,132,274",
+    "current": 12874176000.0,
+    "prior": 11510307000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 0.87,
-    "prior": 0.59,
     "label": "Diluted",
-    "row": "Diluted | $ | 0.87 | $ | 0.80 | $ | 0.59 | $ | 2.90 | $ | 1.97"
+    "row": "Diluted | $ | 0.87 | $ | 0.80 | $ | 0.59 | $ | 2.90 | $ | 1.97",
+    "current": 0.87,
+    "prior": 0.59
    },
    "eps_status": "ok",
    "headline": "Q3 revenue grew 12% year over year (11% on a F/X neutral basis 1 ) to $12.9B, consistent with our forecast.",
@@ -939,6 +1056,10 @@
     "tie_err": 0.0,
     "prev_q_growth": 0.13365374252899542,
     "xbrl_prior": 11510307000,
+    "original_prior": 11510307000,
+    "comparison_filed": "2026-10-21",
+    "comparison_accession": "0001065280-26-000291",
+    "comparison_revised": false,
     "xbrl_eps_prior": 0.59
    },
    "attempts": 1,
@@ -951,7 +1072,7 @@
     "rev_act": 12874176000,
     "eps_surprise": 0.03682516982481232,
     "rev_surprise": -0.019556258154887707,
-    "price": 67.05,
+    "price": 66.29,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 100,
@@ -992,7 +1113,7 @@
     "rev_act": 28046000000,
     "eps_surprise": 0.10142267094997703,
     "rev_surprise": -0.013871259466718078,
-    "price": 374.58,
+    "price": 371.2,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 67,
@@ -1014,7 +1135,7 @@
     "eps_act": null,
     "rev_est": 132041264399,
     "rev_act": null,
-    "price": 324.22,
+    "price": 322.34,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 50,
@@ -1023,7 +1144,7 @@
      "avg_abs_r2": 6.5
     },
     "implied": {
-     "move_pct": 6.2,
+     "move_pct": 6.1,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -1042,7 +1163,7 @@
     "eps_act": null,
     "rev_est": 92500205662,
     "rev_act": null,
-    "price": 521.08,
+    "price": 523.935,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 75,
@@ -1068,19 +1189,19 @@
    "filing_index": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066700/",
    "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066700/meta-09302026xexhibit991.htm",
    "period_end": "2026-09-30",
-   "fiscal_label": "Third Quarter 2026",
+   "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 64601000000.0,
-    "prior": 51242000000.0,
     "label": "Revenue",
-    "row": "Revenue | $ | 64,601 | $ | 51,242 | $ | 181,712 | $ | 141,073"
+    "row": "Revenue | $ | 64,601 | $ | 51,242 | $ | 181,712 | $ | 141,073",
+    "current": 64601000000.0,
+    "prior": 51242000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 3.83,
-    "prior": 1.05,
     "label": "Diluted",
-    "row": "Diluted | $ | 3.83 | $ | 1.05 | $ | 20.44 | $ | 14.62"
+    "row": "Diluted | $ | 3.83 | $ | 1.05 | $ | 20.44 | $ | 14.62",
+    "current": 3.83,
+    "prior": 1.05
    },
    "eps_status": "ok",
    "headline": "\"We hit major milestones this quarter toward delivering personal superintelligence for everyone - including launching Muse and Muse Wonder, our first frontier model,\" said Mark Zuckerberg, Meta founder and CEO.",
@@ -1090,6 +1211,10 @@
     "tie_err": 0.0,
     "prev_q_growth": 0.27959003283104633,
     "xbrl_prior": 51242000000,
+    "original_prior": 51242000000,
+    "comparison_filed": "2026-10-22",
+    "comparison_accession": "0001628280-26-066773",
+    "comparison_revised": false,
     "xbrl_eps_prior": 1.05
    },
    "attempts": 1,
@@ -1102,7 +1227,7 @@
     "rev_act": 63061000000,
     "eps_surprise": 0.27830848693188703,
     "rev_surprise": -0.024363885307757016,
-    "price": 648.85,
+    "price": 644.645,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 50,
@@ -1126,7 +1251,7 @@
     "eps_act": null,
     "rev_est": 206288109339,
     "rev_act": null,
-    "price": 250.38,
+    "price": 248.965,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 0,
@@ -1135,7 +1260,7 @@
      "avg_abs_r2": 9.4
     },
     "implied": {
-     "move_pct": 7.8,
+     "move_pct": 7.7,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -1154,7 +1279,7 @@
     "eps_act": null,
     "rev_est": 115496910249,
     "rev_act": null,
-    "price": 348.22,
+    "price": 346.05,
     "history": {
      "verdict": "mixed",
      "fade_pct": 25,
@@ -1163,7 +1288,7 @@
      "avg_abs_r2": 3.4
     },
     "implied": {
-     "move_pct": 5.1,
+     "move_pct": 5.0,
      "expiry": "2026-11-06",
      "taken": "2026-10-23"
     },
@@ -1182,7 +1307,7 @@
     "eps_act": null,
     "rev_est": 16781909631,
     "rev_act": null,
-    "price": 85.49,
+    "price": 86.735,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 50,
@@ -1191,7 +1316,7 @@
      "avg_abs_r2": 14.3
     },
     "implied": {
-     "move_pct": 10.9,
+     "move_pct": 10.0,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -1210,26 +1335,30 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third-quarter 2026",
    "revenue": {
-    "current": 17103000000.0,
-    "prior": 16331000000.0,
     "label": "TOTAL REVENUE",
-    "row": "TOTAL REVENUE | 17,103 | 16,331 | 50,182 | 47,849"
+    "row": "TOTAL REVENUE | 17,103 | 16,331 | 50,182 | 47,849",
+    "current": 17103000000.0,
+    "prior": 16331000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 2.31,
-    "prior": 1.84,
     "label": "Continuing operations",
-    "row": "Assuming dilution\nContinuing operations | $ | 2.31 | $ | 1.84 | $ | 5.86 | $ | 5.27"
+    "row": "Continuing operations | $ | 2.31 | $ | 1.84 | $ | 5.86 | $ | 5.27",
+    "current": 2.31,
+    "prior": 1.84
    },
    "eps_status": "ok",
-   "headline": "Disciplined execution throughout the quarter drove accelerated revenue growth and strong free cash flow.",
+   "headline": "IBM RELEASES THIRD-QUARTER RESULTS",
    "guidance": "For the full year, we continue to expect constant currency revenue growth in the range of four-to-five percent, and we now expect free cash flow to increase by more than $1 billion year-over-year.",
    "xbrl": {
     "concept": "Revenues",
     "tie_err": 0.0,
     "prev_q_growth": 0.010897096071155188,
     "xbrl_prior": 16331000000,
+    "original_prior": 16331000000,
+    "comparison_filed": "2026-10-22",
+    "comparison_accession": "0000051143-26-000095",
+    "comparison_revised": false,
     "xbrl_eps_prior": 1.84
    },
    "attempts": 1,
@@ -1242,7 +1371,7 @@
     "rev_act": 17103000000,
     "eps_surprise": 0.021963555740317275,
     "rev_surprise": 0.0066470041763673215,
-    "price": 252.11,
+    "price": 252.7943,
     "history": {
      "verdict": "mixed",
      "fade_pct": 33,
@@ -1266,17 +1395,17 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 6055000000.0,
-    "prior": 4742000000.0,
     "label": "Revenue",
-    "row": "Revenue | $ | 6,055 | $ | 4,742"
+    "row": "Revenue | $ | 6,055 | $ | 4,742",
+    "current": 6055000000.0,
+    "prior": 4742000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 2.62,
-    "prior": 1.48,
     "label": "Diluted earnings per common share",
-    "row": "Diluted earnings per common share | $ | 2.62 | $ | 1.48"
+    "row": "Diluted earnings per common share | $ | 2.62 | $ | 1.48",
+    "current": 2.62,
+    "prior": 1.48
    },
    "eps_status": "ok",
    "headline": "Revenue increased 11% sequentially and 28% from the same quarter a year ago with continued broad growth in industrial, automotive and data center.",
@@ -1286,6 +1415,10 @@
     "tie_err": 0.0,
     "prev_q_growth": 0.22819244604316546,
     "xbrl_prior": 4742000000,
+    "original_prior": 4742000000,
+    "comparison_filed": "2026-10-23",
+    "comparison_accession": "0000097476-26-000169",
+    "comparison_revised": false,
     "xbrl_eps_prior": 1.48
    },
    "attempts": 1,
@@ -1298,7 +1431,7 @@
     "rev_act": 6055000000,
     "eps_surprise": 0.0731107925455663,
     "rev_surprise": 0.012663487190530898,
-    "price": 279.5,
+    "price": 283.82,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 33,
@@ -1322,7 +1455,7 @@
     "eps_act": null,
     "rev_est": 4135579693,
     "rev_act": null,
-    "price": 157.0,
+    "price": 157.285,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 100,
@@ -1331,7 +1464,7 @@
      "avg_abs_r2": 9.2
     },
     "implied": {
-     "move_pct": 10.7,
+     "move_pct": 10.3,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -1350,7 +1483,7 @@
     "eps_act": null,
     "rev_est": 12325109289,
     "rev_act": null,
-    "price": 414.34,
+    "price": 408.86,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 50,
@@ -1359,7 +1492,7 @@
      "avg_abs_r2": 3.3
     },
     "implied": {
-     "move_pct": 3.7,
+     "move_pct": 3.5,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -1378,7 +1511,7 @@
     "eps_act": null,
     "rev_est": 9939490966,
     "rev_act": null,
-    "price": 633.21,
+    "price": 621.54,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 50,
@@ -1387,7 +1520,7 @@
      "avg_abs_r2": 2.8
     },
     "implied": {
-     "move_pct": 4.2,
+     "move_pct": 4.0,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -1406,7 +1539,7 @@
     "eps_act": null,
     "rev_est": 13307860929,
     "rev_act": null,
-    "price": 95.34,
+    "price": 92.925,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 0,
@@ -1415,7 +1548,7 @@
      "avg_abs_r2": 3.7
     },
     "implied": {
-     "move_pct": 3.5,
+     "move_pct": 3.2,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -1434,26 +1567,30 @@
    "period_end": "2026-09-05",
    "fiscal_label": "third-quarter 2026",
    "revenue": {
-    "current": 25274000000.0,
-    "prior": 23937000000.0,
     "label": "Net Revenue",
-    "row": "Net Revenue | $ | 25,274 | $ | 23,937 | $ | 68,898 | $ | 64,582"
+    "row": "Net Revenue | $ | 25,274 | $ | 23,937 | $ | 68,898 | $ | 64,582",
+    "current": 25274000000.0,
+    "prior": 23937000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 2.23,
-    "prior": 1.9,
     "label": "Net income attributable to PepsiCo per common share",
-    "row": "Net income attributable to PepsiCo per common share | $ | 2.23 | $ | 1.90 | $ | 6.10 | $ | 4.15"
+    "row": "Net income attributable to PepsiCo per common share | $ | 2.23 | $ | 1.90 | $ | 6.10 | $ | 4.15",
+    "current": 2.23,
+    "prior": 1.9
    },
    "eps_status": "ok",
    "headline": "\u201cOur third-quarter results featured strong net revenue growth, an acceleration in organic revenue growth with organic volume growth across both global beverages and convenient foods.",
-   "guidance": "Company updates fiscal 2026 financial guidance 2",
+   "guidance": "Company updates fiscal 2026 financial guidance",
    "xbrl": {
     "concept": "Revenues",
     "tie_err": 0.0,
     "prev_q_growth": 0.06402358532077801,
     "xbrl_prior": 23937000000,
+    "original_prior": 23937000000,
+    "comparison_filed": "2026-10-08",
+    "comparison_accession": "0000077476-26-000048",
+    "comparison_revised": false,
     "xbrl_eps_prior": 1.9
    },
    "attempts": 1,
@@ -1466,7 +1603,7 @@
     "rev_act": 25274000000,
     "eps_surprise": 0.009621607628252038,
     "rev_surprise": 0.0026663190456313046,
-    "price": 138.83,
+    "price": 135.24,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 0,
@@ -1490,26 +1627,32 @@
    "period_end": "2026-09-30",
    "fiscal_label": "first quarter fiscal year 2027",
    "revenue": {
-    "current": 23276000000.0,
-    "prior": 22386000000.0,
     "label": "NET SALES",
-    "row": "NET SALES | $ | 23,276 | $ | 22,386 | 4%"
+    "current_row": "NET SALES | $ | 23,276 | $ | 22,386 | 4%",
+    "prior_row": "NET SALES | $ | 23,276 | $ | 22,386 | 4%",
+    "current": 23276000000.0,
+    "prior": 22386000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 1.97,
-    "prior": 1.95,
     "label": "Diluted",
-    "row": "Diluted | $ | 1.97 | $ | 1.95 | 1%"
+    "current_row": "Diluted | $ | 1.97 | $ | 1.95 | 1%",
+    "prior_row": "Diluted | $ | 1.97 | $ | 1.95 | 1%",
+    "current": 1.97,
+    "prior": 1.95
    },
    "eps_status": "ok",
-   "headline": "\u201cOur solid sales, earnings and cash results in the first quarter reflect sharpened execution of our integrated strategy\u201d said Shailesh Jejurikar, Chairman of the Board, President and Chief Executive Officer.",
+   "headline": "The Procter & Gamble Company (NYSE:PG) reported first quarter fiscal year 2027 net sales of $23.3 billion, an increase of four percent versus the prior year.",
    "guidance": "P&G updated its guidance range for fiscal 2027 all-in sales growth to be in the range of two to four percent versus the prior year, reflecting the acquisition of Thorne as of October 1, 2026.",
    "xbrl": {
     "concept": "Revenues",
     "tie_err": 0.0,
     "prev_q_growth": 0.01507970702283501,
     "xbrl_prior": 22386000000,
+    "original_prior": 22386000000,
+    "comparison_filed": "2026-10-22",
+    "comparison_accession": "0000080424-26-000256",
+    "comparison_revised": false,
     "xbrl_eps_prior": 1.95
    },
    "attempts": 1,
@@ -1522,7 +1665,7 @@
     "rev_act": 23276000000,
     "eps_surprise": 0.030927835051546504,
     "rev_surprise": -0.008655964400567484,
-    "price": 165.59,
+    "price": 161.0099,
     "history": {
      "verdict": "mixed",
      "fade_pct": 33,
@@ -1544,17 +1687,17 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 11438000000.0,
-    "prior": 10845000000.0,
     "label": "Net Revenues",
-    "row": "Net Revenues | 11,438 | 10,845 | 5.5% | 593 | 739 | 36 | \u2014 | (27) | (155)"
+    "row": "Net Revenues | 11,438 | 10,845 | 5.5% | 593 | 739 | 36 | \u2013 | (27) | (155)",
+    "current": 11438000000.0,
+    "prior": 10845000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 2.12,
-    "prior": 2.23,
     "label": "Reported Diluted EPS",
-    "row": "Reported Diluted EPS | $2.12 | $2.23 | (4.9)%"
+    "row": "Reported Diluted EPS | $2.12 | $2.23 | (4.9)%",
+    "current": 2.12,
+    "prior": 2.23
    },
    "eps_status": "ok",
    "headline": "Third-Quarter Reported Diluted EPS declined by 4.9% to $2.12;",
@@ -1564,6 +1707,10 @@
     "tie_err": 0.0,
     "prev_q_growth": 0.10374753451676533,
     "xbrl_prior": 10845000000,
+    "original_prior": 10845000000,
+    "comparison_filed": "2026-10-23",
+    "comparison_accession": "0001628280-26-066976",
+    "comparison_revised": false,
     "xbrl_eps_prior": 2.23
    },
    "attempts": 1,
@@ -1576,7 +1723,7 @@
     "rev_act": 11438000000,
     "eps_surprise": 4.2374676892942276e-05,
     "rev_surprise": -0.015254067989792897,
-    "price": 201.74,
+    "price": 200.065,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 0,
@@ -1600,7 +1747,7 @@
     "eps_act": null,
     "rev_est": 7356990106,
     "rev_act": null,
-    "price": 252.63,
+    "price": 247.99,
     "history": {
      "verdict": "mixed",
      "fade_pct": 33,
@@ -1609,7 +1756,7 @@
      "avg_abs_r2": 2.1
     },
     "implied": {
-     "move_pct": 4.4,
+     "move_pct": 4.5,
      "expiry": "2026-11-06",
      "taken": "2026-10-23"
     },
@@ -1628,7 +1775,7 @@
     "eps_act": null,
     "rev_est": 9417880544,
     "rev_act": null,
-    "price": 101.91,
+    "price": 100.7,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 0,
@@ -1656,17 +1803,17 @@
    "period_end": "2026-09-30",
    "fiscal_label": "3rd quarter 2026",
    "revenue": {
-    "current": 29298000000.0,
-    "prior": 31198000000.0,
     "label": "Revenue",
-    "row": "Revenue | $29,298 | $31,198 | $90,695 | $91,397"
+    "row": "Revenue | $29,298 | $31,198 | (6.1 | %)",
+    "current": 29298000000.0,
+    "prior": 31198000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 0.97,
-    "prior": 0.9,
     "label": "Diluted earnings per common share attributable to Comcast Corporation shareholders",
-    "row": "Diluted earnings per common share attributable to Comcast Corporation shareholders | $0.97 | $0.90 | $2.55 | $4.78"
+    "row": "Diluted earnings per common share attributable to Comcast Corporation shareholders | $0.97 | $0.90 | $2.55 | $4.78",
+    "current": 0.97,
+    "prior": 0.9
    },
    "eps_status": "ok",
    "headline": "Comcast Corporation (NASDAQ: CMCSA) today reported results for the quarter ended September 30, 2026.",
@@ -1676,6 +1823,10 @@
     "tie_err": 0.0,
     "prev_q_growth": -0.012304951670900288,
     "xbrl_prior": 31198000000,
+    "original_prior": 31198000000,
+    "comparison_filed": "2026-10-22",
+    "comparison_accession": "0001628280-26-066863",
+    "comparison_revised": false,
     "xbrl_eps_prior": 0.9
    },
    "attempts": 1,
@@ -1688,7 +1839,7 @@
     "rev_act": 29298000000,
     "eps_surprise": 0.05679012345679024,
     "rev_surprise": -0.028477052689430127,
-    "price": 22.84,
+    "price": 22.75,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 67,
@@ -1710,7 +1861,7 @@
     "eps_act": null,
     "rev_est": 35786346491,
     "rev_act": null,
-    "price": 45.2,
+    "price": 44.52,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 25,
@@ -1719,7 +1870,7 @@
      "avg_abs_r2": 5.7
     },
     "implied": {
-     "move_pct": 4.6,
+     "move_pct": 4.7,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -1738,26 +1889,30 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 29481000000.0,
-    "prior": 27503000000.0,
-    "label": "Operating Revenues",
-    "row": "Operating Revenues $ 29,481 $ 27,503 7.2 %"
+    "label": "Revenues",
+    "row": "\u2022 Revenues for the third quarter totaled $32.3 billion, versus $30.7 billion in the year-ago quarter, up 5.3%.",
+    "current": 32300000000.0,
+    "prior": 30700000000.0
    },
    "revenue_status": "ok",
    "eps": {
+    "label": "Earnings per diluted common share from continuing operations",
+    "row": "Earnings per diluted common share from continuing operations was $0.13, versus $1.29 in the year-ago quarter, which included a gain recognized on the sale of the DIRECTV investment.",
     "current": 0.13,
-    "prior": 1.29,
-    "label": "Diluted EPS from continuing operations",
-    "row": "\u2022 Diluted EPS from continuing operations was $0.13 , which includes a non-cash impairment charge associated with the Company's held-for-sale Mexico wireless business as well as employee separation charges, versus $1.29 in the year-ago quarter, which included a gain recognized on the sale of the DIRECTV investment; adjusted EPS* was $0.65 , versus $0.54 in the year-ago quarter"
+    "prior": 1.29
    },
    "eps_status": "ok",
    "headline": "AT&T Delivers Strong Third-Quarter 2026 Results with Its Best Consolidated Service Revenue Growth in More Than Four Years",
-   "guidance": "AT&T updates outlook to reflect higher 2026 adjusted EPS* and lower long-term capital investment while remaining on track to reach more than 60 million locations with fiber by end of 2030",
+   "guidance": null,
    "xbrl": {
     "concept": "Revenues",
-    "tie_err": 0.1165691015525579,
+    "tie_err": 0.0002931596091205212,
     "prev_q_growth": 0.02304924303822098,
     "xbrl_prior": 30709000000,
+    "original_prior": 30709000000,
+    "comparison_filed": "2026-10-21",
+    "comparison_accession": "0000732717-26-000372",
+    "comparison_revised": false,
     "xbrl_eps_prior": 1.29
    },
    "attempts": 2,
@@ -1770,7 +1925,7 @@
     "rev_act": 32322000000,
     "eps_surprise": 0.06452669505404529,
     "rev_surprise": 7.984561743468177e-05,
-    "price": 22.74,
+    "price": 21.275,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 25,
@@ -1794,7 +1949,7 @@
     "eps_act": null,
     "rev_est": 23600426460,
     "rev_act": null,
-    "price": 158.79,
+    "price": 149.1,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 67,
@@ -1803,7 +1958,7 @@
      "avg_abs_r2": 6.5
     },
     "implied": {
-     "move_pct": 6.0,
+     "move_pct": 6.1,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -1822,26 +1977,32 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 14118000000.0,
-    "prior": 12181000000.0,
     "label": "Total Revenue",
-    "row": "Total Revenue\n$14,118 | $12,181 | 16 | % | $39,859 | $33,138 | 20 | %"
+    "current_row": "Total Revenue\n$14,118 | $12,181 | 16 | % | $39,859 | $33,138 | 20 | %",
+    "prior_row": "Total Revenue\n$14,118 | $12,181 | 16 | % | $39,859 | $33,138 | 20 | %",
+    "current": 14118000000.0,
+    "prior": 12181000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 2.32,
-    "prior": 2.04,
     "label": "Continuing EPS",
-    "row": "Continuing EPS | 2.32 | 2.04 | 14 | % | 6.44 | 5.73 | 12 | %"
+    "current_row": "Continuing EPS | 2.32 | 2.04 | 14 | % | 6.44 | 5.73 | 12 | %",
+    "prior_row": "Continuing EPS | 2.32 | 2.04 | 14 | % | 6.44 | 5.73 | 12 | %",
+    "current": 2.32,
+    "prior": 2.04
    },
    "eps_status": "ok",
    "headline": "GE Aerospace Chairman and CEO H. Lawrence Culp, Jr., said, \u201cWe delivered strong results this quarter as solid demand drove orders up 49%, with strength in commercial services up 23%, total revenue up 18% and EPS up 36%.",
-   "guidance": "In 2026, CES now expects revenue growth of low 20s, up from our prior guide of ~20%, driven by higher services revenue, which we now expect to grow at the higher end of our prior guide of low 20s, and equipment revenue growth of low 20s, up from ~20%.",
+   "guidance": "We are raising our 2026 guidance across the board, and we now expect 2027 commercial services to grow low-double-digits supported by our over $170 billion commercial services backlog.",
    "xbrl": {
     "concept": "Revenues",
     "tie_err": 0.0,
     "prev_q_growth": 0.21101333575251746,
     "xbrl_prior": 12181000000,
+    "original_prior": 12181000000,
+    "comparison_filed": "2026-10-20",
+    "comparison_accession": "0000040545-26-000064",
+    "comparison_revised": false,
     "xbrl_eps_prior": 2.02
    },
    "attempts": 1,
@@ -1854,7 +2015,7 @@
     "rev_act": 13285000000,
     "eps_surprise": 0.08921915089315968,
     "rev_surprise": 0.0018744508387054104,
-    "price": 293.54,
+    "price": 286.415,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 100,
@@ -1878,7 +2039,7 @@
     "eps_act": null,
     "rev_est": 12111261298,
     "rev_act": null,
-    "price": 827.42,
+    "price": 828.755,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 0,
@@ -1887,7 +2048,7 @@
      "avg_abs_r2": 6.4
     },
     "implied": {
-     "move_pct": 8.3,
+     "move_pct": 7.8,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -1906,17 +2067,17 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 24965000000.0,
-    "prior": 22478000000.0,
     "label": "Net Sales",
-    "row": "Net Sales | $ | 24,965 | $ | 22,478 | $ | 71,749 | $ | 64,365"
+    "row": "Net Sales | $ | 24,965 | $ | 22,478 | $ | 71,749 | $ | 64,365",
+    "current": 24965000000.0,
+    "prior": 22478000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 1.89,
-    "prior": 1.41,
     "label": "Diluted",
-    "row": "Diluted | $ | 1.89 | $ | 1.41 | $ | 4.96 | $ | 3.77"
+    "row": "Diluted | $ | 1.89 | $ | 1.41 | $ | 4.96 | $ | 3.77",
+    "current": 1.89,
+    "prior": 1.41
    },
    "eps_status": "ok",
    "headline": "Strong operational performance drives double-digit sales and earnings growth in Q3; Raises 2026 outlook for adjusted sales,* adjusted EPS,* and free cash flow*",
@@ -1926,9 +2087,13 @@
     "tie_err": 0.0,
     "prev_q_growth": 0.14489597330985582,
     "xbrl_prior": 22478000000,
+    "original_prior": 22478000000,
+    "comparison_filed": "2026-10-20",
+    "comparison_accession": "0000101829-26-000031",
+    "comparison_revised": false,
     "xbrl_eps_prior": 1.41
    },
-   "attempts": 1,
+   "attempts": 2,
    "market": {
     "date": "2026-10-20",
     "hour": "bmo",
@@ -1938,7 +2103,7 @@
     "rev_act": 24965000000,
     "eps_surprise": 0.003456349648790269,
     "rev_surprise": 0.026466958781949046,
-    "price": 194.71,
+    "price": 191.17,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 50,
@@ -1962,17 +2127,17 @@
    "period_end": "2026-09-27",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 20711000000.0,
-    "prior": 18609000000.0,
     "label": "Sales",
-    "row": "Sales | $ | 20,711 | $ | 18,609 | $ | 58,795 | $ | 54,727"
+    "row": "Sales | $ | 20,711 | $ | 18,609 | $ | 58,795 | $ | 54,727",
+    "current": 20711000000.0,
+    "prior": 18609000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 7.97,
-    "prior": 6.95,
     "label": "Diluted",
-    "row": "Diluted | $ | 7.97 | $ | 6.95 | $ | 22.36 | $ | 15.69"
+    "row": "Diluted | $ | 7.97 | $ | 6.95 | $ | 22.36 | $ | 15.69",
+    "current": 7.97,
+    "prior": 6.95
    },
    "eps_status": "ok",
    "headline": "Lockheed Martin Corporation [NYSE: LMT] today reported third quarter 2026 sales of $20.7 billion, compared to $18.6 billion in the third quarter of 2025.",
@@ -1982,6 +2147,10 @@
     "tie_err": 0.0,
     "prev_q_growth": 0.10509501514734243,
     "xbrl_prior": 18609000000,
+    "original_prior": 18609000000,
+    "comparison_filed": "2026-10-22",
+    "comparison_accession": "0001628280-26-066928",
+    "comparison_revised": false,
     "xbrl_eps_prior": 6.95
    },
    "attempts": 1,
@@ -1994,7 +2163,7 @@
     "rev_act": 20711000000,
     "eps_surprise": 0.06244001279726996,
     "rev_surprise": -0.00015934918734428205,
-    "price": 589.91,
+    "price": 603.015,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 0,
@@ -2016,7 +2185,7 @@
     "eps_act": null,
     "rev_est": 24555557049,
     "rev_act": null,
-    "price": 187.55,
+    "price": 188.015,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 50,
@@ -2025,7 +2194,7 @@
      "avg_abs_r2": 5.3
     },
     "implied": {
-     "move_pct": 6.1,
+     "move_pct": 5.8,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -2044,17 +2213,17 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 11122000000.0,
-    "prior": 10423000000.0,
     "label": "Total sales",
-    "row": "Total sales | 11,122 | 10,423 | 31,879 | 30,242"
+    "row": "Total sales | 11,122 | 10,423 | 7 | % | 31,879 | 30,242 | 5 | %",
+    "current": 11122000000.0,
+    "prior": 10423000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 7.89,
-    "prior": 7.67,
     "label": "Diluted earnings per share",
-    "row": "Diluted earnings per share\n7.89 | 7.67 | 3 | % | 21.72 | 19.12 | 14 | %"
+    "row": "Diluted earnings per share\n7.89 | 7.67 | 3 | % | 21.72 | 19.12 | 14 | %",
+    "current": 7.89,
+    "prior": 7.67
    },
    "eps_status": "ok",
    "headline": "Northrop Grumman Corporation (NYSE: NOC) reported third quarter 2026 sales increased 7 percent to $11.1 billion, as compared with $10.4 billion in the third quarter of 2025.",
@@ -2064,6 +2233,10 @@
     "tie_err": 0.0,
     "prev_q_growth": 0.050719737223456685,
     "xbrl_prior": 10423000000,
+    "original_prior": 10423000000,
+    "comparison_filed": "2026-10-20",
+    "comparison_accession": "0001133421-26-000038",
+    "comparison_revised": false,
     "xbrl_eps_prior": 7.67
    },
    "attempts": 1,
@@ -2076,7 +2249,7 @@
     "rev_act": 11122000000,
     "eps_surprise": 0.08782572728526117,
     "rev_surprise": -0.011532177066766569,
-    "price": 552.35,
+    "price": 549.195,
     "history": {
      "verdict": "mixed",
      "fade_pct": 25,
@@ -2100,27 +2273,31 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 4994000000.0,
-    "prior": 4929000000.0,
     "label": "Net sales",
-    "row": "Net sales | 4,994 | 4,929 | 15,004 | 14,703"
+    "row": "Net sales | 4,994 | 4,929 | 15,004 | 14,703",
+    "current": 4994000000.0,
+    "prior": 4929000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 2.4,
-    "prior": 2.99,
     "label": "Earnings per share of common stock from continuing operations\u2014assuming dilution",
-    "row": "Earnings per share of common stock from continuing operations\u2014assuming dilution | $ | 2.40 | $ | 2.99 | $ | 19.19 | $ | 4.99"
+    "row": "Earnings per share of common stock from continuing operations\u2014assuming dilution | $ | 2.40 | $ | 2.99 | $ | 19.19 | $ | 4.99",
+    "current": 2.4,
+    "prior": 2.99
    },
    "eps_status": "ok",
    "headline": "Honeywell Technologies (NASDAQ: HON) today announced financial results for the third quarter of 2026.",
    "guidance": "The company now expects full-year sales of $20.0 billion to $20.1 billion with organic 1 sales growth of 4% to 5%, and 5% to 6% organic 1 growth in the fourth quarter; segment margin 1 of approximately 20.5%, at the upper end of its previous guidance range, representing segment margin 1 expansion of approximately 290 basis points; and adjusted earnings per share 1 of $8.40 to $8.45, up 30% to 31%, representing a $0.23 increase from the midpoint of its previous guidance range.",
    "xbrl": {
     "concept": "RevenueFromContractWithCustomerExcludingAssessedTax",
-    "tie_err": 0.9145871373503753,
-    "prev_q_growth": 0.04258742759064571,
-    "xbrl_prior": 9437000000,
-    "xbrl_eps_prior": 2.86
+    "tie_err": 0.0,
+    "prev_q_growth": null,
+    "xbrl_prior": 4929000000,
+    "original_prior": 10408000000,
+    "comparison_filed": "2026-10-22",
+    "comparison_accession": "0000773840-26-000143",
+    "comparison_revised": true,
+    "xbrl_eps_prior": 5.71
    },
    "attempts": 2,
    "market": {
@@ -2132,7 +2309,7 @@
     "rev_act": 4994000000,
     "eps_surprise": 0.037240118802833067,
     "rev_surprise": -0.012456514810944785,
-    "price": 218.31,
+    "price": 219.07,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 33,
@@ -2154,7 +2331,7 @@
     "eps_act": null,
     "rev_est": 20867352783,
     "rev_act": null,
-    "price": 704.05,
+    "price": 686.52,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 0,
@@ -2163,7 +2340,7 @@
      "avg_abs_r2": 7.0
     },
     "implied": {
-     "move_pct": 7.2,
+     "move_pct": 7.4,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -2182,7 +2359,7 @@
     "eps_act": null,
     "rev_est": 22508653152,
     "rev_act": null,
-    "price": 101.52,
+    "price": 100.58,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 75,
@@ -2191,7 +2368,7 @@
      "avg_abs_r2": 5.3
     },
     "implied": {
-     "move_pct": 6.5,
+     "move_pct": 6.4,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -2210,17 +2387,17 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third quarter 2026",
    "revenue": {
-    "current": 7197000000.0,
-    "prior": 6244000000.0,
     "label": "Total operating revenues",
-    "row": "Total operating revenues | 7,197 | 6,244 | 15 | 20,278 | 18,425 | 10"
+    "row": "Total operating revenues | 7,197 | 6,244 | 15 | 20,278 | 18,425 | 10",
+    "current": 7197000000.0,
+    "prior": 6244000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 3.49,
-    "prior": 3.01,
     "label": "Earnings per share - diluted",
-    "row": "Earnings per share - diluted | $ | 3.49 | $ | 3.01 | 16 | $ | 9.71 | $ | 8.87 | 9"
+    "row": "Earnings per share - diluted | $ | 3.49 | $ | 3.01 | 16 | $ | 9.71 | $ | 8.87 | 9",
+    "current": 3.49,
+    "prior": 3.01
    },
    "eps_status": "ok",
    "headline": "Union Pacific Corporation (NYSE: UNP) today reported third quarter 2026 net income of $2.1 billion, up 16%, and diluted earnings per share (EPS) of $3.49, up 16%, compared to reported third quarter 2025 net income of $1.8 billion and diluted EPS of $3.01.",
@@ -2230,6 +2407,10 @@
     "tie_err": 0.0,
     "prev_q_growth": 0.11537211569710748,
     "xbrl_prior": 6244000000,
+    "original_prior": 6244000000,
+    "comparison_filed": "2026-10-22",
+    "comparison_accession": "0000100885-26-000321",
+    "comparison_revised": false,
     "xbrl_eps_prior": 3.01
    },
    "attempts": 1,
@@ -2242,7 +2423,7 @@
     "rev_act": 7197000000,
     "eps_surprise": 0.006328753064598791,
     "rev_surprise": 0.00013778346687054466,
-    "price": 298.09,
+    "price": 292.175,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 0,
@@ -2264,7 +2445,7 @@
     "eps_act": null,
     "rev_est": 47546354796,
     "rev_act": null,
-    "price": 11.94,
+    "price": 11.595,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 33,
@@ -2273,7 +2454,7 @@
      "avg_abs_r2": 5.0
     },
     "implied": {
-     "move_pct": 6.4,
+     "move_pct": 6.7,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -2292,17 +2473,17 @@
    "period_end": "2026-09-30",
    "fiscal_label": "third-quarter 2026",
    "revenue": {
-    "current": 50015000000.0,
-    "prior": 48591000000.0,
     "label": "Total net sales and revenue",
-    "row": "Total net sales and revenue | 45,706 | 4,312 | (3) | 50,015 | 44,256 | \u2014 | 4,337 | (2) | 48,591"
+    "row": "Total net sales and revenue | 45,706 | 4,312 | (3) | 50,015 | 44,256 | \u2014 | 4,337 | (2) | 48,591",
+    "current": 50015000000.0,
+    "prior": 48591000000.0
    },
    "revenue_status": "ok",
    "eps": {
-    "current": 3.73,
-    "prior": 1.35,
     "label": "Diluted earnings per common share",
-    "row": "Diluted earnings per common share | $ | 3.73 | $ | 1.35 | $ | 7.94 | $ | 6.64"
+    "row": "Diluted earnings per common share | $ | 3.73 | $ | 1.35 | $ | 7.94 | $ | 6.64",
+    "current": 3.73,
+    "prior": 1.35
    },
    "eps_status": "ok",
    "headline": "DETROIT \u2013 General Motors (NYSE: GM) today reported third-quarter 2026 revenue of $50.0 billion, net income attributable to stockholders of $3.3 billion, and EBIT-adjusted of $4.1 billion.",
@@ -2312,6 +2493,10 @@
     "tie_err": 0.0,
     "prev_q_growth": 0.019184245150885015,
     "xbrl_prior": 48591000000,
+    "original_prior": 48591000000,
+    "comparison_filed": "2026-10-20",
+    "comparison_accession": "0001467858-26-000059",
+    "comparison_revised": false,
     "xbrl_eps_prior": 1.35
    },
    "attempts": 1,
@@ -2324,7 +2509,7 @@
     "rev_act": 50015000000,
     "eps_surprise": -0.00979500080286888,
     "rev_surprise": -0.0028405589843103485,
-    "price": 77.21,
+    "price": 75.515,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 50,
@@ -2347,7 +2532,7 @@
     "eps_act": null,
     "rev_est": 106372585920,
     "rev_act": null,
-    "price": 178.23,
+    "price": 182.3044,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 100,
@@ -2356,7 +2541,7 @@
      "avg_abs_r2": 1.0
     },
     "implied": {
-     "move_pct": 4.1,
+     "move_pct": 4.0,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -2375,7 +2560,7 @@
     "eps_act": null,
     "rev_est": 61724979773,
     "rev_act": null,
-    "price": 226.68,
+    "price": 232.22,
     "history": {
      "verdict": "mixed",
      "fade_pct": 25,
@@ -2384,7 +2569,7 @@
      "avg_abs_r2": 0.8
     },
     "implied": {
-     "move_pct": 4.1,
+     "move_pct": 3.9,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -2403,7 +2588,7 @@
     "eps_act": null,
     "rev_est": 18311777477,
     "rev_act": null,
-    "price": 145.63,
+    "price": 151.18,
     "history": {
      "verdict": "fades its beats",
      "fade_pct": 67,
@@ -2412,7 +2597,7 @@
      "avg_abs_r2": 1.8
     },
     "implied": {
-     "move_pct": 6.9,
+     "move_pct": 8.7,
      "expiry": "2026-11-06",
      "taken": "2026-10-23"
     },
@@ -2431,7 +2616,7 @@
     "eps_act": null,
     "rev_est": 45190234201,
     "rev_act": null,
-    "price": 284.63,
+    "price": 284.555,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 25,
@@ -2440,7 +2625,7 @@
      "avg_abs_r2": 3.9
     },
     "implied": {
-     "move_pct": 5.2,
+     "move_pct": 5.6,
      "expiry": "2026-10-30",
      "taken": "2026-10-23"
     },
@@ -2457,14 +2642,36 @@
    "filing_index": "https://www.sec.gov/Archives/edgar/data/753308/000075330826000077/",
    "source_url": "https://www.sec.gov/Archives/edgar/data/37634/000075330826000077/neeq32026exhibit99.htm",
    "period_end": "2026-09-30",
-   "fiscal_label": "third quarter 2026",
-   "revenue": null,
-   "revenue_status": "values not found in order after the row label",
-   "eps": null,
-   "eps_status": "values not found in order after the row label",
-   "headline": "NextEra Energy reports third-quarter 2026 financial results",
+   "fiscal_label": "third-quarter 2026",
+   "revenue": {
+    "label": "Operating Revenues",
+    "current_row": "Operating Revenues | $ | 5,421 | $ | 2,516 | $ | 153 | $ | 8,090",
+    "prior_row": "Operating Revenues | $ | 5,285 | $ | 2,566 | $ | 115 | $ | 7,966",
+    "current": 8090000000.0,
+    "prior": 7966000000.0
+   },
+   "revenue_status": "ok",
+   "eps": {
+    "label": "Earnings (Loss) Per Share Attributable to NextEra Energy, Inc. (assuming dilution)",
+    "current_row": "Earnings (Loss) Per Share Attributable to NextEra Energy, Inc. (assuming dilution) | $ | 0.77 | $ | 0.71 | $ | 0.80 | $ | 2.28",
+    "prior_row": "Earnings (Loss) Per Share Attributable to NextEra Energy, Inc. (assuming dilution) | $ | 0.71 | $ | 0.62 | $ | (0.15) | $ | 1.18",
+    "current": 2.28,
+    "prior": 1.18
+   },
+   "eps_status": "ok",
+   "headline": "NextEra Energy delivers strong third-quarter results",
    "guidance": "NextEra Energy continues to expect 2026 adjusted earnings per share to be in the range of $3.92 to $4.02 and is targeting the high end of that range.",
-   "xbrl": {},
+   "xbrl": {
+    "concept": "RegulatedAndUnregulatedOperatingRevenue",
+    "tie_err": 0.0,
+    "prev_q_growth": null,
+    "xbrl_prior": 7966000000,
+    "original_prior": 7966000000,
+    "comparison_filed": "2025-10-28",
+    "comparison_accession": "0000753308-25-000056",
+    "comparison_revised": false,
+    "xbrl_eps_prior": 1.18
+   },
    "attempts": 2,
    "market": {
     "date": "2026-10-21",
@@ -2475,7 +2682,7 @@
     "rev_act": 8090000000,
     "eps_surprise": 0.040530334815809255,
     "rev_surprise": -0.07203547039872138,
-    "price": 81.9,
+    "price": 81.57,
     "history": {
      "verdict": "rewards beats",
      "fade_pct": 25,

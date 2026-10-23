@@ -128,7 +128,7 @@ window.dash = (() => {
 
   <section class="card" id="reported">
     <h2>Reported</h2>
-    <p class="note">Year-over-year figures are read from each company's own press release, and the year-ago revenue is checked against what the company originally filed. EPS is GAAP diluted, so one-off charges and gains can swing it hard (META, GM and JNJ this quarter). Surprises are against the analyst consensus, on the consensus's own basis. "Move" is the stock's return two trading days after the report.</p>
+    <p class="note">Year-over-year figures follow each company's press release and its stated precision. Year-ago revenue is checked against the available XBRL history, including newer revisions. When the historical base changed, growth versus last quarter is omitted pending reconciliation. EPS is GAAP diluted; one-off charges and gains can swing it hard. Surprises use the analyst consensus's own basis. "Move" uses completed trading sessions only; it stays unavailable until the second session has closed.</p>
     <div class="scroll">
       <table id="rep-table" data-source="season" data-row-key="ticker">
         <thead><tr>
@@ -165,7 +165,7 @@ window.dash = (() => {
 
   <section class="card" id="withheld">
     <h2>Withheld</h2>
-    <p class="note">These companies have reported, but their numbers are not shown here: the year-ago figure in the press release did not match the original filing, usually because of a restatement or a spin-off, or the right table could not be verified.</p>
+    <p class="note">Our checks have not reconciled these results yet. A blank can reflect an extraction failure, a missing comparison, or a difference in reporting basis. It does not establish an error in the company's figures.</p>
     <table id="held-table" data-source="season" data-row-key="ticker">
       <thead><tr><th data-field="ticker">Company</th><th data-field="date">Reported</th><th data-field="reason" class="txt">Why</th></tr></thead>
       <tbody></tbody>
@@ -232,6 +232,7 @@ function drawDetail() {
   };
   if (r.status === 'reported') {
     line('Revenue vs a year ago', 'yoy', sp(r.yoy) + ' (last quarter ' + sp(r.prev_yoy) + ')', cls(r.yoy));
+    if (r.comparison_note) line('Comparison', 'comparison_note', r.comparison_note);
     line('Stock move, two days after', 'r2', mv(r.r2) + (r.implied_move != null ? ', options priced ±' + r.implied_move.toFixed(1) + '%' : ''), cls(r.r2));
     if (r.headline) { box.append('div').attr('class', 'k').text('Headline'); box.append('blockquote').attr('data-source', 'season').attr('data-where', w).attr('data-field', 'headline').text(r.headline); }
     if (r.guidance) { box.append('div').attr('class', 'k').text('Outlook'); box.append('blockquote').attr('data-source', 'season').attr('data-where', w).attr('data-field', 'guidance').text(r.guidance); }
@@ -363,7 +364,7 @@ dash.onData(() => {
   const held = rows.filter(r => r.status === 'withheld');
   fillTable('#held-table', held, [[co], [d => fdate(d.date)], [d => d.reason || '—', 'txt']]);
   drawDetail();
-  if (window.ES_GENERATED) d3.select('#asof').text('Data as of ' + new Date(window.ES_GENERATED).toLocaleString());
+  if (window.ES_GENERATED) d3.select('#asof').text('Data refreshed ' + new Intl.DateTimeFormat('en-GB', {timeZone: 'America/New_York', dateStyle: 'medium', timeStyle: 'short'}).format(new Date(window.ES_GENERATED)) + ' New York time');
 });
 </script>
 
