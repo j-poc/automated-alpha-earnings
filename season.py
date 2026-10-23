@@ -353,7 +353,7 @@ def snapshot_implied(rows):
     p.write_text(json.dumps(snap, indent=1))
 
 
-def company(t, ciks):
+def company(t, ciks, old=None):
     cik, name = ciks[t.replace(".", "-")]
     rels = releases(cik)
     cur = [r for r in rels if r["filed"] >= SEASON_START]
@@ -367,7 +367,9 @@ def company(t, ciks):
         row.update(filed=rel["filed"], accession=rel["accession"], filing_index=rel["base"] + "/")
         url = ex99_url(rel)
         row["source_url"] = url
-        if url:
+        if old and old.get("accession") == rel["accession"] and not old.get("error"):
+            row.update({k: v for k, v in old.items() if k != "market"})  # same filing, same extractor: no new Gemini call
+        elif url:
             try:
                 feedback = ""
                 for attempt in range(2):  # one retry, told why the first answer failed
@@ -392,8 +394,11 @@ def company(t, ciks):
 
 def build():
     ciks = cik_map()
+    p = DATA / "season.json"
+    prev = json.loads(p.read_text()) if p.exists() else {}
+    old = {r["ticker"]: r for r in prev.get("companies", [])} if prev.get("extract") == f"{MODEL}/{EXTRACT_VERSION}" else {}
     with ThreadPoolExecutor(6) as ex:
-        rows = list(ex.map(lambda t: company(t, ciks), UNIVERSE))
+        rows = list(ex.map(lambda t: company(t, ciks, old.get(t)), UNIVERSE))
     DATA.mkdir(exist_ok=True)
     snapshot_implied(rows)
     out = {"generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
