@@ -6,153 +6,153 @@
   "report": "2026-10-23"
  },
  "LLY": {
-  "move_pct": 6.9,
+  "move_pct": 6.6,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-29"
  },
  "MRK": {
-  "move_pct": 5.1,
+  "move_pct": 5.3,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-29"
  },
  "PFE": {
-  "move_pct": 5.3,
+  "move_pct": 5.0,
   "expiry": "2026-11-06",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-11-03"
  },
  "GOOGL": {
   "move_pct": 6.1,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-28"
  },
  "MSFT": {
-  "move_pct": 5.4,
+  "move_pct": 5.3,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-28"
  },
  "AMZN": {
-  "move_pct": 7.7,
+  "move_pct": 7.8,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-29"
  },
  "AAPL": {
-  "move_pct": 5.0,
+  "move_pct": 4.8,
   "expiry": "2026-11-06",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-11-02"
  },
  "INTC": {
-  "move_pct": 10.0,
+  "move_pct": 9.9,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-29"
  },
  "NOW": {
-  "move_pct": 10.3,
+  "move_pct": 10.2,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-28"
  },
  "V": {
   "move_pct": 3.5,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-27"
  },
  "MA": {
-  "move_pct": 4.0,
+  "move_pct": 3.8,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-29"
  },
  "KO": {
-  "move_pct": 3.2,
+  "move_pct": 3.3,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-27"
  },
  "MCD": {
-  "move_pct": 4.5,
+  "move_pct": 4.4,
   "expiry": "2026-11-06",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-11-04"
  },
  "SBUX": {
-  "move_pct": 6.1,
+  "move_pct": 6.6,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-29"
  },
  "VZ": {
-  "move_pct": 4.7,
+  "move_pct": 4.5,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-26"
  },
  "TMUS": {
-  "move_pct": 6.1,
+  "move_pct": 6.5,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-28"
  },
  "GEV": {
-  "move_pct": 7.8,
+  "move_pct": 7.9,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-28"
  },
  "BA": {
-  "move_pct": 5.8,
+  "move_pct": 5.7,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-27"
  },
  "CAT": {
-  "move_pct": 7.4,
+  "move_pct": 7.1,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-29"
  },
  "UPS": {
   "move_pct": 6.4,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-27"
  },
  "F": {
-  "move_pct": 6.7,
+  "move_pct": 6.3,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-28"
  },
  "XOM": {
-  "move_pct": 4.0,
+  "move_pct": 3.9,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-30"
  },
  "CVX": {
   "move_pct": 3.9,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-30"
  },
  "COP": {
-  "move_pct": 8.7,
+  "move_pct": 8.5,
   "expiry": "2026-11-06",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-11-05"
  },
  "PSX": {
-  "move_pct": 5.6,
+  "move_pct": 5.5,
   "expiry": "2026-10-30",
-  "taken": "2026-10-23",
+  "taken": "2026-10-24",
   "report": "2026-10-28"
  }
 }

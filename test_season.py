@@ -19,6 +19,9 @@ assert all(r["reason"] for r in rows.values() if r["status"] == "withheld")
 assert all(r["yoy"] is not None for r in rows.values() if r["status"] == "reported")
 assert season.check(), "market data (Yahoo price) missing for more than 20% of companies"
 bad = {"filed": "x", "revenue": {"current": 1.1e9, "prior": 1e9}, "xbrl": {"tie_err": 0, "xbrl_prior": 1e9},
-       "market": {"rev_act": 1e9}}
-assert season.hold_reason(bad) and not season.hold_reason({**bad, "market": {"rev_act": 1.08e9}})
+       "market": {"finnhub_rev_act": 1e9}}
+assert season.hold_reason(bad) and not season.hold_reason({**bad, "market": {"finnhub_rev_act": 1.08e9}})
 print("ok")
+
+import verify_snapshot
+assert verify_snapshot.verify()

@@ -20,6 +20,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 import yahoo
+import consensus
 
 ROOT = Path(__file__).resolve().parent
 CACHE = ROOT / "cache"
@@ -27,7 +28,7 @@ DATA = ROOT / "data"
 UA = "DC dreamcllectr@gmail.com"
 SEASON_START = "2026-10-01"
 MODEL = "gemini-flash-lite-latest"
-EXTRACT_VERSION = "v2"
+EXTRACT_VERSION = "v3"
 
 UNIVERSE = """JPM GS MS BAC WFC C BLK SCHW AXP JNJ UNH ELV ABT ISRG LLY MRK ABBV PFE TMO
 NFLX TSLA GOOGL MSFT META AMZN AAPL INTC IBM TXN NOW V MA KO PEP PG PM MCD SBUX CMCSA
@@ -153,6 +154,7 @@ Return JSON only. Copy text EXACTLY as it appears in the document (character for
 Rules: revenue = the PARENT COMPANY'S CONSOLIDATED GAAP top-line total (banks: total net revenue / net revenue; insurers: total revenues).
 Never use an operating segment's revenue or an adjusted / organic / tax-equivalent figure in place of consolidated GAAP revenue.
 current and prior must contain ONLY the numeric substring (e.g. "32.3"), without the word billion or million. Put the exact unit word/header in scale.
+For EPS use the consolidated TOTAL diluted EPS including discontinued operations, when supplied. Never substitute continuing operations for total diluted EPS; if only continuing-operations EPS exists, keep its full label.
 Use the three-month columns, not year-to-date. Check the year headers: some releases place each year's results in a separate table.
 When a row has segment columns and a consolidated company column, use the consolidated company column.
 The quote must retain ALL intervening columns (including YTD or last quarter). Do not remove columns to create an invented row.
@@ -223,7 +225,8 @@ def verified_pair(doc, field, scale=1.0):
             if not re.search(r"(?<![\d.,(\-])" + re.escape(value) + r"(?![\d)]|[.,]\d)", row):
                 return None, f"value or sign not found in {key}"
     result = {k: field[k] for k in ("label", "row", "current_row", "prior_row") if field.get(k)}
-    result.update(current=float(vals[0] * Decimal(str(scale))), prior=float(vals[1] * Decimal(str(scale))))
+    result.update(current=float(vals[0] * Decimal(str(scale))), prior=float(vals[1] * Decimal(str(scale))),
+                  current_half_rounding=float(Decimal(10) ** vals[0].as_tuple().exponent * Decimal(str(scale)) / 2))
     return result, "ok"
 
 
@@ -344,7 +347,7 @@ def xbrl_context(cik, period_end, rev_prior):
 
 # ---------------------------------------------------------------- build
 
-def market(t, reported):
+def market(t, reported, row=None):
     """Consensus, surprise, implied move and price reaction. Never blocks the EDGAR row."""
     m = {}
     try:
@@ -354,32 +357,65 @@ def market(t, reported):
             e = fh[-1]
             m.update(date=e["date"], hour=e["hour"], eps_est=e["epsEstimate"], eps_act=e["epsActual"],
                      rev_est=e["revenueEstimate"], rev_act=e["revenueActual"])
-            if e["epsActual"] is not None and e["epsEstimate"]:
-                m["eps_surprise"] = e["epsActual"] / abs(e["epsEstimate"]) - 1 if e["epsEstimate"] > 0 else None
-            if e["revenueActual"] and e["revenueEstimate"]:
-                m["rev_surprise"] = e["revenueActual"] / e["revenueEstimate"] - 1  # provider basis; reviewed corrections are applied below
     except Exception as e:
         m["finnhub_error"] = str(e)[:120]
+    if row and row.get("source_url") and reported:
+        doc = html_to_text(fetch(row["source_url"]))
+        observations = []
+        for match in re.finditer(r"(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+2026", doc[:6000], re.I):
+            try: released = datetime.strptime(match[0].replace(",", ""), "%B %d %Y").date()
+            except ValueError: continue
+            if 0 <= (date.fromisoformat(reported) - released).days <= 3:
+                observations.append((released.isoformat(), match[0]))
+        if len({d for d, q in observations}) == 1:
+            row["release_date_observation"] = {"date": observations[0][0], "source_quote": observations[0][1], "source_url": row["source_url"]}
+    # Finnhub remains a calendar/fallback cross-check, not a verified consensus.
+    for k in ("eps_est", "eps_act", "rev_est", "rev_act"):
+        if k in m: m["finnhub_" + k] = m.pop(k)
     try:
-        p = CACHE / f"yahoo-closed-v2-{t}.json"
+        records = consensus.history(t, fetch)
+        matches = [r for r in records if reported and 0 <= (date.fromisoformat(reported) - date.fromisoformat(r["date"])).days <= 3]
+        matched = matches[0] if len(matches) == 1 else None
+        if matched and row:
+            m.update(consensus.compare(row, matched))
+            m["report_date"] = (row.get("release_date_observation") or {}).get("date") or matched["date"]
+            if m["report_date"] != matched["date"]:
+                m["market_note"] += f" The consensus source dates this report {matched['date']}; price windows use the issuer release date {m['report_date']}."
+            if matched.get("event_url"):
+                text = html_to_text(fetch(matched["event_url"], ttl=86400, headers={"User-Agent": "Mozilla/5.0"}))
+                timing = "amc" if "After Market Closes" in text else "bmo" if "Before Market Opens" in text else None
+                m["hour"] = timing
+                m["timing_source"] = matched["event_url"]
+        elif not reported:
+            # Upcoming estimates are explicitly forecasts from Finnhub's calendar.
+            m.update(eps_est=m.get("finnhub_eps_est"), rev_est=m.get("finnhub_rev_est"))
+    except Exception as e:
+        m["consensus_error"] = str(e)[:120]
+    try:
+        current = {"date": m["report_date"], "hour": m.get("hour"), "period_end": row.get("period_end")} if m.get("report_date") else None
+        p = CACHE / f"yahoo-timing-v4-{t}.json"
         if p.exists() and time.time() - p.stat().st_mtime < 3 * 3600:
             d = json.loads(p.read_text())
+            raw = DATA / "market-evidence" / f"{t}.json"
+            if raw.exists():
+                evidence = json.loads(raw.read_text())
+                d["reaction"] = yahoo.reaction(evidence["quoteSummary"], evidence["chart"], current)
         else:
-            d = yahoo.company(t)
-            CACHE.mkdir(exist_ok=True)
-            p.write_text(json.dumps(d))
+            d = yahoo.company(t, current=current, evidence=DATA / "market-evidence", next_hour=m.get("hour"))
+            CACHE.mkdir(exist_ok=True); p.write_text(json.dumps(d))
         m["price"] = d["price"]["last"]
         rx = d["reaction"]
-        m["history"] = {k: rx["stats"].get(k) for k in ("verdict", "fade_pct", "n_beat", "n_miss", "avg_abs_r2")}
+        m["reaction_history"] = rx["quarters"]
+        m["history"] = {k: rx["stats"].get(k) for k in ("avg_abs_r2", "n")}
         if reported:
-            q = next((q for q in rx["quarters"] if q.get("reported") and abs(
-                (date.fromisoformat(q["reported"]) - date.fromisoformat(reported)).days) <= 3), None)
+            q = next((q for q in rx["quarters"] if q.get("reported") == (m.get("report_date") or reported)), None)
             if q:
                 m["r2"], m["r5"] = q.get("r2"), q.get("r5")
+                m["reaction_window"] = q
         else:
             ev, nd = d["options"].get("event") or {}, d["earnings"].get("next_date")
             today = datetime.now(ZoneInfo("America/New_York")).date().isoformat()
-            ahead = nd and (nd > today or nd == today and m.get("hour") == "amc")  # a reading after a before-open release is not pre-report
+            ahead = nd and (nd > today or nd == today and m.get("hour") == "amc" and datetime.now(ZoneInfo("America/New_York")).hour < 16)  # a reading after a before-open release is not pre-report
             if ev.get("move_pct") and ahead and 0 <= (date.fromisoformat(ev["expiry"]) - date.fromisoformat(nd)).days <= 7:
                 m["implied"] = {"move_pct": ev["move_pct"], "expiry": ev["expiry"], "taken": today}
             m["next_date"] = nd
@@ -446,10 +482,48 @@ def company(t, ciks, old=None):
                     row["not_earnings"] = True  # Item 2.02 8-K without results (deliveries, guidance updates)
             except Exception as e:
                 row["error"] = f"{type(e).__name__}: {e}"[:300]
-    row["market"] = market(t, row.get("filed"))
-    reconcile_market(row)
+    row.pop("consensus_reconciliation", None)
+    # Recheck any saved extra comparison rows against this exact filing before use.
+    for field in ("consensus_revenue", "consensus_eps"):
+        if row.get(field):
+            doc = html_to_text(fetch(row["source_url"]))
+            checked = recheck_cached(doc, row[field], [1e9, 1e6, 1] if field == "consensus_revenue" else [1])
+            row[field] = checked
+    observation = row.get("consensus_eps_observation")
+    if observation:
+        doc = html_to_text(fetch(row["source_url"]))
+        if not (observation.get("source_url") == row["source_url"] and observation.get("period_end") == row.get("period_end")
+                and observation.get("source_quote") in doc
+                and any(parse_num(token) == Decimal(str(observation.get("current_actual")))
+                        for token in re.findall(r"\(?-?\d[\d,]*(?:\.\d+)?\)?", observation.get("source_quote", "")))):
+            row.pop("consensus_eps_observation", None)
+    row["market"] = market(t, None if row.get("not_earnings") else row.get("filed"), row)
     print(t, row.get("filed", "—"), row.get("revenue_status", ""), row.get("eps_status", ""), file=sys.stderr)
     return row
+
+
+def save_market_proof(snapshot):
+    """Small provider-input excerpts for offline replay; full responses remain local."""
+    proof = {"generated_at": snapshot["generated_at"], "companies": {}}
+    for row in snapshot["companies"]:
+        path = DATA / "market-evidence" / f"{row['ticker']}.json"
+        if not path.exists(): continue
+        raw = json.loads(path.read_text()); chart = raw["chart"]
+        windows = row["market"].get("reaction_history", [])
+        wanted = [(w["baseline_date"], w.get("r5_end_date") or w["end_date"]) for w in windows]
+        closes = [[ts, close] for ts, close in zip(chart.get("timestamp", []), chart["indicators"]["quote"][0]["close"])
+                  if any(a <= yahoo.day(ts) <= b for a,b in wanted)]
+        op = raw.get("options") or {}; opt = (op.get("chain", {}).get("options") or [{}])[0]
+        calls = {c["strike"]:c for c in opt.get("calls",[])}; puts = {p["strike"]:p for p in opt.get("puts",[])}
+        strikes = sorted(calls.keys() & puts.keys()); selected = {}
+        if strikes and op.get("spot"):
+            k = min(strikes, key=lambda x:abs(x-op["spot"]))
+            selected = {"spot":op["spot"],"strike":k,"strikes":strikes,"call":calls[k],"put":puts[k],
+                        "expiry":op.get("expiry"),"report_date":op.get("report_date"),"report_hour":op.get("report_hour")}
+        proof["companies"][row["ticker"]] = {"observed_at":raw["observed_at"],"chart_source":raw["chart_source"],
+            "release_timestamps":raw["quoteSummary"].get("earnings",{}).get("earningsChart",{}).get("quarterly",[]),
+            "closes":closes,"option":selected}
+    (DATA / "market-proof.json").write_text(json.dumps(proof, indent=1))
 
 
 def build():
@@ -464,6 +538,7 @@ def build():
     out = {"generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat(),
            "extract": f"{MODEL}/{EXTRACT_VERSION}", "companies": rows}
     (DATA / "season.json").write_text(json.dumps(out, indent=1))
+    save_market_proof(out)
     return out
 
 
@@ -483,8 +558,9 @@ def hold_reason(r):
     if x["tie_err"] > TIE_TOL:
         return (f"Comparison needs review: last year's revenue is ${r['revenue']['prior'] / 1e9:.1f}B in the release but "
                 f"${x['xbrl_prior'] / 1e9:.1f}B in the XBRL history; the cause has not been verified")
-    fh = (r.get("market") or {}).get("rev_act")
-    if fh and abs(r["revenue"]["current"] / fh - 1) > XCHECK_TOL:
+    fh = (r.get("market") or {}).get("finnhub_rev_act")
+    comparison = r.get("consensus_revenue") or r["revenue"]
+    if fh and abs(comparison["current"] / fh - 1) > XCHECK_TOL:
         return (f"Revenue is ${r['revenue']['current'] / 1e9:.1f}B in the release but ${fh / 1e9:.1f}B at Finnhub, "
                 f"the basis difference needs review")
     return None
@@ -529,36 +605,6 @@ def logo(t):
     return "data:image/png;base64," + base64.b64encode(p.read_bytes()).decode()
 
 
-def reconcile_market(row):
-    """Apply a source-bound comparison review without overwriting raw provider actuals.
-
-    A provider can put segment revenue in its actual field. A 5% cross-check
-    does not establish an identical accounting basis. Reviewed corrections stay
-    attached to their filing and observed values; changed inputs need review.
-    """
-    mk = row.setdefault("market", {})
-    review = row.get("consensus_reconciliation")
-    if not review:
-        return
-    mk["rev_surprise"], mk["eps_surprise"] = None, None
-    mk["eps_basis"] = "needs review"
-    mk["market_note"] = "The reviewed comparison inputs changed; revenue and EPS surprises need review."
-    rev, eps = row.get("revenue") or {}, row.get("eps") or {}
-    if (review.get("source_url") != row.get("source_url") or
-            review.get("reported_revenue") != rev.get("current") or
-            review.get("provider_revenue") != mk.get("rev_act") or
-            review.get("reported_eps") != eps.get("current") or
-            review.get("adjusted_eps") != mk.get("eps_act")):
-        return
-    if mk.get("rev_est") and mk["rev_est"] > 0:
-        mk["rev_surprise"] = float(Decimal(str(rev["current"])) / Decimal(str(mk["rev_est"])) - 1)
-    if mk.get("eps_est") and mk["eps_est"] > 0:
-        mk["eps_surprise"] = float(Decimal(str(mk["eps_act"])) / Decimal(str(mk["eps_est"])) - 1)
-    mk["rev_actual_used"] = rev["current"]
-    mk["eps_actual_used"] = mk["eps_act"]
-    mk["eps_basis"] = "adjusted"
-    mk["market_note"] = review["note"]
-
 
 def export(data=None):
     """One flat row per company for the dashboard: data/dashboard.json."""
@@ -566,16 +612,15 @@ def export(data=None):
     g = lambda a, b: a / b - 1 if a is not None and b else None
     rows = []
     for r in data["companies"]:
-        reconcile_market(r)
         mk, x = r.get("market") or {}, r.get("xbrl") or {}
         imp, hist = mk.get("implied") or {}, mk.get("history") or {}
         status = ("upcoming" if not r.get("filed") else "not_earnings" if r.get("not_earnings")
                   else "withheld" if hold_reason(r) else "reported")
         row = {"ticker": r["ticker"], "name": NAMES.get(r["ticker"], r["name"].title()), "status": status,
-               "date": r.get("filed") or mk.get("next_date") or mk.get("date") or r.get("expected"),
+               "date": mk.get("report_date") or r.get("filed") or mk.get("next_date") or mk.get("date") or r.get("expected"),
                "hour": mk.get("hour"), "price": mk.get("price"),
                "implied_move": imp.get("move_pct"), "verdict": hist.get("verdict"),
-               "avg_abs_r2": hist.get("avg_abs_r2"), "eps_est": mk.get("eps_est"), "rev_est": mk.get("rev_est"),
+               "avg_abs_r2": hist.get("avg_abs_r2"), "history_n": hist.get("n"), "eps_est": mk.get("eps_est"), "rev_est": mk.get("rev_est"),
                "reason": hold_reason(r) if status == "withheld" else None, "source_url": r.get("source_url"),
                "logo": logo(r["ticker"])}
         if status == "reported":
@@ -584,10 +629,13 @@ def export(data=None):
             row.update(revenue=rev["current"], rev_prior=rev["prior"], yoy=yoy, prev_yoy=prev,
                        accel=yoy - prev if prev is not None else None,
                        eps=eps.get("current"), eps_prior=eps.get("prior"),
+                       eps_growth_basis="GAAP continuing operations" if "continuing" in eps.get("label", "").lower() else "GAAP diluted",
                        eps_yoy=g(eps.get("current"), eps.get("prior")) if (eps.get("prior") or 0) > 0 else None,
                        eps_surprise=mk.get("eps_surprise"), rev_surprise=mk.get("rev_surprise"),
-                       eps_basis=mk.get("eps_basis", "provider basis"),
-                       market_note=mk.get("market_note"),
+                       eps_basis=mk.get("eps_basis", "provider basis"), eps_adjusted=mk.get("eps_adjusted", False),
+                       market_note=mk.get("market_note"), consensus_source=(mk.get("consensus") or {}).get("source_url"),
+                       rev_basis=mk.get("rev_basis"), consensus_note=" ".join(mk.get(k, "") for k in ("revenue_comparison_note", "eps_comparison_note")),
+                       rev_result=mk.get("rev_result"), reaction_window=mk.get("reaction_window"),
                        r2=mk.get("r2"), r5=mk.get("r5"), headline=r.get("headline"), guidance=r.get("guidance"),
                        quarter=r.get("fiscal_label"),
                        comparison_note=("The year-ago revenue comparison changed in a newer filing. Growth versus last quarter is omitted until the bases are reconciled."

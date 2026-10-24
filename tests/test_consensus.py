@@ -1,58 +1,36 @@
-"""A segment actual must not silently become a consolidated revenue surprise."""
-import copy
-import json
-import tempfile
+"""A source must match the release date and reporting basis before comparison."""
 import unittest
-from decimal import Decimal
-from pathlib import Path
-from unittest.mock import patch
+import consensus
 
-import season
-
+HTML = '''<table id="earnings-history"><tbody><tr><td>10/21/2026</td><td>Q3 2026</td>
+<td>$6.54</td><td>$7.40</td><td>+$0.86</td><td>$3.83</td><td>$63.34B</td><td>$64.60B</td>
+<td><a href="/earnings/reports/meta/">Details</a></td></tr></tbody></table>'''
 
 class ConsensusTests(unittest.TestCase):
     def setUp(self):
-        self.snapshot = json.loads((season.DATA / "season.json").read_text())
-        self.meta = next(r for r in self.snapshot["companies"] if r["ticker"] == "META")
+        self.record = consensus.parse(HTML, 'https://www.marketbeat.com/stocks/NASDAQ/META/earnings/', '2026-10-24')[0]
+        self.row = dict(filed='2026-10-21', period_end='2026-09-30', fiscal_label='third quarter 2026', source_url='https://issuer/release', revenue={'current':64601000000}, eps={'current':3.83},
+                        consensus_eps_observation=dict(source_url='https://issuer/release',period_end='2026-09-30',current_actual=7.4,basis='adjusted',source_quote='Adjusted EPS $7.40'))
 
-    def export_row(self, row):
-        with tempfile.TemporaryDirectory() as target, patch.object(season, "DATA", Path(target)), patch.object(season, "logo", return_value=None):
-            result = season.export({"generated_at": self.snapshot["generated_at"], "companies": [row]})
-        return result["rows"][0]
+    def test_total_revenue_and_adjusted_eps_not_advertising_or_gaap_mix(self):
+        r = consensus.compare(self.row, self.record)
+        self.assertAlmostEqual(r['rev_surprise'] * 100, 1.990843069, places=6)
+        self.assertAlmostEqual(r['eps_surprise'] * 100, 13.149847095, places=6)
+        self.assertEqual(r['eps_basis'], 'adjusted')
 
-    def test_export_uses_total_revenue_and_labels_adjusted_eps(self):
-        row = self.export_row(copy.deepcopy(self.meta))
-        expected = float((Decimal("64601000000") - Decimal("64635778699")) / Decimal("64635778699"))
-        self.assertAlmostEqual(row["rev_surprise"], expected, places=14)
-        self.assertAlmostEqual(row["eps_surprise"], float(Decimal("7.40") / Decimal("5.7889") - 1), places=14)
-        self.assertEqual(row["eps_basis"], "adjusted")
-        self.assertEqual(row["eps"], 3.83)  # GAAP EPS itself is not replaced by adjusted EPS.
-        self.assertEqual(self.meta["market"]["rev_act"], 63061000000)  # Preserve the observed provider field.
+    def test_wrong_date_and_different_basis_cannot_publish_surprise(self):
+        self.assertEqual(consensus.compare({**self.row, 'filed':'2026-10-20'}, self.record), {})
+        self.assertEqual(consensus.compare(self.row, {**self.record, 'quarter':'Q1 2026'}), {})
+        r = consensus.compare({**self.row, 'revenue': {'current':63061000000}, 'eps': {'current':7.4}}, self.record)
+        self.assertNotIn('rev_surprise', r)
+        self.assertNotIn('eps_surprise', consensus.compare(self.row, {**self.record, 'eps_act':999}))
 
-    def test_changed_source_or_actual_cannot_reuse_review(self):
-        for change in ("source_url", "provider_actual", "reported_revenue", "eps_actual"):
-            with self.subTest(change=change):
-                row = copy.deepcopy(self.meta)
-                if change == "source_url":
-                    row["source_url"] += "?different-filing"
-                elif change == "provider_actual":
-                    row["market"]["rev_act"] += 1
-                elif change == "reported_revenue":
-                    row["revenue"]["current"] += 1
-                else:
-                    row["market"]["eps_act"] = 8
-                published = self.export_row(row)
-                self.assertIsNone(published["rev_surprise"])
-                self.assertIsNone(published["eps_surprise"])
-                self.assertEqual(published["eps_basis"], "needs review")
+    def test_rounded_estimate_is_inline_and_missing_estimate_is_missing(self):
+        # Actual must also reconcile to source actual; use a fully consistent rounded observation.
+        rec = {**self.record, 'rev_act':63340000000}
+        r = consensus.compare({**self.row, 'revenue': {'current':63342000000}}, rec)
+        self.assertEqual((r['rev_surprise'],r['rev_result']), (0.0,'inline'))
+        r = consensus.compare(self.row, {**self.record, 'rev_est':None, 'eps_est':0})
+        self.assertNotIn('rev_surprise', r); self.assertNotIn('eps_surprise', r)
 
-    def test_no_estimate_produces_no_comparison(self):
-        row = copy.deepcopy(self.meta)
-        row["market"].update(rev_est=0, eps_est=None)
-        published = self.export_row(row)
-        self.assertIsNone(published["rev_surprise"])
-        self.assertIsNone(published["eps_surprise"])
-
-
-if __name__ == "__main__":
-    unittest.main()
+if __name__ == '__main__': unittest.main()
