@@ -672,7 +672,11 @@ if __name__ == "__main__":
         site = ROOT / "out" / "automated-alpha-earnings"
         site.mkdir(exist_ok=True)
         (site / "index.html").write_bytes((ROOT / "out" / "season.html").read_bytes())
-        tok = ["--token", os.environ["VERCEL_TOKEN"]] if os.environ.get("VERCEL_TOKEN") else []  # CI; locally the CLI login
         project = os.environ.get("VERCEL_PROJECT_ID", "prj_dO9tkbP1346TU7HTrLnQTuxxuqBJ")
         scope = os.environ.get("VERCEL_ORG_ID", "team_3frY5U1rw8Yv6c0EVZeDBqwB")
-        sys.exit(subprocess.run(["vercel", "deploy", str(site), "--prod", "--yes", "--project", project, "--scope", scope, *tok]).returncode)
+        if os.environ.get("VERCEL_TOKEN"):
+            from scripts.deploy_vercel import deploy
+            deploy(site / "index.html", os.environ["VERCEL_TOKEN"],
+                   os.environ.get("VERCEL_EXPECTED_USER", "evoa3"), scope, project)
+        else:
+            sys.exit(subprocess.run(["vercel", "deploy", str(site), "--prod", "--yes", "--project", project, "--scope", scope]).returncode)

@@ -48,6 +48,7 @@ def check(token, expected_user, team, project, request=get):
         raise RuntimeError('VERCEL_TOKEN cannot verify the configured Evoa earnings project.')
     identity = expected_user if user is not None else 'project-scoped token'
     print(f"Vercel access verified: {identity} → {target['name']} in the configured Evoa workspace")
+    return target
 
 
 def main():

@@ -19,3 +19,5 @@ Build calls external providers and updates the snapshot. Old article screenshots
 ## Automatic refresh credentials
 
 The GitHub `refresh` workflow checks the exact Evoa workspace/project before building. Account-scoped tokens must also match `evoa3`; project-only tokens may return 403/404 for the account profile and still pass the exact workspace/project check. `scripts/check_vercel_access.py` must pass with the Actions `VERCEL_TOKEN`; a local CLI login does not establish scheduled access. After a secret change, dispatch the workflow once, confirm its access check, deployment and snapshot commit succeed, then check the live dashboard timestamp against that commit. Keep all credential values out of output and proof files.
+
+With `VERCEL_TOKEN`, `season.py deploy` uses the Vercel REST deployment API. It must wait for `READY` and assigned production aliases, then compare the public page bytes to the generated HTML. The data-commit step runs only after this succeeds. A failure or timeout must fail the workflow. No account-wide token is required for the project-only deployment path.

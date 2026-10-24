@@ -31,7 +31,7 @@ jobs:
           path: cache
           key: cache-${{ github.run_id }}
           restore-keys: cache-
-      - run: pip install pillow && npm i -g vercel@60.1.3
+      - run: pip install pillow
       - name: Build and verify the snapshot
         run: python3 season.py build && python3 test_season.py
         env:
