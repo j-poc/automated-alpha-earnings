@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T08:27:32+00:00",
+ "generated_at": "2026-10-24T09:34:25+00:00",
  "extract": "gemini-flash-lite-latest/v3",
  "companies": [
   {
@@ -73,8 +73,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/JPM/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-13-jpmorgan-chase-co-stock/",
-     "observed_at": "2026-10-24T08:27:21+00:00",
-     "source_sha256": "2bb132beab690ff227b0b489983906f0bf4db937c53246e9582ac8b7f71cb042",
+     "observed_at": "2026-10-24T09:34:03+00:00",
+     "source_sha256": "a8c21190138866a4eb7610df72dda2f85da3c46dd7592491228e2df178f914fa",
      "source_cells": [
       "10/13/2026",
       "Q3 2026",
@@ -92,31 +92,13 @@
     "rev_basis": "Net revenue - reported",
     "rev_surprise": -0.020651961741167284,
     "rev_result": "below",
+    "eps_adjusted": true,
     "eps_actual_used": 5.75,
     "eps_surprise": -0.03198653198653199,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-13). EPS surprise basis: adjusted diluted EPS excluding significant item. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-13",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-13-jpmorgan-chase-co-stock/",
     "price": 331.58,
-    "history": {
-     "avg_abs_r2": 2.9,
-     "n": 4
-    },
-    "r2": 0.3,
-    "r5": -0.2,
-    "reaction_window": {
-     "reported": "2026-10-13",
-     "hour": "bmo",
-     "release_timestamp": 1791887438,
-     "baseline_date": "2026-10-12",
-     "baseline_close": 334.29998779296875,
-     "end_date": "2026-10-14",
-     "end_close": 335.2799987792969,
-     "r2": 0.3,
-     "r5": -0.2,
-     "r5_end_date": "2026-10-19"
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-13",
@@ -166,7 +148,25 @@
       "r5": -6.7,
       "r5_end_date": "2026-01-20"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 2.9,
+     "n": 4
+    },
+    "r2": 0.3,
+    "r5": -0.2,
+    "reaction_window": {
+     "reported": "2026-10-13",
+     "hour": "bmo",
+     "release_timestamp": 1791887438,
+     "baseline_date": "2026-10-12",
+     "baseline_close": 334.29998779296875,
+     "end_date": "2026-10-14",
+     "end_close": 335.2799987792969,
+     "r2": 0.3,
+     "r5": -0.2,
+     "r5_end_date": "2026-10-19"
+    }
    }
   },
   {
@@ -209,6 +209,11 @@
     "xbrl_eps_prior": 12.25
    },
    "attempts": 2,
+   "release_date_observation": {
+    "date": "2026-10-13",
+    "source_quote": "October 13, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/886982/000088698226000529/a3q26gsearningsresults.htm"
+   },
    "market": {
     "date": "2026-10-13",
     "hour": "bmo",
@@ -232,8 +237,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/GS/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-13-the-goldman-sachs-group-inc-stock/",
-     "observed_at": "2026-10-24T08:27:21+00:00",
-     "source_sha256": "b9018f0c86259f154d67fa390adfede0bd44c52d5991098e9b603f4378fe441f",
+     "observed_at": "2026-10-24T09:34:03+00:00",
+     "source_sha256": "3c2e1cd310ab0ebb65803ad37fee0c97ae1d7d1de709f99790bc8716570d045a",
      "source_cells": [
       "10/13/2026",
       "Q3 2026",
@@ -251,31 +256,13 @@
     "rev_basis": "Total net revenues",
     "rev_surprise": 0.10986333927510399,
     "rev_result": "above",
+    "eps_adjusted": false,
     "eps_actual_used": 17.01,
     "eps_surprise": 0.322706065318818,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-13). EPS surprise basis: consensus-comparable. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-13",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-13-the-goldman-sachs-group-inc-stock/",
     "price": 875.68,
-    "history": {
-     "avg_abs_r2": 3.8,
-     "n": 4
-    },
-    "r2": -1.7,
-    "r5": -2.0,
-    "reaction_window": {
-     "reported": "2026-10-13",
-     "hour": "bmo",
-     "release_timestamp": 1791891176,
-     "baseline_date": "2026-10-12",
-     "baseline_close": 893.9500122070312,
-     "end_date": "2026-10-14",
-     "end_close": 878.719970703125,
-     "r2": -1.7,
-     "r5": -2.0,
-     "r5_end_date": "2026-10-19"
-    },
-    "eps_adjusted": false,
     "reaction_history": [
      {
       "reported": "2026-10-13",
@@ -325,7 +312,25 @@
       "r5": 2.4,
       "r5_end_date": "2026-01-22"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 3.8,
+     "n": 4
+    },
+    "r2": -1.7,
+    "r5": -2.0,
+    "reaction_window": {
+     "reported": "2026-10-13",
+     "hour": "bmo",
+     "release_timestamp": 1791891176,
+     "baseline_date": "2026-10-12",
+     "baseline_close": 893.9500122070312,
+     "end_date": "2026-10-14",
+     "end_close": 878.719970703125,
+     "r2": -1.7,
+     "r5": -2.0,
+     "r5_end_date": "2026-10-19"
+    }
    }
   },
   {
@@ -368,6 +373,11 @@
     "xbrl_eps_prior": 2.8
    },
    "attempts": 1,
+   "release_date_observation": {
+    "date": "2026-10-14",
+    "source_quote": "October 14, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/895421/000089542126000288/a3q26msearningsrelease.htm"
+   },
    "market": {
     "date": "2026-10-14",
     "hour": "bmo",
@@ -391,8 +401,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/MS/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-14-morgan-stanley-stock/",
-     "observed_at": "2026-10-24T08:27:21+00:00",
-     "source_sha256": "a57c6d4e6091239399ac9e0255f01a6203940bd897f923a8757f21fb452c7fb3",
+     "observed_at": "2026-10-24T09:34:03+00:00",
+     "source_sha256": "3f403f959f0dc4de5b5a0a796d938cbd067ff879b39c2313b08fe59094fa14f1",
      "source_cells": [
       "10/14/2026",
       "Q3 2026",
@@ -410,31 +420,13 @@
     "rev_basis": "Net revenues",
     "rev_surprise": 0.020471650777722027,
     "rev_result": "above",
+    "eps_adjusted": false,
     "eps_actual_used": 3.03,
     "eps_surprise": 0.034129692832764506,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-14). EPS surprise basis: consensus-comparable. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-14",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-14-morgan-stanley-stock/",
     "price": 179.49,
-    "history": {
-     "avg_abs_r2": 3.3,
-     "n": 4
-    },
-    "r2": -2.4,
-    "r5": -3.3,
-    "reaction_window": {
-     "reported": "2026-10-14",
-     "hour": "bmo",
-     "release_timestamp": 1791977961,
-     "baseline_date": "2026-10-13",
-     "baseline_close": 186.63999938964844,
-     "end_date": "2026-10-15",
-     "end_close": 182.10000610351562,
-     "r2": -2.4,
-     "r5": -3.3,
-     "r5_end_date": "2026-10-20"
-    },
-    "eps_adjusted": false,
     "reaction_history": [
      {
       "reported": "2026-10-14",
@@ -484,7 +476,25 @@
       "r5": 1.3,
       "r5_end_date": "2026-01-22"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 3.3,
+     "n": 4
+    },
+    "r2": -2.4,
+    "r5": -3.3,
+    "reaction_window": {
+     "reported": "2026-10-14",
+     "hour": "bmo",
+     "release_timestamp": 1791977961,
+     "baseline_date": "2026-10-13",
+     "baseline_close": 186.63999938964844,
+     "end_date": "2026-10-15",
+     "end_close": 182.10000610351562,
+     "r2": -2.4,
+     "r5": -3.3,
+     "r5_end_date": "2026-10-20"
+    }
    }
   },
   {
@@ -559,8 +569,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/BAC/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-14-bank-of-america-co-stock/",
-     "observed_at": "2026-10-24T08:27:21+00:00",
-     "source_sha256": "0f76c8cbd37ab5208d3293e0769e0ef0cb059e6d5329047c20f2e640f2061cd1",
+     "observed_at": "2026-10-24T09:34:03+00:00",
+     "source_sha256": "c8248ec00be11bec5701855ba74a905a73fd5c1716b91f798c12e2b832212134",
      "source_cells": [
       "10/14/2026",
       "Q3 2026",
@@ -578,31 +588,13 @@
     "rev_basis": "Total revenue, net of interest expense",
     "rev_surprise": -0.020340091563113148,
     "rev_result": "below",
+    "eps_adjusted": true,
     "eps_actual_used": 1.08,
     "eps_surprise": -0.01818181818181818,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-14). EPS surprise basis: adjusted diluted EPS. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-14",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-14-bank-of-america-co-stock/",
     "price": 50.56,
-    "history": {
-     "avg_abs_r2": 2.9,
-     "n": 4
-    },
-    "r2": -4.2,
-    "r5": -6.2,
-    "reaction_window": {
-     "reported": "2026-10-14",
-     "hour": "bmo",
-     "release_timestamp": 1791974684,
-     "baseline_date": "2026-10-13",
-     "baseline_close": 53.959999084472656,
-     "end_date": "2026-10-15",
-     "end_close": 51.70000076293945,
-     "r2": -4.2,
-     "r5": -6.2,
-     "r5_end_date": "2026-10-20"
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-14",
@@ -652,7 +644,25 @@
       "r5": -4.5,
       "r5_end_date": "2026-01-21"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 2.9,
+     "n": 4
+    },
+    "r2": -4.2,
+    "r5": -6.2,
+    "reaction_window": {
+     "reported": "2026-10-14",
+     "hour": "bmo",
+     "release_timestamp": 1791974684,
+     "baseline_date": "2026-10-13",
+     "baseline_close": 53.959999084472656,
+     "end_date": "2026-10-15",
+     "end_close": 51.70000076293945,
+     "r2": -4.2,
+     "r5": -6.2,
+     "r5_end_date": "2026-10-20"
+    }
    }
   },
   {
@@ -695,6 +705,11 @@
     "xbrl_eps_prior": 1.66
    },
    "attempts": 1,
+   "release_date_observation": {
+    "date": "2026-10-13",
+    "source_quote": "October 13, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/72971/000007297126000318/wfc3qer10-13x26ex991xrelea.htm"
+   },
    "market": {
     "date": "2026-10-13",
     "hour": "bmo",
@@ -718,8 +733,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/WFC/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-13-wells-fargo-company-stock/",
-     "observed_at": "2026-10-24T08:27:21+00:00",
-     "source_sha256": "56ea296260511d0d0759339a7c8c86d150d630d91f8839593912e16cfbaf5b43",
+     "observed_at": "2026-10-24T09:34:08+00:00",
+     "source_sha256": "5d54e0bdd9296af360167ff7764517b1b7385024f78f1529844142dda3bcd3c7",
      "source_cells": [
       "10/13/2026",
       "Q3 2026",
@@ -737,31 +752,13 @@
     "rev_basis": "Total revenue",
     "rev_surprise": -0.019282511210762333,
     "rev_result": "below",
+    "eps_adjusted": false,
     "eps_actual_used": 1.87,
     "eps_surprise": 0.010810810810810811,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-13). EPS surprise basis: consensus-comparable. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-13",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-13-wells-fargo-company-stock/",
     "price": 82.39,
-    "history": {
-     "avg_abs_r2": 3.8,
-     "n": 4
-    },
-    "r2": -2.9,
-    "r5": -1.8,
-    "reaction_window": {
-     "reported": "2026-10-13",
-     "hour": "bmo",
-     "release_timestamp": 1791887299,
-     "baseline_date": "2026-10-12",
-     "baseline_close": 83.31999969482422,
-     "end_date": "2026-10-14",
-     "end_close": 80.9000015258789,
-     "r2": -2.9,
-     "r5": -1.8,
-     "r5_end_date": "2026-10-19"
-    },
-    "eps_adjusted": false,
     "reaction_history": [
      {
       "reported": "2026-10-13",
@@ -811,7 +808,25 @@
       "r5": -8.0,
       "r5_end_date": "2026-01-21"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 3.8,
+     "n": 4
+    },
+    "r2": -2.9,
+    "r5": -1.8,
+    "reaction_window": {
+     "reported": "2026-10-13",
+     "hour": "bmo",
+     "release_timestamp": 1791887299,
+     "baseline_date": "2026-10-12",
+     "baseline_close": 83.31999969482422,
+     "end_date": "2026-10-14",
+     "end_close": 80.9000015258789,
+     "r2": -2.9,
+     "r5": -1.8,
+     "r5_end_date": "2026-10-19"
+    }
    }
   },
   {
@@ -855,6 +870,11 @@
     "xbrl_eps_prior": 1.86
    },
    "attempts": 1,
+   "release_date_observation": {
+    "date": "2026-10-13",
+    "source_quote": "OCTOBER 13, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/831001/000110465926115323/c-ex99d1.htm"
+   },
    "market": {
     "date": "2026-10-13",
     "hour": "bmo",
@@ -878,8 +898,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/C/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-13-citigroup-inc-stock/",
-     "observed_at": "2026-10-24T08:27:21+00:00",
-     "source_sha256": "df2132d0ee9d6f56af37259c45b252de9e4c92673229cce0f988286a72813e6b",
+     "observed_at": "2026-10-24T09:34:03+00:00",
+     "source_sha256": "c0356768e896fe6bee59c0d068d5a5ce8c9385b8a1170898088b3f3965823040",
      "source_cells": [
       "10/13/2026",
       "Q3 2026",
@@ -897,31 +917,13 @@
     "rev_basis": "Total revenues, net of interest expense",
     "rev_surprise": 0.0044229149115417015,
     "rev_result": "above",
+    "eps_adjusted": false,
     "eps_actual_used": 2.85,
     "eps_surprise": 0.07142857142857142,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-13). EPS surprise basis: consensus-comparable. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-13",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-13-citigroup-inc-stock/",
     "price": 120.62,
-    "history": {
-     "avg_abs_r2": 4.2,
-     "n": 4
-    },
-    "r2": -7.3,
-    "r5": -7.8,
-    "reaction_window": {
-     "reported": "2026-10-13",
-     "hour": "bmo",
-     "release_timestamp": 1791889283,
-     "baseline_date": "2026-10-12",
-     "baseline_close": 131.9199981689453,
-     "end_date": "2026-10-14",
-     "end_close": 122.2699966430664,
-     "r2": -7.3,
-     "r5": -7.8,
-     "r5_end_date": "2026-10-19"
-    },
-    "eps_adjusted": false,
     "reaction_history": [
      {
       "reported": "2026-10-13",
@@ -971,7 +973,25 @@
       "r5": -2.1,
       "r5_end_date": "2026-01-21"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 4.2,
+     "n": 4
+    },
+    "r2": -7.3,
+    "r5": -7.8,
+    "reaction_window": {
+     "reported": "2026-10-13",
+     "hour": "bmo",
+     "release_timestamp": 1791889283,
+     "baseline_date": "2026-10-12",
+     "baseline_close": 131.9199981689453,
+     "end_date": "2026-10-14",
+     "end_close": 122.2699966430664,
+     "r2": -7.3,
+     "r5": -7.8,
+     "r5_end_date": "2026-10-19"
+    }
    }
   },
   {
@@ -1022,6 +1042,11 @@
     "source_quote": "BlackRock Reports Third Quarter 2026 Diluted EPS of $10.57, or $15.93 as adjusted",
     "source_sha256": "c48a858cc425e1d0bc995330bb2d44b508e038f44d7c2c4e0ccc81766a175704"
    },
+   "release_date_observation": {
+    "date": "2026-10-14",
+    "source_quote": "October 14, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/2012383/000119312526420979/blk-ex99_1.htm"
+   },
    "market": {
     "date": "2026-10-14",
     "hour": "bmo",
@@ -1045,8 +1070,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/BLK/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-14-blackrock-inc-stock/",
-     "observed_at": "2026-10-24T08:27:22+00:00",
-     "source_sha256": "29bb3fcf90ca3854b30115634c482550cf84faef56b701addc3cd9e911f9fcf7",
+     "observed_at": "2026-10-24T09:34:08+00:00",
+     "source_sha256": "232b5300c74ac7ea4e4d388d0446b44f237117fd82492bf6113de1ee337f51bd",
      "source_cells": [
       "10/14/2026",
       "Q3 2026",
@@ -1064,31 +1089,13 @@
     "rev_basis": "Total revenue",
     "rev_surprise": 0.044743935309973046,
     "rev_result": "above",
+    "eps_adjusted": true,
     "eps_actual_used": 15.93,
     "eps_surprise": 0.11243016759776536,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-14). EPS surprise basis: adjusted diluted EPS. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-14",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-14-blackrock-inc-stock/",
     "price": 1118.25,
-    "history": {
-     "avg_abs_r2": 5.0,
-     "n": 4
-    },
-    "r2": 5.1,
-    "r5": 5.9,
-    "reaction_window": {
-     "reported": "2026-10-14",
-     "hour": "bmo",
-     "release_timestamp": 1791974361,
-     "baseline_date": "2026-10-13",
-     "baseline_close": 1066.1199951171875,
-     "end_date": "2026-10-15",
-     "end_close": 1120.780029296875,
-     "r2": 5.1,
-     "r5": 5.9,
-     "r5_end_date": "2026-10-20"
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-14",
@@ -1138,7 +1145,25 @@
       "r5": 4.4,
       "r5_end_date": "2026-01-22"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 5.0,
+     "n": 4
+    },
+    "r2": 5.1,
+    "r5": 5.9,
+    "reaction_window": {
+     "reported": "2026-10-14",
+     "hour": "bmo",
+     "release_timestamp": 1791974361,
+     "baseline_date": "2026-10-13",
+     "baseline_close": 1066.1199951171875,
+     "end_date": "2026-10-15",
+     "end_close": 1120.780029296875,
+     "r2": 5.1,
+     "r5": 5.9,
+     "r5_end_date": "2026-10-20"
+    }
    }
   },
   {
@@ -1190,6 +1215,11 @@
     "source_quote": "Excluding $151 million of pre-tax transaction-related costs, adjusted (1) net income and earnings per share equaled $3.0 billion and $1.69, respectively.",
     "source_sha256": "a0be1f6a7e89c502b28f978448146543167c5bae4df7fa6b484756b0444f71f0"
    },
+   "release_date_observation": {
+    "date": "2026-10-15",
+    "source_quote": "October 15, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/316709/000031670926000035/a3q26exhibit991.htm"
+   },
    "market": {
     "date": "2026-10-15",
     "hour": "bmo",
@@ -1213,8 +1243,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/SCHW/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-15-the-charles-schwab-co-stock/",
-     "observed_at": "2026-10-24T08:27:23+00:00",
-     "source_sha256": "9991215e7ea25b9a4a978e43d9bf51f065c673908f5cda371a5fd215bf070e18",
+     "observed_at": "2026-10-24T09:34:08+00:00",
+     "source_sha256": "df7bd7b74c83f6aacb85c5779e606057c71d6a7e3137d8bfa65488a109cc08da",
      "source_cells": [
       "10/15/2026",
       "Q3 2026",
@@ -1232,31 +1262,13 @@
     "rev_basis": "Total net revenues",
     "rev_surprise": -0.0012534818941504179,
     "rev_result": "below",
+    "eps_adjusted": true,
     "eps_actual_used": 1.69,
     "eps_surprise": 0.018072289156626505,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-15). EPS surprise basis: adjusted diluted EPS. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-15",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-15-the-charles-schwab-co-stock/",
     "price": 90.58,
-    "history": {
-     "avg_abs_r2": 4.4,
-     "n": 4
-    },
-    "r2": -5.0,
-    "r5": -5.3,
-    "reaction_window": {
-     "reported": "2026-10-15",
-     "hour": "bmo",
-     "release_timestamp": 1792063800,
-     "baseline_date": "2026-10-14",
-     "baseline_close": 96.80000305175781,
-     "end_date": "2026-10-16",
-     "end_close": 91.95999908447266,
-     "r2": -5.0,
-     "r5": -5.3,
-     "r5_end_date": "2026-10-21"
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-15",
@@ -1306,7 +1318,25 @@
       "r5": 2.7,
       "r5_end_date": "2026-01-27"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 4.4,
+     "n": 4
+    },
+    "r2": -5.0,
+    "r5": -5.3,
+    "reaction_window": {
+     "reported": "2026-10-15",
+     "hour": "bmo",
+     "release_timestamp": 1792063800,
+     "baseline_date": "2026-10-14",
+     "baseline_close": 96.80000305175781,
+     "end_date": "2026-10-16",
+     "end_close": 91.95999908447266,
+     "r2": -5.0,
+     "r5": -5.3,
+     "r5_end_date": "2026-10-21"
+    }
    }
   },
   {
@@ -1358,6 +1388,11 @@
     "source_quote": "Adjusted net income was $3.2 billion, or $4.68 per share, which excludes the $982 million pre-tax gain ($751 million after-tax) from the previously-announced sale of the company's equity interest in Global Business Travel Group, Inc. (GBTG), net of the portion of the gain used to fund restructuring related to efficiency initiatives. 1",
     "source_sha256": "06101e0ba8aaa596fb5662f4c439e3b7ccdce06e9c43748c87eec0c20c4e46aa"
    },
+   "release_date_observation": {
+    "date": "2026-10-23",
+    "source_quote": "October 23, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/4962/000000496226000405/q326exhibit991.htm"
+   },
    "market": {
     "date": "2026-10-23",
     "hour": "bmo",
@@ -1381,8 +1416,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/AXP/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-23-american-express-stock/",
-     "observed_at": "2026-10-24T08:27:23+00:00",
-     "source_sha256": "0ddecfa37b5576dc11f8bfb2835ee5d9f8f157db5db5368602de1c4b5a8bcb8a",
+     "observed_at": "2026-10-24T09:34:08+00:00",
+     "source_sha256": "6daac8857e71d09c6ac66bdc5100f3224fd9c32273f8cd9938025251bcff3258",
      "source_cells": [
       "10/23/2026",
       "Q3 2026",
@@ -1400,23 +1435,13 @@
     "rev_basis": "Total Revenues Net of Interest Expense",
     "rev_surprise": -0.002882703777335984,
     "rev_result": "below",
+    "eps_adjusted": true,
     "eps_actual_used": 4.68,
     "eps_surprise": 0.04,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-23). EPS surprise basis: adjusted diluted EPS. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-23",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-23-american-express-stock/",
     "price": 313.22,
-    "history": {
-     "avg_abs_r2": 3.0,
-     "n": 3
-    },
-    "implied": {
-     "move_pct": 3.8,
-     "expiry": "2026-10-23",
-     "taken": "2026-10-22",
-     "report": "2026-10-23"
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-07-24",
@@ -1454,7 +1479,17 @@
       "r5": -1.1,
       "r5_end_date": "2026-02-05"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 3.0,
+     "n": 3
+    },
+    "implied": {
+     "move_pct": 3.8,
+     "expiry": "2026-10-23",
+     "taken": "2026-10-22",
+     "report": "2026-10-23"
+    }
    }
   },
   {
@@ -1506,6 +1541,11 @@
     "source_quote": "Adjusted Net Earnings 1,4\n$6,339\n$6,801\n(6.8)\n%\nAdjusted EPS (diluted) 1,4\n$2.59\n$2.80\n(7.5)\n%",
     "source_sha256": "92de61a7f883598ac78cdc2e8524c14e75eb1375155ead2f1bdc96e81504e6f8"
    },
+   "release_date_observation": {
+    "date": "2026-10-13",
+    "source_quote": "October 13, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/200406/000020040626000189/a2026q3exhibit991.htm"
+   },
    "market": {
     "date": "2026-10-13",
     "hour": "bmo",
@@ -1529,8 +1569,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/JNJ/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-13-johnson-johnson-stock/",
-     "observed_at": "2026-10-24T08:27:23+00:00",
-     "source_sha256": "36108b23cdf55cd1a915ff92939a6f3d7db3a42490f6dd6beecb9c03ae76b9da",
+     "observed_at": "2026-10-24T09:34:07+00:00",
+     "source_sha256": "90fcb51834fefca119f1bb8fac50551f30974e7e83ae4646dad80b2244262d5e",
      "source_cells": [
       "10/13/2026",
       "Q3 2026",
@@ -1548,31 +1588,13 @@
     "rev_basis": "Reported Sales",
     "rev_surprise": 0.0007486209613869188,
     "rev_result": "above",
+    "eps_adjusted": true,
     "eps_actual_used": 2.59,
     "eps_surprise": 0.023715415019762844,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-13). EPS surprise basis: adjusted diluted EPS. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-13",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-13-johnson-johnson-stock/",
     "price": 263.81,
-    "history": {
-     "avg_abs_r2": 1.4,
-     "n": 4
-    },
-    "r2": -3.7,
-    "r5": -3.8,
-    "reaction_window": {
-     "reported": "2026-10-13",
-     "hour": "bmo",
-     "release_timestamp": 1791886800,
-     "baseline_date": "2026-10-12",
-     "baseline_close": 263.7300109863281,
-     "end_date": "2026-10-14",
-     "end_close": 253.91000366210938,
-     "r2": -3.7,
-     "r5": -3.8,
-     "r5_end_date": "2026-10-19"
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-13",
@@ -1622,7 +1644,25 @@
       "r5": 2.9,
       "r5_end_date": "2026-01-27"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 1.4,
+     "n": 4
+    },
+    "r2": -3.7,
+    "r5": -3.8,
+    "reaction_window": {
+     "reported": "2026-10-13",
+     "hour": "bmo",
+     "release_timestamp": 1791886800,
+     "baseline_date": "2026-10-12",
+     "baseline_close": 263.7300109863281,
+     "end_date": "2026-10-14",
+     "end_close": 253.91000366210938,
+     "r2": -3.7,
+     "r5": -3.8,
+     "r5_end_date": "2026-10-19"
+    }
    }
   },
   {
@@ -1676,6 +1716,11 @@
     "source_quote": "Third Quarter 2026 Revenues of $112.7 Billion; Earnings from Operations of $6.6 Billion \u2022 Earnings of $4.56 Per Share and Adjusted Earnings of $4.69 Per Share",
     "source_sha256": "499f44a57cd7be871a12aba308518ae47a9be8afe340426329621a989c07f851"
    },
+   "release_date_observation": {
+    "date": "2026-10-13",
+    "source_quote": "October 13, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000255/earningsrelease3q26unh.htm"
+   },
    "market": {
     "date": "2026-10-13",
     "hour": "bmo",
@@ -1699,8 +1744,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/UNH/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-13-unitedhealth-group-incorporated-stock/",
-     "observed_at": "2026-10-24T08:27:23+00:00",
-     "source_sha256": "c88fe802ab5db28ff4746d7fce94d81423d6099239f6f49971c68ecbb59d97b7",
+     "observed_at": "2026-10-24T09:34:08+00:00",
+     "source_sha256": "863834f4e9bffbd60cb5f9741d69125608155e32826ec39e693f24c242d114a5",
      "source_cells": [
       "10/13/2026",
       "Q3 2026",
@@ -1715,31 +1760,13 @@
     },
     "eps_basis": "adjusted diluted EPS",
     "revenue_comparison_note": "Provider actual and consolidated release revenue have different bases; surprise omitted.",
+    "eps_adjusted": true,
     "eps_actual_used": 4.69,
     "eps_surprise": 0.13285024154589373,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-13). EPS surprise basis: adjusted diluted EPS. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-13",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-13-unitedhealth-group-incorporated-stock/",
     "price": 418.09,
-    "history": {
-     "avg_abs_r2": 8.0,
-     "n": 4
-    },
-    "r2": 4.5,
-    "r5": 7.5,
-    "reaction_window": {
-     "reported": "2026-10-13",
-     "hour": "bmo",
-     "release_timestamp": 1791885300,
-     "baseline_date": "2026-10-12",
-     "baseline_close": 378.5199890136719,
-     "end_date": "2026-10-14",
-     "end_close": 395.6199951171875,
-     "r2": 4.5,
-     "r5": 7.5,
-     "r5_end_date": "2026-10-19"
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-13",
@@ -1789,7 +1816,25 @@
       "r5": -18.8,
       "r5_end_date": "2026-02-02"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 8.0,
+     "n": 4
+    },
+    "r2": 4.5,
+    "r5": 7.5,
+    "reaction_window": {
+     "reported": "2026-10-13",
+     "hour": "bmo",
+     "release_timestamp": 1791885300,
+     "baseline_date": "2026-10-12",
+     "baseline_close": 378.5199890136719,
+     "end_date": "2026-10-14",
+     "end_close": 395.6199951171875,
+     "r2": 4.5,
+     "r5": 7.5,
+     "r5_end_date": "2026-10-19"
+    }
    }
   },
   {
@@ -1848,6 +1893,11 @@
     "source_quote": "3Q 2026 diluted EPS 1 of $6.27 and adjusted diluted EPS 2 of $6.99; results reflect improved operating performance and a net non-operating benefit of $1.85 per share",
     "source_sha256": "9a7d74d6ec31b389ce6f56cf86b7d434e1b95826001b098c748aa93f8468fa15"
    },
+   "release_date_observation": {
+    "date": "2026-10-21",
+    "source_quote": "October 21, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1156039/000115603926000068/a3q2026elvearningsrelease.htm"
+   },
    "market": {
     "date": "2026-10-21",
     "hour": "bmo",
@@ -1871,8 +1921,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/ELV/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-21-anthem-inc-stock/",
-     "observed_at": "2026-10-24T08:27:23+00:00",
-     "source_sha256": "74aad349c42227cd26ca21a403491a6f2a0fa636e46c40e3b00b922638a0c228",
+     "observed_at": "2026-10-24T09:34:11+00:00",
+     "source_sha256": "6da2c38ca7dc9f0f6958491f1fcc32a7da46eb80c40ea1a9a4882b7be8cffa81",
      "source_cells": [
       "10/21/2026",
       "Q3 2026",
@@ -1890,31 +1940,13 @@
     "rev_basis": "Total operating revenue",
     "rev_surprise": 0.02353896103896104,
     "rev_result": "above",
+    "eps_adjusted": true,
     "eps_actual_used": 6.99,
     "eps_surprise": 0.4840764331210191,
     "market_note": "Revenue surprise uses Total operating revenue; growth uses consolidated revenue. Consensus: MarketBeat, Q3 2026 (2026-10-21). EPS surprise basis: adjusted diluted EPS. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-21",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-21-anthem-inc-stock/",
     "price": 439.95,
-    "history": {
-     "avg_abs_r2": 6.7,
-     "n": 4
-    },
-    "r2": 1.2,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-21",
-     "hour": "bmo",
-     "release_timestamp": 1792576800,
-     "baseline_date": "2026-10-20",
-     "baseline_close": 440.17999267578125,
-     "end_date": "2026-10-22",
-     "end_close": 445.2799987792969,
-     "r2": 1.2,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-21",
@@ -1964,7 +1996,25 @@
       "r5": 4.9,
       "r5_end_date": "2026-02-03"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 6.7,
+     "n": 4
+    },
+    "r2": 1.2,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-21",
+     "hour": "bmo",
+     "release_timestamp": 1792576800,
+     "baseline_date": "2026-10-20",
+     "baseline_close": 440.17999267578125,
+     "end_date": "2026-10-22",
+     "end_close": 445.2799987792969,
+     "r2": 1.2,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -2039,8 +2089,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/ABT/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-21-abbott-laboratories-stock/",
-     "observed_at": "2026-10-24T08:27:23+00:00",
-     "source_sha256": "b152f1c239cb57cb161401203334e4bab170f7b3ed5f551dc3e76fa3fd50c28d",
+     "observed_at": "2026-10-24T09:34:10+00:00",
+     "source_sha256": "a6c387b52573e4e83a9ef76cbf0a149720783fff10fde2b91df9c74f4ca4dbab",
      "source_cells": [
       "10/21/2026",
       "Q3 2026",
@@ -2058,31 +2108,13 @@
     "rev_basis": "Net Sales",
     "rev_surprise": 0.001770592763664357,
     "rev_result": "above",
+    "eps_adjusted": true,
     "eps_actual_used": 1.42,
     "eps_surprise": 0.0,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-21). EPS surprise basis: adjusted diluted EPS. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-21",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-21-abbott-laboratories-stock/",
     "price": 103.7,
-    "history": {
-     "avg_abs_r2": 7.2,
-     "n": 4
-    },
-    "r2": 0.1,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-21",
-     "hour": "bmo",
-     "release_timestamp": 1792582200,
-     "baseline_date": "2026-10-20",
-     "baseline_close": 102.44999694824219,
-     "end_date": "2026-10-22",
-     "end_close": 102.51000213623047,
-     "r2": 0.1,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-21",
@@ -2132,7 +2164,25 @@
       "r5": -12.2,
       "r5_end_date": "2026-01-28"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 7.2,
+     "n": 4
+    },
+    "r2": 0.1,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-21",
+     "hour": "bmo",
+     "release_timestamp": 1792582200,
+     "baseline_date": "2026-10-20",
+     "baseline_close": 102.44999694824219,
+     "end_date": "2026-10-22",
+     "end_close": 102.51000213623047,
+     "r2": 0.1,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -2184,6 +2234,11 @@
     "source_quote": "Third quarter 2026 non-GAAP* net income attributable to Intuitive Surgical, Inc. was $1.05 billion, or $3.00 per diluted share, compared with $867 million, or $2.40 per diluted share, in the third quarter of 2025.",
     "source_sha256": "933517a9d885dd27267b35b257d15f2d462cc1f4f48bbc67aae6f319c8d25f7e"
    },
+   "release_date_observation": {
+    "date": "2026-10-20",
+    "source_quote": "October 20, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1035267/000103526726000067/q326ex-991earningsrelease.htm"
+   },
    "market": {
     "date": "2026-10-20",
     "hour": "amc",
@@ -2207,8 +2262,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NASDAQ/ISRG/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-20-intuitive-surgical-inc-stock/",
-     "observed_at": "2026-10-24T08:27:23+00:00",
-     "source_sha256": "775bcd58fc61793e92a679974ab430a67dd40cf7f95e1632b14e399ab26e3e70",
+     "observed_at": "2026-10-24T09:34:10+00:00",
+     "source_sha256": "a98d06f8919d64bfd77290d5d0d108883d06246c8b437596308c3206b53daf19",
      "source_cells": [
       "10/20/2026",
       "Q3 2026",
@@ -2226,31 +2281,13 @@
     "rev_basis": "Total revenue",
     "rev_surprise": 0.04766323024054983,
     "rev_result": "above",
+    "eps_adjusted": true,
     "eps_actual_used": 3.0,
     "eps_surprise": 0.1320754716981132,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-20). EPS surprise basis: non-GAAP diluted EPS. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-20",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-20-intuitive-surgical-inc-stock/",
     "price": 452.29,
-    "history": {
-     "avg_abs_r2": 5.0,
-     "n": 4
-    },
-    "r2": 1.3,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-20",
-     "hour": "amc",
-     "release_timestamp": 1792526700,
-     "baseline_date": "2026-10-20",
-     "baseline_close": 438.0,
-     "end_date": "2026-10-22",
-     "end_close": 443.8500061035156,
-     "r2": 1.3,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-20",
@@ -2300,7 +2337,25 @@
       "r5": -3.5,
       "r5_end_date": "2026-01-29"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 5.0,
+     "n": 4
+    },
+    "r2": 1.3,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-20",
+     "hour": "amc",
+     "release_timestamp": 1792526700,
+     "baseline_date": "2026-10-20",
+     "baseline_close": 438.0,
+     "end_date": "2026-10-22",
+     "end_close": 443.8500061035156,
+     "r2": 1.3,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -2318,16 +2373,6 @@
     "eps_est": 7.0121,
     "rev_est": 22817870631,
     "price": 1273.46,
-    "history": {
-     "avg_abs_r2": 6.9,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 6.6,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-29",
     "reaction_history": [
      {
       "reported": "2026-08-05",
@@ -2377,7 +2422,17 @@
       "r5": 13.8,
       "r5_end_date": "2025-11-05"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 6.9,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 6.6,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-29"
    }
   },
   {
@@ -2395,16 +2450,6 @@
     "eps_est": 2.1153,
     "rev_est": 17480092512,
     "price": 145.27,
-    "history": {
-     "avg_abs_r2": 1.7,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 5.3,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-29",
     "reaction_history": [
      {
       "reported": "2026-08-04",
@@ -2454,7 +2499,17 @@
       "r5": -2.5,
       "r5_end_date": "2025-11-05"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 1.7,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 5.3,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-29"
    }
   },
   {
@@ -2484,25 +2539,9 @@
     "finnhub_eps_act": null,
     "finnhub_rev_est": 17702881065,
     "finnhub_rev_act": null,
+    "eps_est": 3.8231,
+    "rev_est": 17702881065,
     "price": 285.64,
-    "history": {
-     "avg_abs_r2": 5.4,
-     "n": 4
-    },
-    "r2": 1.5,
-    "r5": 5.2,
-    "reaction_window": {
-     "reported": "2026-10-05",
-     "hour": "bmo",
-     "release_timestamp": null,
-     "baseline_date": "2026-10-02",
-     "baseline_close": 262.82000732421875,
-     "end_date": "2026-10-06",
-     "end_close": 266.69000244140625,
-     "r2": 1.5,
-     "r5": 5.2,
-     "r5_end_date": "2026-10-09"
-    },
     "reaction_history": [
      {
       "reported": "2026-07-31",
@@ -2552,7 +2591,17 @@
       "r5": -4.0,
       "r5_end_date": "2025-11-06"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 5.4,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 4.8,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-30"
    }
   },
   {
@@ -2570,16 +2619,6 @@
     "eps_est": 0.7376,
     "rev_est": 16072017768,
     "price": 30.03,
-    "history": {
-     "avg_abs_r2": 1.2,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 5.0,
-     "expiry": "2026-11-06",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-11-03",
     "reaction_history": [
      {
       "reported": "2026-08-04",
@@ -2629,7 +2668,17 @@
       "r5": -1.1,
       "r5_end_date": "2025-11-10"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 1.2,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 5.0,
+     "expiry": "2026-11-06",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-11-03"
    }
   },
   {
@@ -2681,6 +2730,11 @@
     "source_quote": "Adjusted EPS for the third quarter of 2026 was $6.68, 15% growth versus the third quarter of 2025.",
     "source_sha256": "e64a473cac71e8fa2e7fb091df1a295bc30194535ecce0d025ac0bd0517056fa"
    },
+   "release_date_observation": {
+    "date": "2026-10-21",
+    "source_quote": "October 21, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/97745/000009774526000173/q32026earnings8kex99_1.htm"
+   },
    "market": {
     "date": "2026-10-21",
     "hour": "bmo",
@@ -2704,8 +2758,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/TMO/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-21-thermo-fisher-scientific-inc-stock/",
-     "observed_at": "2026-10-24T08:27:24+00:00",
-     "source_sha256": "1c0c59a3fd645fdfff7a0e3849ce36f17ec795a924de55fec5418e39ec8bfe93",
+     "observed_at": "2026-10-24T09:34:12+00:00",
+     "source_sha256": "73bc35a38373d6feb2e73b9411daac9b73ba54f1cae2d1af2e56947f7cc7f37c",
      "source_cells": [
       "10/21/2026",
       "Q3 2026",
@@ -2723,31 +2777,13 @@
     "rev_basis": "Revenues",
     "rev_surprise": 0.015648535564853558,
     "rev_result": "above",
+    "eps_adjusted": true,
     "eps_actual_used": 6.68,
     "eps_surprise": 0.04375,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-21). EPS surprise basis: adjusted EPS. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-21",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-21-thermo-fisher-scientific-inc-stock/",
     "price": 673.82,
-    "history": {
-     "avg_abs_r2": 5.7,
-     "n": 4
-    },
-    "r2": -1.6,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-21",
-     "hour": "bmo",
-     "release_timestamp": 1792576800,
-     "baseline_date": "2026-10-20",
-     "baseline_close": 687.3699951171875,
-     "end_date": "2026-10-22",
-     "end_close": 676.5399780273438,
-     "r2": -1.6,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-21",
@@ -2797,7 +2833,25 @@
       "r5": -7.0,
       "r5_end_date": "2026-02-04"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 5.7,
+     "n": 4
+    },
+    "r2": -1.6,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-21",
+     "hour": "bmo",
+     "release_timestamp": 1792576800,
+     "baseline_date": "2026-10-20",
+     "baseline_close": 687.3699951171875,
+     "end_date": "2026-10-22",
+     "end_close": 676.5399780273438,
+     "r2": -1.6,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -2841,6 +2895,11 @@
     "xbrl_eps_prior": 0.59
    },
    "attempts": 1,
+   "release_date_observation": {
+    "date": "2026-10-20",
+    "source_quote": "October 20, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1065280/000106528026000290/ex991_q326.htm"
+   },
    "market": {
     "date": "2026-10-20",
     "hour": "amc",
@@ -2864,8 +2923,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NASDAQ/NFLX/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-20-netflix-inc-stock/",
-     "observed_at": "2026-10-24T08:27:24+00:00",
-     "source_sha256": "a52a863931b8b36b38d0330828859ef0fb94b07a34b94deea3ec1dda0a42d80e",
+     "observed_at": "2026-10-24T09:34:12+00:00",
+     "source_sha256": "7b8e847aeabad32db954b639a3a7c7bd7c8a167098fecacd53f0003fba3bc336",
      "source_cells": [
       "10/20/2026",
       "Q3 2026",
@@ -2883,31 +2942,13 @@
     "rev_basis": "Revenues",
     "rev_surprise": 0.0,
     "rev_result": "inline",
+    "eps_adjusted": false,
     "eps_actual_used": 0.87,
     "eps_surprise": 0.06097560975609756,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-20). EPS surprise basis: consensus-comparable. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-20",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-20-netflix-inc-stock/",
     "price": 65.85,
-    "history": {
-     "avg_abs_r2": 7.0,
-     "n": 4
-    },
-    "r2": -2.4,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-20",
-     "hour": "amc",
-     "release_timestamp": 1792526515,
-     "baseline_date": "2026-10-20",
-     "baseline_close": 68.69000244140625,
-     "end_date": "2026-10-22",
-     "end_close": 67.05000305175781,
-     "r2": -2.4,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": false,
     "reaction_history": [
      {
       "reported": "2026-10-20",
@@ -2957,7 +2998,25 @@
       "r5": -1.9,
       "r5_end_date": "2026-01-27"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 7.0,
+     "n": 4
+    },
+    "r2": -2.4,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-20",
+     "hour": "amc",
+     "release_timestamp": 1792526515,
+     "baseline_date": "2026-10-20",
+     "baseline_close": 68.69000244140625,
+     "end_date": "2026-10-22",
+     "end_close": 67.05000305175781,
+     "r2": -2.4,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -2987,25 +3046,9 @@
     "finnhub_eps_act": 0.48,
     "finnhub_rev_est": 28440505633,
     "finnhub_rev_act": 28046000000,
+    "eps_est": 0.4358,
+    "rev_est": 28440505633,
     "price": 372.22,
-    "history": {
-     "avg_abs_r2": 5.8,
-     "n": 4
-    },
-    "r2": 2.7,
-    "r5": 3.3,
-    "reaction_window": {
-     "reported": "2026-10-02",
-     "hour": "amc",
-     "release_timestamp": null,
-     "baseline_date": "2026-10-02",
-     "baseline_close": 370.5899963378906,
-     "end_date": "2026-10-06",
-     "end_close": 380.67999267578125,
-     "r2": 2.7,
-     "r5": 3.3,
-     "r5_end_date": "2026-10-09"
-    },
     "reaction_history": [
      {
       "reported": "2026-10-21",
@@ -3055,7 +3098,12 @@
       "r5": -5.9,
       "r5_end_date": "2026-02-04"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 5.8,
+     "n": 4
+    },
+    "next_date": "2026-10-21"
    }
   },
   {
@@ -3073,16 +3121,6 @@
     "eps_est": 3.1103,
     "rev_est": 132041264399,
     "price": 320.21,
-    "history": {
-     "avg_abs_r2": 5.5,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 6.1,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-28",
     "reaction_history": [
      {
       "reported": "2026-07-22",
@@ -3132,7 +3170,17 @@
       "r5": 3.5,
       "r5_end_date": "2025-11-05"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 5.5,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 6.1,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-28"
    }
   },
   {
@@ -3150,16 +3198,6 @@
     "eps_est": 4.8159,
     "rev_est": 92500205662,
     "price": 524.51,
-    "history": {
-     "avg_abs_r2": 9.1,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 5.3,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-28",
     "reaction_history": [
      {
       "reported": "2026-07-29",
@@ -3209,7 +3247,17 @@
       "r5": -6.4,
       "r5_end_date": "2025-11-05"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 9.1,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 5.3,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-28"
    }
   },
   {
@@ -3261,6 +3309,11 @@
     "source_quote": "Third quarter 2026 costs and expenses includes a $9.89 billion charge related to this agreement. Excluding this charge, the third quarter 2026:\n\u2022 Income from operations of $12.99 billion would have increased by $9.89 billion to $22.88 billion.\n\u2022 Diluted EPS of $3.83 would have increased by $3.57 to $7.40.",
     "source_sha256": "039cac3b8ede1cdd87e1d682ec6abd6755e32ff8997a4e44195e19b656c529ec"
    },
+   "release_date_observation": {
+    "date": "2026-10-21",
+    "source_quote": "October 21, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066700/meta-09302026xexhibit991.htm"
+   },
    "market": {
     "date": "2026-10-21",
     "hour": "amc",
@@ -3284,8 +3337,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NASDAQ/META/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-21-facebook-inc-stock/",
-     "observed_at": "2026-10-24T08:27:25+00:00",
-     "source_sha256": "d7ccc9c49d3d8bf0701e53bcb4f0a0c81da5509867dc8bee0e0f7f59194f8585",
+     "observed_at": "2026-10-24T09:34:14+00:00",
+     "source_sha256": "753a18b1316d28d5d14525245799ada6ce21d3d2f9ba88287bc86782e41635cd",
      "source_cells": [
       "10/21/2026",
       "Q3 2026",
@@ -3303,31 +3356,13 @@
     "rev_basis": "Revenue",
     "rev_surprise": 0.019908430691506156,
     "rev_result": "above",
+    "eps_adjusted": true,
     "eps_actual_used": 7.4,
     "eps_surprise": 0.13149847094801223,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-21). EPS surprise basis: diluted EPS excluding litigation charge. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-21",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-21-facebook-inc-stock/",
     "price": 642.62,
-    "history": {
-     "avg_abs_r2": 7.2,
-     "n": 4
-    },
-    "r2": -7.9,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-21",
-     "hour": "amc",
-     "release_timestamp": 1792612860,
-     "baseline_date": "2026-10-21",
-     "baseline_close": 697.52001953125,
-     "end_date": "2026-10-23",
-     "end_close": 642.6199951171875,
-     "r2": -7.9,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-21",
@@ -3377,7 +3412,25 @@
       "r5": 0.0,
       "r5_end_date": "2026-02-04"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 7.2,
+     "n": 4
+    },
+    "r2": -7.9,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-21",
+     "hour": "amc",
+     "release_timestamp": 1792612860,
+     "baseline_date": "2026-10-21",
+     "baseline_close": 697.52001953125,
+     "end_date": "2026-10-23",
+     "end_close": 642.6199951171875,
+     "r2": -7.9,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -3395,16 +3448,6 @@
     "eps_est": 2.001,
     "rev_est": 206288109339,
     "price": 248.0,
-    "history": {
-     "avg_abs_r2": 10.7,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 7.8,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-29",
     "reaction_history": [
      {
       "reported": "2026-07-30",
@@ -3454,7 +3497,17 @@
       "r5": 9.1,
       "r5_end_date": "2025-11-06"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 10.7,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 7.8,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-29"
    }
   },
   {
@@ -3472,16 +3525,6 @@
     "eps_est": 2.0221,
     "rev_est": 115496910249,
     "price": 347.725,
-    "history": {
-     "avg_abs_r2": 4.1,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 4.8,
-     "expiry": "2026-11-06",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-11-02",
     "reaction_history": [
      {
       "reported": "2026-07-30",
@@ -3531,7 +3574,17 @@
       "r5": -0.6,
       "r5_end_date": "2025-11-06"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 4.1,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 4.8,
+     "expiry": "2026-11-06",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-11-02"
    }
   },
   {
@@ -3549,16 +3602,6 @@
     "eps_est": 0.3996,
     "rev_est": 16781909631,
     "price": 86.96,
-    "history": {
-     "avg_abs_r2": 15.3,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 9.9,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-29",
     "reaction_history": [
      {
       "reported": "2026-07-23",
@@ -3608,7 +3651,17 @@
       "r5": 5.2,
       "r5_end_date": "2025-10-30"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 15.3,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 9.9,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-29"
    }
   },
   {
@@ -3660,6 +3713,11 @@
     "source_quote": "THIRD - QUARTER 2026 INCOME STATEMENT SUMMARY\nRevenue | Gross\nProfit | Gross Profit Margin | Pre-tax\nIncome | Pre-tax\nIncome\nMargin | Net\nIncome | Diluted\nEarnings Per Share\nGAAP from Continuing Operations | $ | 17.1B | $ | 9.7B | 56.8 | % | $ | 2.5B | 14.6 | % | $ | 2.2B | $ | 2.31\nYear/Year | 5 | % (1)\n4 | % | (0.5) | Pts | 3 | % | (0.3) | Pts | 26 | % | 26 | %\nOperating\n(Non-GAAP) | $ | 10.0B | 58.5 | % | $ | 3.3B | 19.3 | % | $ | 2.8B | $ | 2.95",
     "source_sha256": "961fa451e4ef500305511c4d6c5c0475fbce7e3a74f50ab660d863ca03020e36"
    },
+   "release_date_observation": {
+    "date": "2026-10-21",
+    "source_quote": "October 21, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000093/ibm-20261021xex991.htm"
+   },
    "market": {
     "date": "2026-10-21",
     "hour": "amc",
@@ -3683,8 +3741,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/IBM/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-21-international-business-machines-co-stock/",
-     "observed_at": "2026-10-24T08:27:25+00:00",
-     "source_sha256": "343ad2de8f70da7fa46881786557518c65308f2ed002dc4f9a695f1e4c5dfc2e",
+     "observed_at": "2026-10-24T09:34:15+00:00",
+     "source_sha256": "5c056d8d61637c2d290bfbbf429b5c4a73001f0e477ad7e824b6ffc44aa4b894",
      "source_cells": [
       "10/21/2026",
       "Q3 2026",
@@ -3702,31 +3760,13 @@
     "rev_basis": "TOTAL REVENUE",
     "rev_surprise": 0.016825208085612366,
     "rev_result": "above",
+    "eps_adjusted": true,
     "eps_actual_used": 2.95,
     "eps_surprise": 0.03508771929824561,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-21). EPS surprise basis: operating non-GAAP diluted EPS from continuing operations. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-21",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-21-international-business-machines-co-stock/",
     "price": 253.56,
-    "history": {
-     "avg_abs_r2": 4.3,
-     "n": 4
-    },
-    "r2": 0.8,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-21",
-     "hour": "amc",
-     "release_timestamp": 1792613280,
-     "baseline_date": "2026-10-21",
-     "baseline_close": 251.4600067138672,
-     "end_date": "2026-10-23",
-     "end_close": 253.55999755859375,
-     "r2": 0.8,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-21",
@@ -3776,7 +3816,25 @@
       "r5": -1.7,
       "r5_end_date": "2026-02-04"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 4.3,
+     "n": 4
+    },
+    "r2": 0.8,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-21",
+     "hour": "amc",
+     "release_timestamp": 1792613280,
+     "baseline_date": "2026-10-21",
+     "baseline_close": 251.4600067138672,
+     "end_date": "2026-10-23",
+     "end_close": 253.55999755859375,
+     "r2": 0.8,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -3843,8 +3901,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NASDAQ/TXN/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-21-texas-instruments-incorporated-stock/",
-     "observed_at": "2026-10-24T08:27:26+00:00",
-     "source_sha256": "0bb6e7f1bb62d5573cef1e6441a5c05a0af7eb3042723d07e40f36efa19b19f5",
+     "observed_at": "2026-10-24T09:34:15+00:00",
+     "source_sha256": "1752f602b81dbd31bb06318ee36d49e11a2b51e61486d8be37d5ac95e40ffbea",
      "source_cells": [
       "10/21/2026",
       "Q3 2026",
@@ -3862,31 +3920,13 @@
     "rev_basis": "Revenue",
     "rev_surprise": 0.01936026936026936,
     "rev_result": "above",
+    "eps_adjusted": false,
     "eps_actual_used": 2.62,
     "eps_surprise": 0.09166666666666666,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-21). EPS surprise basis: consensus-comparable. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-21",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-21-texas-instruments-incorporated-stock/",
     "price": 284.69,
-    "history": {
-     "avg_abs_r2": 8.4,
-     "n": 4
-    },
-    "r2": 0.0,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-21",
-     "hour": "amc",
-     "release_timestamp": 1792612860,
-     "baseline_date": "2026-10-21",
-     "baseline_close": 284.6499938964844,
-     "end_date": "2026-10-23",
-     "end_close": 284.69000244140625,
-     "r2": 0.0,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": false,
     "reaction_history": [
      {
       "reported": "2026-10-21",
@@ -3936,7 +3976,25 @@
       "r5": 14.5,
       "r5_end_date": "2026-02-03"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 8.4,
+     "n": 4
+    },
+    "r2": 0.0,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-21",
+     "hour": "amc",
+     "release_timestamp": 1792612860,
+     "baseline_date": "2026-10-21",
+     "baseline_close": 284.6499938964844,
+     "end_date": "2026-10-23",
+     "end_close": 284.69000244140625,
+     "r2": 0.0,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -3954,16 +4012,6 @@
     "eps_est": 1.0379,
     "rev_est": 4135579693,
     "price": 158.96,
-    "history": {
-     "avg_abs_r2": 6.6,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 10.2,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-28",
     "reaction_history": [
      {
       "reported": "2026-07-22",
@@ -4013,7 +4061,17 @@
       "r5": -3.5,
       "r5_end_date": "2025-11-05"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 6.6,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 10.2,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-28"
    }
   },
   {
@@ -4031,16 +4089,6 @@
     "eps_est": 3.5054,
     "rev_est": 12325109289,
     "price": 407.92,
-    "history": {
-     "avg_abs_r2": 1.9,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 3.5,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-27",
     "reaction_history": [
      {
       "reported": "2026-07-28",
@@ -4090,7 +4138,17 @@
       "r5": -1.9,
       "r5_end_date": "2025-11-04"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 1.9,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 3.5,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-27"
    }
   },
   {
@@ -4108,16 +4166,6 @@
     "eps_est": 5.3119,
     "rev_est": 9939490966,
     "price": 623.6,
-    "history": {
-     "avg_abs_r2": 2.8,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 3.8,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-29",
     "reaction_history": [
      {
       "reported": "2026-07-30",
@@ -4167,7 +4215,17 @@
       "r5": -0.2,
       "r5_end_date": "2025-11-05"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 2.8,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 3.8,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-29"
    }
   },
   {
@@ -4185,16 +4243,6 @@
     "eps_est": 0.9071,
     "rev_est": 13307860929,
     "price": 92.71,
-    "history": {
-     "avg_abs_r2": 3.7,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 3.3,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-27",
     "reaction_history": [
      {
       "reported": "2026-07-28",
@@ -4244,7 +4292,17 @@
       "r5": 2.4,
       "r5_end_date": "2025-10-27"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 3.7,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 3.3,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-27"
    }
   },
   {
@@ -4296,6 +4354,11 @@
     "source_quote": "EPS | $2.23 | $1.90 | 17% | $6.10 | $4.15 | 47%\nCore EPS | $2.34 | $2.29 | 2% | $6.15 | $5.88 | 5%",
     "source_sha256": "a3a7af92a96a626674510d4daf353748fcf005a443ee9305bb21166335f2eaaf"
    },
+   "release_date_observation": {
+    "date": "2026-10-08",
+    "source_quote": "October 8, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000050/q320268-kxexhibit991.htm"
+   },
    "market": {
     "date": "2026-10-08",
     "hour": "bmo",
@@ -4319,8 +4382,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NASDAQ/PEP/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-7-pepsico-inc-stock/",
-     "observed_at": "2026-10-24T08:27:26+00:00",
-     "source_sha256": "b7c769a2ed107a67a673210c2c4d3c51b27931eada1b952a981251235d7809c8",
+     "observed_at": "2026-10-24T09:34:17+00:00",
+     "source_sha256": "d6c4a6c3018c8d1f4b9d994122dc74eac2e6d060c680ba06c1c4c98f449707e3",
      "source_cells": [
       "10/7/2026",
       "Q3 2026",
@@ -4338,31 +4401,13 @@
     "rev_basis": "Net Revenue",
     "rev_surprise": 0.012985971943887776,
     "rev_result": "above",
+    "eps_adjusted": true,
     "eps_actual_used": 2.34,
     "eps_surprise": 0.021834061135371178,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-07). EPS surprise basis: core diluted EPS, non-GAAP. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline. The consensus source dates this report 2026-10-07; price windows use the issuer release date 2026-10-08.",
     "report_date": "2026-10-08",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-7-pepsico-inc-stock/",
     "price": 135.77,
-    "history": {
-     "avg_abs_r2": 3.6,
-     "n": 4
-    },
-    "r2": 1.8,
-    "r5": 4.5,
-    "reaction_window": {
-     "reported": "2026-10-08",
-     "hour": "bmo",
-     "release_timestamp": 1791453673,
-     "baseline_date": "2026-10-07",
-     "baseline_close": 123.7300033569336,
-     "end_date": "2026-10-09",
-     "end_close": 125.97000122070312,
-     "r2": 1.8,
-     "r5": 4.5,
-     "r5_end_date": "2026-10-14"
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-08",
@@ -4412,12 +4457,25 @@
       "r5": 7.3,
       "r5_end_date": "2026-02-09"
      }
-    ]
-   },
-   "release_date_observation": {
-    "date": "2026-10-08",
-    "source_quote": "October 8, 2026",
-    "source_url": "https://www.sec.gov/Archives/edgar/data/77476/000007747626000050/q320268-kxexhibit991.htm"
+    ],
+    "history": {
+     "avg_abs_r2": 3.6,
+     "n": 4
+    },
+    "r2": 1.8,
+    "r5": 4.5,
+    "reaction_window": {
+     "reported": "2026-10-08",
+     "hour": "bmo",
+     "release_timestamp": 1791453673,
+     "baseline_date": "2026-10-07",
+     "baseline_close": 123.7300033569336,
+     "end_date": "2026-10-09",
+     "end_close": 125.97000122070312,
+     "r2": 1.8,
+     "r5": 4.5,
+     "r5_end_date": "2026-10-14"
+    }
    }
   },
   {
@@ -4471,6 +4529,11 @@
     "source_quote": "Diluted net earnings per share were $1.97, an increase of one percent versus prior year as the increase in net sales was partially offset by an increase in operating costs. Core earnings per share were $2.00, an increase of one percent versus the prior year.",
     "source_sha256": "1c45f1666848dcd58ba2c09980d2e69c9c65c3c06b3c66d895a468be0b4b6cda"
    },
+   "release_date_observation": {
+    "date": "2026-10-22",
+    "source_quote": "October 22, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/80424/000008042426000250/fy2627q1jas8-kexhibit991.htm"
+   },
    "market": {
     "date": "2026-10-22",
     "hour": "bmo",
@@ -4494,8 +4557,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/PG/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-22-the-procter-gamble-company-stock/",
-     "observed_at": "2026-10-24T08:27:26+00:00",
-     "source_sha256": "f95e068df5a3920ba13556721e0e4020c2e3c289df03635f8ccab485a1be130f",
+     "observed_at": "2026-10-24T09:34:16+00:00",
+     "source_sha256": "6a0f7e5cfd8dca704e1ec90d0b65391823e8fbee09164309bf596750218d7313",
      "source_cells": [
       "10/22/2026",
       "Q1 2027",
@@ -4513,31 +4576,13 @@
     "rev_basis": "NET SALES",
     "rev_surprise": 0.02087719298245614,
     "rev_result": "above",
+    "eps_adjusted": true,
     "eps_actual_used": 2.0,
     "eps_surprise": 0.0582010582010582,
     "market_note": "Consensus: MarketBeat, Q1 2027 (2026-10-22). EPS surprise basis: core EPS, non-GAAP. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-22",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-22-the-procter-gamble-company-stock/",
     "price": 161.02,
-    "history": {
-     "avg_abs_r2": 2.6,
-     "n": 4
-    },
-    "r2": 2.7,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-22",
-     "hour": "bmo",
-     "release_timestamp": 1792666800,
-     "baseline_date": "2026-10-21",
-     "baseline_close": 156.83999633789062,
-     "end_date": "2026-10-23",
-     "end_close": 161.02000427246094,
-     "r2": 2.7,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-22",
@@ -4587,7 +4632,25 @@
       "r5": 0.9,
       "r5_end_date": "2026-01-28"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 2.6,
+     "n": 4
+    },
+    "r2": 2.7,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-22",
+     "hour": "bmo",
+     "release_timestamp": 1792666800,
+     "baseline_date": "2026-10-21",
+     "baseline_close": 156.83999633789062,
+     "end_date": "2026-10-23",
+     "end_close": 161.02000427246094,
+     "r2": 2.7,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -4639,6 +4702,11 @@
     "source_quote": "Adjusted Diluted EPS grew by 5.4% to $2.36; and by 5.8% excluding currency;",
     "source_sha256": "40209521b68e5b7f71f2c9806c394a679f7b58b69d60a965495cdb2f0b9c64ac"
    },
+   "release_date_observation": {
+    "date": "2026-10-21",
+    "source_quote": "October 21, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1413329/000162828026066596/earningsreleasepm-ex991xq3.htm"
+   },
    "market": {
     "date": "2026-10-21",
     "hour": "bmo",
@@ -4662,8 +4730,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/PM/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-21-philip-morris-international-inc-stock/",
-     "observed_at": "2026-10-24T08:27:26+00:00",
-     "source_sha256": "e9bdb300998f8cbd2ea862c60efdaf274bdcbcc1cb49a160d159d8fd8d1a6bff",
+     "observed_at": "2026-10-24T09:34:17+00:00",
+     "source_sha256": "46649120bd52a7f4679619a88f54a4b654bccc7e7da0393fa2ec79056a92c6cc",
      "source_cells": [
       "10/21/2026",
       "Q3 2026",
@@ -4681,31 +4749,13 @@
     "rev_basis": "Net Revenues",
     "rev_surprise": 0.010424028268551237,
     "rev_result": "above",
+    "eps_adjusted": true,
     "eps_actual_used": 2.36,
     "eps_surprise": 0.02608695652173913,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-21). EPS surprise basis: adjusted diluted EPS. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-21",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-21-philip-morris-international-inc-stock/",
     "price": 199.47,
-    "history": {
-     "avg_abs_r2": 3.2,
-     "n": 4
-    },
-    "r2": 0.9,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-21",
-     "hour": "bmo",
-     "release_timestamp": 1792580681,
-     "baseline_date": "2026-10-20",
-     "baseline_close": 199.89999389648438,
-     "end_date": "2026-10-22",
-     "end_close": 201.74000549316406,
-     "r2": 0.9,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-21",
@@ -4755,7 +4805,25 @@
       "r5": 3.8,
       "r5_end_date": "2026-02-12"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 3.2,
+     "n": 4
+    },
+    "r2": 0.9,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-21",
+     "hour": "bmo",
+     "release_timestamp": 1792580681,
+     "baseline_date": "2026-10-20",
+     "baseline_close": 199.89999389648438,
+     "end_date": "2026-10-22",
+     "end_close": 201.74000549316406,
+     "r2": 0.9,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -4773,16 +4841,6 @@
     "eps_est": 3.4184,
     "rev_est": 7356990106,
     "price": 248.46,
-    "history": {
-     "avg_abs_r2": 2.0,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 4.4,
-     "expiry": "2026-11-06",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-11-04",
     "reaction_history": [
      {
       "reported": "2026-08-04",
@@ -4832,7 +4890,17 @@
       "r5": 2.5,
       "r5_end_date": "2025-11-11"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 2.0,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 4.4,
+     "expiry": "2026-11-06",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-11-04"
    }
   },
   {
@@ -4850,16 +4918,6 @@
     "eps_est": 0.7303,
     "rev_est": 9417880544,
     "price": 100.8,
-    "history": {
-     "avg_abs_r2": 3.8,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 6.6,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-29",
     "reaction_history": [
      {
       "reported": "2026-07-29",
@@ -4909,7 +4967,17 @@
       "r5": -1.5,
       "r5_end_date": "2025-11-05"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 3.8,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 6.6,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-29"
    }
   },
   {
@@ -4961,6 +5029,11 @@
     "source_quote": "Earnings per Share (EPS) increased 7.2% to $0.97. Adjusted EPS decreased 4.0% to $1.07 .",
     "source_sha256": "6d16cc4d732229aa5b7e4e96246e76195e218654b70beeff61612edbd524a370"
    },
+   "release_date_observation": {
+    "date": "2026-10-22",
+    "source_quote": "October 22, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1166691/000162828026066783/ex991-9302026.htm"
+   },
    "market": {
     "date": "2026-10-22",
     "hour": "bmo",
@@ -4984,8 +5057,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NASDAQ/CMCSA/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-22-comcast-co-stock/",
-     "observed_at": "2026-10-24T08:27:27+00:00",
-     "source_sha256": "dc5d692cb1f9dd37208ea7760e3a9dbfb6189bc337c59a775ff8b404a5e4173b",
+     "observed_at": "2026-10-24T09:34:17+00:00",
+     "source_sha256": "983b61ad4650fc4b397932b4e9d009812878dcddbaccf4a67b6616985c0b2d6a",
      "source_cells": [
       "10/22/2026",
       "Q3 2026",
@@ -5003,31 +5076,13 @@
     "rev_basis": "Revenue",
     "rev_surprise": 0.0026694045174537988,
     "rev_result": "above",
+    "eps_adjusted": true,
     "eps_actual_used": 1.07,
     "eps_surprise": 0.08519269776876268,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-22). EPS surprise basis: adjusted EPS. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-22",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-22-comcast-co-stock/",
     "price": 22.69,
-    "history": {
-     "avg_abs_r2": 4.7,
-     "n": 4
-    },
-    "r2": 2.8,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-22",
-     "hour": "bmo",
-     "release_timestamp": 1792666800,
-     "baseline_date": "2026-10-21",
-     "baseline_close": 22.079999923706055,
-     "end_date": "2026-10-23",
-     "end_close": 22.690000534057617,
-     "r2": 2.8,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-22",
@@ -5077,7 +5132,25 @@
       "r5": 7.4,
       "r5_end_date": "2026-02-04"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 4.7,
+     "n": 4
+    },
+    "r2": 2.8,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-22",
+     "hour": "bmo",
+     "release_timestamp": 1792666800,
+     "baseline_date": "2026-10-21",
+     "baseline_close": 22.079999923706055,
+     "end_date": "2026-10-23",
+     "end_close": 22.690000534057617,
+     "r2": 2.8,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -5095,16 +5168,6 @@
     "eps_est": 1.3111,
     "rev_est": 35786346491,
     "price": 44.66,
-    "history": {
-     "avg_abs_r2": 5.7,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 4.5,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-26",
     "reaction_history": [
      {
       "reported": "2026-07-24",
@@ -5154,7 +5217,17 @@
       "r5": 0.0,
       "r5_end_date": "2025-11-04"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 5.7,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 4.5,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-26"
    }
   },
   {
@@ -5213,6 +5286,11 @@
     "source_quote": "For 3Q26 , adjusted EPS of $0.65 is diluted EPS from continuing operations of $0.13 adjusted for $0.41 impairment charge associated with the held-for-sale Mexico wireless business, $0.09 employee separation charges, and $0.02 for benefit-related, transaction, legal and other items.",
     "source_sha256": "a97072f279d61744348385142e7006e660feebbf4690b73267e263e110f1996f"
    },
+   "release_date_observation": {
+    "date": "2026-10-21",
+    "source_quote": "October 21, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/732717/000073271726000370/t-3q2026exhibit991.htm"
+   },
    "market": {
     "date": "2026-10-21",
     "hour": "bmo",
@@ -5236,8 +5314,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/T/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-21-att-inc-stock/",
-     "observed_at": "2026-10-24T08:27:27+00:00",
-     "source_sha256": "cc08cb22760a272a31e6d7e8170e9887ec722a5e883bc26f1397715d973d3b82",
+     "observed_at": "2026-10-24T09:34:18+00:00",
+     "source_sha256": "0973aab7daae327740380172571562702e742c2ede70b83edfd73b060c3ef4ee",
      "source_cells": [
       "10/21/2026",
       "Q3 2026",
@@ -5255,31 +5333,13 @@
     "rev_basis": "Revenues",
     "rev_surprise": 0.0192489744398864,
     "rev_result": "above",
+    "eps_adjusted": true,
     "eps_actual_used": 0.65,
     "eps_surprise": 0.07973421926910298,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-21). EPS surprise basis: adjusted diluted EPS from continuing operations. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-21",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-21-att-inc-stock/",
     "price": 20.93,
-    "history": {
-     "avg_abs_r2": 4.5,
-     "n": 4
-    },
-    "r2": -2.9,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-21",
-     "hour": "bmo",
-     "release_timestamp": 1792578728,
-     "baseline_date": "2026-10-20",
-     "baseline_close": 23.420000076293945,
-     "end_date": "2026-10-22",
-     "end_close": 22.739999771118164,
-     "r2": -2.9,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-21",
@@ -5329,7 +5389,25 @@
       "r5": 16.7,
       "r5_end_date": "2026-02-03"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 4.5,
+     "n": 4
+    },
+    "r2": -2.9,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-21",
+     "hour": "bmo",
+     "release_timestamp": 1792578728,
+     "baseline_date": "2026-10-20",
+     "baseline_close": 23.420000076293945,
+     "end_date": "2026-10-22",
+     "end_close": 22.739999771118164,
+     "r2": -2.9,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -5347,16 +5425,6 @@
     "eps_est": 2.9699,
     "rev_est": 23600426460,
     "price": 146.54,
-    "history": {
-     "avg_abs_r2": 5.5,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 6.5,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-28",
     "reaction_history": [
      {
       "reported": "2026-07-23",
@@ -5406,7 +5474,17 @@
       "r5": -5.4,
       "r5_end_date": "2025-10-29"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 5.5,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 6.5,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-28"
    }
   },
   {
@@ -5490,8 +5568,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/GE/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-20-general-electric-stock/",
-     "observed_at": "2026-10-24T08:27:27+00:00",
-     "source_sha256": "b4ebf309fc4d83144ef766570003a8e5fe014651e02a232da4dc53eeebd0b6eb",
+     "observed_at": "2026-10-24T09:34:19+00:00",
+     "source_sha256": "3976f46681e1ab6c90a42b2e8f8eb6311511b8557555526c16e06f970e35c38c",
      "source_cells": [
       "10/20/2026",
       "Q3 2026",
@@ -5509,31 +5587,13 @@
     "rev_basis": "Adjusted revenue (Non-GAAP)",
     "rev_surprise": 0.031444099378881984,
     "rev_result": "above",
+    "eps_adjusted": true,
     "eps_actual_used": 2.25,
     "eps_surprise": 0.11940298507462686,
     "market_note": "Revenue surprise uses Adjusted revenue (Non-GAAP); growth uses consolidated revenue. Consensus: MarketBeat, Q3 2026 (2026-10-20). EPS surprise basis: adjusted diluted EPS. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-20",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-20-general-electric-stock/",
     "price": 285.64,
-    "history": {
-     "avg_abs_r2": 6.2,
-     "n": 4
-    },
-    "r2": -4.9,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-20",
-     "hour": "bmo",
-     "release_timestamp": 1792492257,
-     "baseline_date": "2026-10-19",
-     "baseline_close": 311.2799987792969,
-     "end_date": "2026-10-21",
-     "end_close": 295.8800048828125,
-     "r2": -4.9,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-20",
@@ -5583,7 +5643,25 @@
       "r5": -8.2,
       "r5_end_date": "2026-01-28"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 6.2,
+     "n": 4
+    },
+    "r2": -4.9,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-20",
+     "hour": "bmo",
+     "release_timestamp": 1792492257,
+     "baseline_date": "2026-10-19",
+     "baseline_close": 311.2799987792969,
+     "end_date": "2026-10-21",
+     "end_close": 295.8800048828125,
+     "r2": -4.9,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -5601,16 +5679,6 @@
     "eps_est": 4.0059,
     "rev_est": 12111261298,
     "price": 815.0,
-    "history": {
-     "avg_abs_r2": 6.4,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 7.9,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-28",
     "reaction_history": [
      {
       "reported": "2026-07-22",
@@ -5660,7 +5728,17 @@
       "r5": -2.5,
       "r5_end_date": "2025-10-28"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 6.4,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 7.9,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-28"
    }
   },
   {
@@ -5712,6 +5790,11 @@
     "source_quote": "GAAP EPS of $1.89, including $0.26 of acquisition accounting adjustments and $0.11 of restructuring and other net significant and/or non-recurring items\n\u2022 Adjusted EPS* of $2.26, up $0.56, or 33 percent, versus prior year, including $0.25 from IEEPA cost recovery",
     "source_sha256": "35094d463332f4bf77f28b915c09124eb2b614fa9ae342231b1a209696b59185"
    },
+   "release_date_observation": {
+    "date": "2026-10-20",
+    "source_quote": "October 20, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/101829/000010182926000030/a2026-10x208xkerexhibit99.htm"
+   },
    "market": {
     "date": "2026-10-20",
     "hour": "bmo",
@@ -5735,8 +5818,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/RTX/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-20-raytheon-technologies-co-stock/",
-     "observed_at": "2026-10-24T08:27:28+00:00",
-     "source_sha256": "b3b07ce5240603564fa4fa41cfb569509c22d1d21823ba6ac23f0cb5211e3b79",
+     "observed_at": "2026-10-24T09:34:20+00:00",
+     "source_sha256": "44829b474868ed1b463f72c40219dbb04bc233408cd679ef91af2600de2f0830",
      "source_cells": [
       "10/20/2026",
       "Q3 2026",
@@ -5754,31 +5837,13 @@
     "rev_basis": "Net Sales",
     "rev_surprise": 0.03546246370800498,
     "rev_result": "above",
+    "eps_adjusted": true,
     "eps_actual_used": 2.26,
     "eps_surprise": 0.2696629213483146,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-20). EPS surprise basis: adjusted diluted EPS including IEEPA recovery. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-20",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-20-raytheon-technologies-co-stock/",
     "price": 191.01,
-    "history": {
-     "avg_abs_r2": 5.0,
-     "n": 4
-    },
-    "r2": -0.3,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-20",
-     "hour": "bmo",
-     "release_timestamp": 1792493700,
-     "baseline_date": "2026-10-19",
-     "baseline_close": 192.11000061035156,
-     "end_date": "2026-10-21",
-     "end_close": 191.60000610351562,
-     "r2": -0.3,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-20",
@@ -5828,7 +5893,25 @@
       "r5": 3.6,
       "r5_end_date": "2026-02-02"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 5.0,
+     "n": 4
+    },
+    "r2": -0.3,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-20",
+     "hour": "bmo",
+     "release_timestamp": 1792493700,
+     "baseline_date": "2026-10-19",
+     "baseline_close": 192.11000061035156,
+     "end_date": "2026-10-21",
+     "end_close": 191.60000610351562,
+     "r2": -0.3,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -5895,8 +5978,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/LMT/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-22-lockheed-martin-co-stock/",
-     "observed_at": "2026-10-24T08:27:28+00:00",
-     "source_sha256": "21d028e63afd094cd6800fc638f7487a4c3c3c95fc1a97308553100bd9fed688",
+     "observed_at": "2026-10-24T09:34:20+00:00",
+     "source_sha256": "606643ff7788902a5dbee73c081e485f96fd3f6b183931bc27760c2bbb785d68",
      "source_cells": [
       "10/22/2026",
       "Q3 2026",
@@ -5914,31 +5997,13 @@
     "rev_basis": "Sales",
     "rev_surprise": 0.011279296875,
     "rev_result": "above",
+    "eps_adjusted": false,
     "eps_actual_used": 7.97,
     "eps_surprise": 0.0598404255319149,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-22). EPS surprise basis: consensus-comparable. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-22",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-22-lockheed-martin-co-stock/",
     "price": 604.18,
-    "history": {
-     "avg_abs_r2": 9.2,
-     "n": 4
-    },
-    "r2": 9.6,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-22",
-     "hour": "bmo",
-     "release_timestamp": 1792664340,
-     "baseline_date": "2026-10-21",
-     "baseline_close": 551.510009765625,
-     "end_date": "2026-10-23",
-     "end_close": 604.1799926757812,
-     "r2": 9.6,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": false,
     "reaction_history": [
      {
       "reported": "2026-10-22",
@@ -5988,7 +6053,25 @@
       "r5": 0.9,
       "r5_end_date": "2026-02-04"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 9.2,
+     "n": 4
+    },
+    "r2": 9.6,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-22",
+     "hour": "bmo",
+     "release_timestamp": 1792664340,
+     "baseline_date": "2026-10-21",
+     "baseline_close": 551.510009765625,
+     "end_date": "2026-10-23",
+     "end_close": 604.1799926757812,
+     "r2": 9.6,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -6006,16 +6089,6 @@
     "eps_est": -0.2138,
     "rev_est": 24555557049,
     "price": 188.35,
-    "history": {
-     "avg_abs_r2": 5.3,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 5.7,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-27",
     "reaction_history": [
      {
       "reported": "2026-07-28",
@@ -6065,7 +6138,17 @@
       "r5": -11.3,
       "r5_end_date": "2025-11-04"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 5.3,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 5.7,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-27"
    }
   },
   {
@@ -6109,6 +6192,11 @@
     "xbrl_eps_prior": 7.67
    },
    "attempts": 1,
+   "release_date_observation": {
+    "date": "2026-10-20",
+    "source_quote": "October 20, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1133421/000113342126000037/noc-09302026xearningsrelea.htm"
+   },
    "market": {
     "date": "2026-10-20",
     "hour": "bmo",
@@ -6132,8 +6220,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/NOC/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-20-northrop-grumman-co-stock/",
-     "observed_at": "2026-10-24T08:27:30+00:00",
-     "source_sha256": "0d69aa587d6691ada00efb6169e20fb6560b410d2201a84c6cf8505f5df059df",
+     "observed_at": "2026-10-24T09:34:20+00:00",
+     "source_sha256": "dbf08b1b3b622073a0f3753178eb944bea55852282341bdc00bdba5bde09c021",
      "source_cells": [
       "10/20/2026",
       "Q3 2026",
@@ -6151,31 +6239,13 @@
     "rev_basis": "Total sales",
     "rev_surprise": -0.001615798922800718,
     "rev_result": "below",
+    "eps_adjusted": false,
     "eps_actual_used": 7.89,
     "eps_surprise": 0.0988857938718663,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-20). EPS surprise basis: consensus-comparable. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-20",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-20-northrop-grumman-co-stock/",
     "price": 551.44,
-    "history": {
-     "avg_abs_r2": 5.1,
-     "n": 4
-    },
-    "r2": 5.6,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-20",
-     "hour": "bmo",
-     "release_timestamp": 1792490428,
-     "baseline_date": "2026-10-19",
-     "baseline_close": 510.6499938964844,
-     "end_date": "2026-10-21",
-     "end_close": 539.3099975585938,
-     "r2": 5.6,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": false,
     "reaction_history": [
      {
       "reported": "2026-10-20",
@@ -6225,7 +6295,25 @@
       "r5": 3.6,
       "r5_end_date": "2026-02-02"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 5.1,
+     "n": 4
+    },
+    "r2": 5.6,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-20",
+     "hour": "bmo",
+     "release_timestamp": 1792490428,
+     "baseline_date": "2026-10-19",
+     "baseline_close": 510.6499938964844,
+     "end_date": "2026-10-21",
+     "end_close": 539.3099975585938,
+     "r2": 5.6,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -6277,6 +6365,11 @@
     "source_quote": "Adjusted earnings per share of common stock from continuing operations - diluted | $ | 2.27 | $ | 1.70 | $ | 6.46 | $8.40 - 8.45",
     "source_sha256": "78f2297a2b4ba591fb8291bb916b714b392d57737edf8fbf4494092d45a4c05d"
    },
+   "release_date_observation": {
+    "date": "2026-10-22",
+    "source_quote": "October 22, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000141/exhibit99-q32026earningsre.htm"
+   },
    "market": {
     "date": "2026-10-22",
     "hour": "bmo",
@@ -6300,8 +6393,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NASDAQ/HON/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-22-honeywell-international-inc-stock/",
-     "observed_at": "2026-10-24T08:27:30+00:00",
-     "source_sha256": "62c9258344cc7b957d94056b9c698a2982c42de4f9fd24c2531c9cbd614030f7",
+     "observed_at": "2026-10-24T09:34:21+00:00",
+     "source_sha256": "f55301eb011f7b602b44a202bdabff4cd672c1ed155c4fe39ce98e45677f72f1",
      "source_cells": [
       "10/22/2026",
       "Q3 2026",
@@ -6319,31 +6412,13 @@
     "rev_basis": "Net sales",
     "rev_surprise": -0.0031936127744510976,
     "rev_result": "below",
+    "eps_adjusted": true,
     "eps_actual_used": 2.27,
     "eps_surprise": 0.04608294930875576,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-22). EPS surprise basis: adjusted diluted EPS from continuing operations. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-22",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-22-honeywell-international-inc-stock/",
     "price": 221.15,
-    "history": {
-     "avg_abs_r2": 3.9,
-     "n": 4
-    },
-    "r2": 3.0,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-22",
-     "hour": "bmo",
-     "release_timestamp": 1792663200,
-     "baseline_date": "2026-10-21",
-     "baseline_close": 214.72999572753906,
-     "end_date": "2026-10-23",
-     "end_close": 221.14999389648438,
-     "r2": 3.0,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-22",
@@ -6393,7 +6468,25 @@
       "r5": 8.6,
       "r5_end_date": "2026-02-04"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 3.9,
+     "n": 4
+    },
+    "r2": 3.0,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-22",
+     "hour": "bmo",
+     "release_timestamp": 1792663200,
+     "baseline_date": "2026-10-21",
+     "baseline_close": 214.72999572753906,
+     "end_date": "2026-10-23",
+     "end_close": 221.14999389648438,
+     "r2": 3.0,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -6411,16 +6504,6 @@
     "eps_est": 7.1552,
     "rev_est": 20867352783,
     "price": 687.0,
-    "history": {
-     "avg_abs_r2": 7.0,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 7.1,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-29",
     "reaction_history": [
      {
       "reported": "2026-08-04",
@@ -6470,7 +6553,17 @@
       "r5": 4.4,
       "r5_end_date": "2025-11-04"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 7.0,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 7.1,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-29"
    }
   },
   {
@@ -6488,16 +6581,6 @@
     "eps_est": 1.6417,
     "rev_est": 22508653152,
     "price": 101.06,
-    "history": {
-     "avg_abs_r2": 5.3,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 6.4,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-27",
     "reaction_history": [
      {
       "reported": "2026-07-28",
@@ -6547,7 +6630,17 @@
       "r5": 5.5,
       "r5_end_date": "2025-11-03"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 5.3,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 6.4,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-27"
    }
   },
   {
@@ -6599,6 +6692,11 @@
     "source_quote": "Diluted EPS of $3.49, up 16%, and adjusted diluted EPS* of $3.53, up 15%",
     "source_sha256": "131111e2e94f8116f17bab8c93f4fe995b88fd0d122eecdfde059f1f91197997"
    },
+   "release_date_observation": {
+    "date": "2026-10-22",
+    "source_quote": "October 22, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/100885/000010088526000319/a2026-10x228xkex991earning.htm"
+   },
    "market": {
     "date": "2026-10-22",
     "hour": "bmo",
@@ -6622,8 +6720,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/UNP/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-22-union-pacific-co-stock/",
-     "observed_at": "2026-10-24T08:27:31+00:00",
-     "source_sha256": "becc7e08b9ae6034b712b5e7b7f4266dc0f0ad10326b7abcd34c1ebcbba00083",
+     "observed_at": "2026-10-24T09:34:22+00:00",
+     "source_sha256": "d572d5532b8971ad27ce30eea7fc85273084b15fe005f3dbb91ad6bb98bf1982",
      "source_cells": [
       "10/22/2026",
       "Q3 2026",
@@ -6641,31 +6739,13 @@
     "rev_basis": "Total operating revenues",
     "rev_surprise": 0.005167597765363128,
     "rev_result": "above",
+    "eps_adjusted": true,
     "eps_actual_used": 3.53,
     "eps_surprise": 0.01729106628242075,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-22). EPS surprise basis: adjusted diluted EPS. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-22",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-22-union-pacific-co-stock/",
     "price": 292.87,
-    "history": {
-     "avg_abs_r2": 4.0,
-     "n": 4
-    },
-    "r2": 1.7,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-22",
-     "hour": "bmo",
-     "release_timestamp": 1792669500,
-     "baseline_date": "2026-10-21",
-     "baseline_close": 287.8699951171875,
-     "end_date": "2026-10-23",
-     "end_close": 292.8699951171875,
-     "r2": 1.7,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-22",
@@ -6715,7 +6795,25 @@
       "r5": 1.9,
       "r5_end_date": "2026-02-02"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 4.0,
+     "n": 4
+    },
+    "r2": 1.7,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-22",
+     "hour": "bmo",
+     "release_timestamp": 1792669500,
+     "baseline_date": "2026-10-21",
+     "baseline_close": 287.8699951171875,
+     "end_date": "2026-10-23",
+     "end_close": 292.8699951171875,
+     "r2": 1.7,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -6733,16 +6831,6 @@
     "eps_est": 0.4129,
     "rev_est": 47546354796,
     "price": 11.6,
-    "history": {
-     "avg_abs_r2": 3.6,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 6.3,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-28",
     "reaction_history": [
      {
       "reported": "2026-07-28",
@@ -6792,7 +6880,17 @@
       "r5": 5.8,
       "r5_end_date": "2025-10-30"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 3.6,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 6.3,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-28"
    }
   },
   {
@@ -6844,6 +6942,11 @@
     "source_quote": "EPS-diluted(a) | $ | 3.73 | $ | 1.35 | $ | 2.38 | n.m.\nEPS-diluted-adjusted | $ | 3.70 | $ | 2.80 | $ | 0.90 | 32.2 | %",
     "source_sha256": "3160b992f7bb1e3681730474bf1131f7303a9b0b030efceed602014f91f5addd"
    },
+   "release_date_observation": {
+    "date": "2026-10-20",
+    "source_quote": "October 20, 2026",
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1467858/000146785826000056/gmq32026pressreleaseandfin.htm"
+   },
    "market": {
     "date": "2026-10-20",
     "hour": "bmo",
@@ -6867,8 +6970,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/GM/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-20-general-motors-stock/",
-     "observed_at": "2026-10-24T08:27:31+00:00",
-     "source_sha256": "4f1a988326025aaa2f81ef514ff5d5a19f4a8253d0a8e925984bcef1600e3ef1",
+     "observed_at": "2026-10-24T09:34:22+00:00",
+     "source_sha256": "b33cc2a2c3d9c4d67a159f29d5ef6e2c698a8fb83ff5821101474fa20ef8cc90",
      "source_cells": [
       "10/20/2026",
       "Q3 2026",
@@ -6886,31 +6989,13 @@
     "rev_basis": "Total net sales and revenue",
     "rev_surprise": 0.025317753177531776,
     "rev_result": "above",
+    "eps_adjusted": true,
     "eps_actual_used": 3.7,
     "eps_surprise": 0.0027100271002710027,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-20). EPS surprise basis: adjusted diluted EPS. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-20",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-20-general-motors-stock/",
     "price": 75.92,
-    "history": {
-     "avg_abs_r2": 6.2,
-     "n": 4
-    },
-    "r2": -8.0,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-20",
-     "hour": "bmo",
-     "release_timestamp": 1792492200,
-     "baseline_date": "2026-10-19",
-     "baseline_close": 82.75,
-     "end_date": "2026-10-21",
-     "end_close": 76.11000061035156,
-     "r2": -8.0,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-20",
@@ -6960,7 +7045,25 @@
       "r5": 6.1,
       "r5_end_date": "2026-02-02"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 6.2,
+     "n": 4
+    },
+    "r2": -8.0,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-20",
+     "hour": "bmo",
+     "release_timestamp": 1792492200,
+     "baseline_date": "2026-10-19",
+     "baseline_close": 82.75,
+     "end_date": "2026-10-21",
+     "end_close": 76.11000061035156,
+     "r2": -8.0,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   },
   {
@@ -6977,16 +7080,6 @@
     "eps_est": 4.1205,
     "rev_est": 106372585920,
     "price": 183.21,
-    "history": {
-     "avg_abs_r2": 1.0,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 3.9,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-30",
     "reaction_history": [
      {
       "reported": "2026-07-31",
@@ -7036,7 +7129,17 @@
       "r5": -0.2,
       "r5_end_date": "2025-11-06"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 1.0,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 3.9,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-30"
    }
   },
   {
@@ -7054,16 +7157,6 @@
     "eps_est": 4.9317,
     "rev_est": 61724979773,
     "price": 233.21,
-    "history": {
-     "avg_abs_r2": 0.8,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 3.9,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-30",
     "reaction_history": [
      {
       "reported": "2026-07-31",
@@ -7113,7 +7206,17 @@
       "r5": -0.4,
       "r5_end_date": "2025-11-06"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 0.8,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 3.9,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-30"
    }
   },
   {
@@ -7131,16 +7234,6 @@
     "eps_est": 2.9907,
     "rev_est": 18311777477,
     "price": 150.8,
-    "history": {
-     "avg_abs_r2": 1.8,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 8.5,
-     "expiry": "2026-11-06",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-11-05",
     "reaction_history": [
      {
       "reported": "2026-08-06",
@@ -7190,7 +7283,17 @@
       "r5": 1.6,
       "r5_end_date": "2025-11-12"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 1.8,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 8.5,
+     "expiry": "2026-11-06",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-11-05"
    }
   },
   {
@@ -7208,16 +7311,6 @@
     "eps_est": 11.8889,
     "rev_est": 45190234201,
     "price": 283.18,
-    "history": {
-     "avg_abs_r2": 3.9,
-     "n": 4
-    },
-    "implied": {
-     "move_pct": 5.5,
-     "expiry": "2026-10-30",
-     "taken": "2026-10-24"
-    },
-    "next_date": "2026-10-28",
     "reaction_history": [
      {
       "reported": "2026-08-05",
@@ -7267,7 +7360,17 @@
       "r5": 1.6,
       "r5_end_date": "2025-11-04"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 3.9,
+     "n": 4
+    },
+    "implied": {
+     "move_pct": 5.5,
+     "expiry": "2026-10-30",
+     "taken": "2026-10-24"
+    },
+    "next_date": "2026-10-28"
    }
   },
   {
@@ -7344,8 +7447,8 @@
      "rev_act_half_rounding": 5000000.0,
      "source_url": "https://www.marketbeat.com/stocks/NYSE/NEE/earnings/",
      "event_url": "https://www.marketbeat.com/earnings/reports/2026-10-21-nextera-energy-inc-stock/",
-     "observed_at": "2026-10-24T08:27:31+00:00",
-     "source_sha256": "77924e4c3fc1afd3f1dd145fd8709022adc513adb52ae762a4290e58f85f2920",
+     "observed_at": "2026-10-24T09:34:23+00:00",
+     "source_sha256": "318df12828701efd7d2371cc23a80d7ff4398b5dc7e60c19165940282b10b9d2",
      "source_cells": [
       "10/21/2026",
       "Q3 2026",
@@ -7363,31 +7466,13 @@
     "rev_basis": "Operating Revenues",
     "rev_surprise": -0.0448642266824085,
     "rev_result": "below",
+    "eps_adjusted": true,
     "eps_actual_used": 1.24,
     "eps_surprise": 0.03333333333333333,
     "market_note": "Consensus: MarketBeat, Q3 2026 (2026-10-21). EPS surprise basis: adjusted diluted EPS. EPS growth follows the labelled GAAP basis. Revenue inside the published estimate\u2019s rounding interval is shown as inline.",
     "report_date": "2026-10-21",
     "timing_source": "https://www.marketbeat.com/earnings/reports/2026-10-21-nextera-energy-inc-stock/",
     "price": 82.1,
-    "history": {
-     "avg_abs_r2": 3.4,
-     "n": 4
-    },
-    "r2": 3.9,
-    "r5": null,
-    "reaction_window": {
-     "reported": "2026-10-21",
-     "hour": "bmo",
-     "release_timestamp": 1792582810,
-     "baseline_date": "2026-10-20",
-     "baseline_close": 78.86000061035156,
-     "end_date": "2026-10-22",
-     "end_close": 81.9000015258789,
-     "r2": 3.9,
-     "r5": null,
-     "r5_end_date": null
-    },
-    "eps_adjusted": true,
     "reaction_history": [
      {
       "reported": "2026-10-21",
@@ -7437,7 +7522,25 @@
       "r5": 1.0,
       "r5_end_date": "2026-02-02"
      }
-    ]
+    ],
+    "history": {
+     "avg_abs_r2": 3.4,
+     "n": 4
+    },
+    "r2": 3.9,
+    "r5": null,
+    "reaction_window": {
+     "reported": "2026-10-21",
+     "hour": "bmo",
+     "release_timestamp": 1792582810,
+     "baseline_date": "2026-10-20",
+     "baseline_close": 78.86000061035156,
+     "end_date": "2026-10-22",
+     "end_close": 81.9000015258789,
+     "r2": 3.9,
+     "r5": null,
+     "r5_end_date": null
+    }
    }
   }
  ]

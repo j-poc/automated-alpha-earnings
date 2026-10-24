@@ -1,8 +1,8 @@
 {
- "generated_at": "2026-10-24T08:27:32+00:00",
+ "generated_at": "2026-10-24T09:34:25+00:00",
  "companies": {
   "JPM": {
-   "observed_at": "2026-10-24T08:27:23.094084+00:00",
+   "observed_at": "2026-10-24T09:34:04.525430+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/JPM",
    "release_timestamps": [
     {
@@ -288,7 +288,7 @@
    }
   },
   "GS": {
-   "observed_at": "2026-10-24T08:27:24.923270+00:00",
+   "observed_at": "2026-10-24T09:34:04.616246+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/GS",
    "release_timestamps": [
     {
@@ -677,7 +677,7 @@
    }
   },
   "MS": {
-   "observed_at": "2026-10-24T08:27:22.885944+00:00",
+   "observed_at": "2026-10-24T09:34:04.622353+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/MS",
    "release_timestamps": [
     {
@@ -957,7 +957,7 @@
    }
   },
   "BAC": {
-   "observed_at": "2026-10-24T08:27:22.872162+00:00",
+   "observed_at": "2026-10-24T09:34:06.418006+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/BAC",
    "release_timestamps": [
     {
@@ -1230,7 +1230,7 @@
    }
   },
   "WFC": {
-   "observed_at": "2026-10-24T08:27:22.931329+00:00",
+   "observed_at": "2026-10-24T09:34:09.022465+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/WFC",
    "release_timestamps": [
     {
@@ -1502,7 +1502,7 @@
    }
   },
   "C": {
-   "observed_at": "2026-10-24T08:27:22.840650+00:00",
+   "observed_at": "2026-10-24T09:34:04.541759+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/C",
    "release_timestamps": [
     {
@@ -1785,7 +1785,7 @@
    }
   },
   "BLK": {
-   "observed_at": "2026-10-24T08:27:23.710494+00:00",
+   "observed_at": "2026-10-24T09:34:08.657892+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/BLK",
    "release_timestamps": [
     {
@@ -2093,7 +2093,7 @@
    }
   },
   "SCHW": {
-   "observed_at": "2026-10-24T08:27:25.661212+00:00",
+   "observed_at": "2026-10-24T09:34:08.778447+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/SCHW",
    "release_timestamps": [
     {
@@ -2347,7 +2347,7 @@
    }
   },
   "AXP": {
-   "observed_at": "2026-10-24T08:27:23.577348+00:00",
+   "observed_at": "2026-10-24T09:34:09.203943+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/AXP",
    "release_timestamps": [
     {
@@ -2577,7 +2577,7 @@
    }
   },
   "JNJ": {
-   "observed_at": "2026-10-24T08:27:23.628807+00:00",
+   "observed_at": "2026-10-24T09:34:07.653131+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/JNJ",
    "release_timestamps": [
     {
@@ -2837,7 +2837,7 @@
    }
   },
   "UNH": {
-   "observed_at": "2026-10-24T08:27:23.785299+00:00",
+   "observed_at": "2026-10-24T09:34:09.378473+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/UNH",
    "release_timestamps": [
     {
@@ -3147,7 +3147,7 @@
    }
   },
   "ELV": {
-   "observed_at": "2026-10-24T08:27:24.259671+00:00",
+   "observed_at": "2026-10-24T09:34:11.590817+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/ELV",
    "release_timestamps": [
     {
@@ -3396,7 +3396,7 @@
    }
   },
   "ABT": {
-   "observed_at": "2026-10-24T08:27:24.615929+00:00",
+   "observed_at": "2026-10-24T09:34:10.945974+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/ABT",
    "release_timestamps": [
     {
@@ -3647,7 +3647,7 @@
    }
   },
   "ISRG": {
-   "observed_at": "2026-10-24T08:27:24.542719+00:00",
+   "observed_at": "2026-10-24T09:34:11.373610+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/ISRG",
    "release_timestamps": [
     {
@@ -3914,7 +3914,7 @@
    }
   },
   "LLY": {
-   "observed_at": "2026-10-24T08:27:24.595802+00:00",
+   "observed_at": "2026-10-24T09:34:09.797995+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/LLY",
    "release_timestamps": [
     {
@@ -4240,7 +4240,7 @@
    }
   },
   "MRK": {
-   "observed_at": "2026-10-24T08:27:24.846291+00:00",
+   "observed_at": "2026-10-24T09:34:10.065564+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/MRK",
    "release_timestamps": [
     {
@@ -4503,7 +4503,7 @@
    }
   },
   "ABBV": {
-   "observed_at": "2026-10-24T08:27:25.036850+00:00",
+   "observed_at": "2026-10-24T09:34:10.967157+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/ABBV",
    "release_timestamps": [
     {
@@ -4768,7 +4768,7 @@
    }
   },
   "PFE": {
-   "observed_at": "2026-10-24T08:27:25.538823+00:00",
+   "observed_at": "2026-10-24T09:34:12.678673+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/PFE",
    "release_timestamps": [
     {
@@ -5028,7 +5028,7 @@
    }
   },
   "TMO": {
-   "observed_at": "2026-10-24T08:27:25.189876+00:00",
+   "observed_at": "2026-10-24T09:34:13.202899+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/TMO",
    "release_timestamps": [
     {
@@ -5266,7 +5266,7 @@
    }
   },
   "NFLX": {
-   "observed_at": "2026-10-24T08:27:25.678120+00:00",
+   "observed_at": "2026-10-24T09:34:13.508196+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/NFLX",
    "release_timestamps": [
     {
@@ -5533,7 +5533,7 @@
    }
   },
   "TSLA": {
-   "observed_at": "2026-10-24T08:27:25.673022+00:00",
+   "observed_at": "2026-10-24T09:34:13.296443+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/TSLA",
    "release_timestamps": [
     {
@@ -5808,7 +5808,7 @@
    }
   },
   "GOOGL": {
-   "observed_at": "2026-10-24T08:27:25.882614+00:00",
+   "observed_at": "2026-10-24T09:34:12.622782+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/GOOGL",
    "release_timestamps": [
     {
@@ -6097,7 +6097,7 @@
    }
   },
   "MSFT": {
-   "observed_at": "2026-10-24T08:27:26.022010+00:00",
+   "observed_at": "2026-10-24T09:34:12.763317+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/MSFT",
    "release_timestamps": [
     {
@@ -6409,7 +6409,7 @@
    }
   },
   "META": {
-   "observed_at": "2026-10-24T08:27:26.023056+00:00",
+   "observed_at": "2026-10-24T09:34:14.675394+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/META",
    "release_timestamps": [
     {
@@ -6698,7 +6698,7 @@
    }
   },
   "AMZN": {
-   "observed_at": "2026-10-24T08:27:26.217079+00:00",
+   "observed_at": "2026-10-24T09:34:13.702861+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/AMZN",
    "release_timestamps": [
     {
@@ -6982,7 +6982,7 @@
    }
   },
   "AAPL": {
-   "observed_at": "2026-10-24T08:27:26.290706+00:00",
+   "observed_at": "2026-10-24T09:34:13.844426+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/AAPL",
    "release_timestamps": [
     {
@@ -7258,7 +7258,7 @@
    }
   },
   "INTC": {
-   "observed_at": "2026-10-24T08:27:28.066425+00:00",
+   "observed_at": "2026-10-24T09:34:14.133253+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/INTC",
    "release_timestamps": [
     {
@@ -7584,7 +7584,7 @@
    }
   },
   "IBM": {
-   "observed_at": "2026-10-24T08:27:26.505061+00:00",
+   "observed_at": "2026-10-24T09:34:15.770986+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/IBM",
    "release_timestamps": [
     {
@@ -7838,7 +7838,7 @@
    }
   },
   "TXN": {
-   "observed_at": "2026-10-24T08:27:26.551874+00:00",
+   "observed_at": "2026-10-24T09:34:15.688685+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/TXN",
    "release_timestamps": [
     {
@@ -8086,7 +8086,7 @@
    }
   },
   "NOW": {
-   "observed_at": "2026-10-24T08:27:26.606619+00:00",
+   "observed_at": "2026-10-24T09:34:14.756024+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/NOW",
    "release_timestamps": [
     {
@@ -8379,7 +8379,7 @@
    }
   },
   "V": {
-   "observed_at": "2026-10-24T08:27:26.643062+00:00",
+   "observed_at": "2026-10-24T09:34:14.964724+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/V",
    "release_timestamps": [
     {
@@ -8648,7 +8648,7 @@
    }
   },
   "MA": {
-   "observed_at": "2026-10-24T08:27:30.780158+00:00",
+   "observed_at": "2026-10-24T09:34:15.234413+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/MA",
    "release_timestamps": [
     {
@@ -8918,7 +8918,7 @@
    }
   },
   "KO": {
-   "observed_at": "2026-10-24T08:27:27.126321+00:00",
+   "observed_at": "2026-10-24T09:34:15.529329+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/KO",
    "release_timestamps": [
     {
@@ -9184,7 +9184,7 @@
    }
   },
   "PEP": {
-   "observed_at": "2026-10-24T08:27:27.186139+00:00",
+   "observed_at": "2026-10-24T09:34:17.824066+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/PEP",
    "release_timestamps": [
     {
@@ -9456,7 +9456,7 @@
    }
   },
   "PG": {
-   "observed_at": "2026-10-24T08:27:27.440414+00:00",
+   "observed_at": "2026-10-24T09:34:17.561152+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/PG",
    "release_timestamps": [
     {
@@ -9690,7 +9690,7 @@
    }
   },
   "PM": {
-   "observed_at": "2026-10-24T08:27:27.235880+00:00",
+   "observed_at": "2026-10-24T09:34:17.998224+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/PM",
    "release_timestamps": [
     {
@@ -9930,7 +9930,7 @@
    }
   },
   "MCD": {
-   "observed_at": "2026-10-24T08:27:27.769463+00:00",
+   "observed_at": "2026-10-24T09:34:16.478557+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/MCD",
    "release_timestamps": [
     {
@@ -10191,7 +10191,7 @@
    }
   },
   "SBUX": {
-   "observed_at": "2026-10-24T08:27:27.610509+00:00",
+   "observed_at": "2026-10-24T09:34:16.719432+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/SBUX",
    "release_timestamps": [
     {
@@ -10451,7 +10451,7 @@
    }
   },
   "CMCSA": {
-   "observed_at": "2026-10-24T08:27:27.757142+00:00",
+   "observed_at": "2026-10-24T09:34:18.473773+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/CMCSA",
    "release_timestamps": [
     {
@@ -10692,7 +10692,7 @@
    }
   },
   "VZ": {
-   "observed_at": "2026-10-24T08:27:28.051521+00:00",
+   "observed_at": "2026-10-24T09:34:17.681595+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/VZ",
    "release_timestamps": [
     {
@@ -10964,7 +10964,7 @@
    }
   },
   "T": {
-   "observed_at": "2026-10-24T08:27:28.363461+00:00",
+   "observed_at": "2026-10-24T09:34:19.460913+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/T",
    "release_timestamps": [
     {
@@ -11216,7 +11216,7 @@
    }
   },
   "TMUS": {
-   "observed_at": "2026-10-24T08:27:30.783760+00:00",
+   "observed_at": "2026-10-24T09:34:18.357311+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/TMUS",
    "release_timestamps": [
     {
@@ -11479,7 +11479,7 @@
    }
   },
   "GE": {
-   "observed_at": "2026-10-24T08:27:30.898351+00:00",
+   "observed_at": "2026-10-24T09:34:20.456014+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/GE",
    "release_timestamps": [
     {
@@ -11740,7 +11740,7 @@
    }
   },
   "GEV": {
-   "observed_at": "2026-10-24T08:27:30.889968+00:00",
+   "observed_at": "2026-10-24T09:34:18.605941+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/GEV",
    "release_timestamps": [
     {
@@ -12060,7 +12060,7 @@
    }
   },
   "RTX": {
-   "observed_at": "2026-10-24T08:27:30.781311+00:00",
+   "observed_at": "2026-10-24T09:34:20.547856+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/RTX",
    "release_timestamps": [
     {
@@ -12301,7 +12301,7 @@
    }
   },
   "LMT": {
-   "observed_at": "2026-10-24T08:27:31.119444+00:00",
+   "observed_at": "2026-10-24T09:34:21.086686+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/LMT",
    "release_timestamps": [
     {
@@ -12559,7 +12559,7 @@
    }
   },
   "BA": {
-   "observed_at": "2026-10-24T08:27:31.313443+00:00",
+   "observed_at": "2026-10-24T09:34:19.430365+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/BA",
    "release_timestamps": [
     {
@@ -12828,7 +12828,7 @@
    }
   },
   "NOC": {
-   "observed_at": "2026-10-24T08:27:31.515802+00:00",
+   "observed_at": "2026-10-24T09:34:21.060357+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/NOC",
    "release_timestamps": [
     {
@@ -13097,7 +13097,7 @@
    }
   },
   "HON": {
-   "observed_at": "2026-10-24T08:27:31.426649+00:00",
+   "observed_at": "2026-10-24T09:34:22.116237+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/HON",
    "release_timestamps": [
     {
@@ -13333,7 +13333,7 @@
    }
   },
   "CAT": {
-   "observed_at": "2026-10-24T08:27:31.498014+00:00",
+   "observed_at": "2026-10-24T09:34:20.605987+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/CAT",
    "release_timestamps": [
     {
@@ -13644,7 +13644,7 @@
    }
   },
   "UPS": {
-   "observed_at": "2026-10-24T08:27:31.385777+00:00",
+   "observed_at": "2026-10-24T09:34:21.295118+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/UPS",
    "release_timestamps": [
     {
@@ -13907,7 +13907,7 @@
    }
   },
   "UNP": {
-   "observed_at": "2026-10-24T08:27:31.661053+00:00",
+   "observed_at": "2026-10-24T09:34:23.524748+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/UNP",
    "release_timestamps": [
     {
@@ -14143,7 +14143,7 @@
    }
   },
   "F": {
-   "observed_at": "2026-10-24T08:27:31.820230+00:00",
+   "observed_at": "2026-10-24T09:34:21.559814+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/F",
    "release_timestamps": [
     {
@@ -14405,7 +14405,7 @@
    }
   },
   "GM": {
-   "observed_at": "2026-10-24T08:27:31.960493+00:00",
+   "observed_at": "2026-10-24T09:34:25.648971+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/GM",
    "release_timestamps": [
     {
@@ -14653,7 +14653,7 @@
    }
   },
   "XOM": {
-   "observed_at": "2026-10-24T08:27:31.998999+00:00",
+   "observed_at": "2026-10-24T09:34:21.924993+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/XOM",
    "release_timestamps": [
     {
@@ -14917,7 +14917,7 @@
    }
   },
   "CVX": {
-   "observed_at": "2026-10-24T08:27:32.116458+00:00",
+   "observed_at": "2026-10-24T09:34:22.084291+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/CVX",
    "release_timestamps": [
     {
@@ -15176,7 +15176,7 @@
    }
   },
   "COP": {
-   "observed_at": "2026-10-24T08:27:32.252373+00:00",
+   "observed_at": "2026-10-24T09:34:22.669559+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/COP",
    "release_timestamps": [
     {
@@ -15431,7 +15431,7 @@
    }
   },
   "PSX": {
-   "observed_at": "2026-10-24T08:27:32.405888+00:00",
+   "observed_at": "2026-10-24T09:34:22.764505+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/PSX",
    "release_timestamps": [
     {
@@ -15692,7 +15692,7 @@
    }
   },
   "NEE": {
-   "observed_at": "2026-10-24T08:27:32.456634+00:00",
+   "observed_at": "2026-10-24T09:34:23.955815+00:00",
    "chart_source": "https://query1.finance.yahoo.com/v8/finance/chart/NEE",
    "release_timestamps": [
     {
