@@ -8,4 +8,6 @@ Live: https://automatedalpha-earnings.vercel.app
 
 Needs `FINNHUB_API_KEY` and `GEMINI_API_KEY`. Stock reactions use completed daily candles only; a partial second trading session is not a two-day result. The dashboard displays its snapshot time in New York time.
 
+The saved Meta Q3 comparison has a source-bound reconciliation: Finnhub's revenue actual is advertising revenue, so the total-revenue surprise uses the release's consolidated total instead. Its EPS surprise uses the release's adjusted EPS and is labelled accordingly. Raw provider actuals remain in the snapshot. The review applies only to the same source and observed actuals; changed inputs suppress the affected comparisons for review.
+
 `.github/workflows/refresh.yml` schedules three weekday refreshes. Each run builds and verifies, deploys, then commits the deployed snapshot. GitHub needs a durable `VERCEL_TOKEN` scoped to the Evoa workspace and earnings project. A short-lived CLI OAuth access token is unsuitable for scheduled jobs. Project and workspace IDs are fixed in the workflow; `VERCEL_PROJECT_ID` and `VERCEL_ORG_ID` can override the CLI defaults.

@@ -357,7 +357,7 @@ def market(t, reported):
             if e["epsActual"] is not None and e["epsEstimate"]:
                 m["eps_surprise"] = e["epsActual"] / abs(e["epsEstimate"]) - 1 if e["epsEstimate"] > 0 else None
             if e["revenueActual"] and e["revenueEstimate"]:
-                m["rev_surprise"] = e["revenueActual"] / e["revenueEstimate"] - 1  # same (Finnhub) basis both sides
+                m["rev_surprise"] = e["revenueActual"] / e["revenueEstimate"] - 1  # provider basis; reviewed corrections are applied below
     except Exception as e:
         m["finnhub_error"] = str(e)[:120]
     try:
@@ -447,6 +447,7 @@ def company(t, ciks, old=None):
             except Exception as e:
                 row["error"] = f"{type(e).__name__}: {e}"[:300]
     row["market"] = market(t, row.get("filed"))
+    reconcile_market(row)
     print(t, row.get("filed", "—"), row.get("revenue_status", ""), row.get("eps_status", ""), file=sys.stderr)
     return row
 
@@ -528,12 +529,44 @@ def logo(t):
     return "data:image/png;base64," + base64.b64encode(p.read_bytes()).decode()
 
 
+def reconcile_market(row):
+    """Apply a source-bound comparison review without overwriting raw provider actuals.
+
+    A provider can put segment revenue in its actual field. A 5% cross-check
+    does not establish an identical accounting basis. Reviewed corrections stay
+    attached to their filing and observed values; changed inputs need review.
+    """
+    mk = row.setdefault("market", {})
+    review = row.get("consensus_reconciliation")
+    if not review:
+        return
+    mk["rev_surprise"], mk["eps_surprise"] = None, None
+    mk["eps_basis"] = "needs review"
+    mk["market_note"] = "The reviewed comparison inputs changed; revenue and EPS surprises need review."
+    rev, eps = row.get("revenue") or {}, row.get("eps") or {}
+    if (review.get("source_url") != row.get("source_url") or
+            review.get("reported_revenue") != rev.get("current") or
+            review.get("provider_revenue") != mk.get("rev_act") or
+            review.get("reported_eps") != eps.get("current") or
+            review.get("adjusted_eps") != mk.get("eps_act")):
+        return
+    if mk.get("rev_est") and mk["rev_est"] > 0:
+        mk["rev_surprise"] = float(Decimal(str(rev["current"])) / Decimal(str(mk["rev_est"])) - 1)
+    if mk.get("eps_est") and mk["eps_est"] > 0:
+        mk["eps_surprise"] = float(Decimal(str(mk["eps_act"])) / Decimal(str(mk["eps_est"])) - 1)
+    mk["rev_actual_used"] = rev["current"]
+    mk["eps_actual_used"] = mk["eps_act"]
+    mk["eps_basis"] = "adjusted"
+    mk["market_note"] = review["note"]
+
+
 def export(data=None):
     """One flat row per company for the dashboard: data/dashboard.json."""
     data = data or json.loads((DATA / "season.json").read_text())
     g = lambda a, b: a / b - 1 if a is not None and b else None
     rows = []
     for r in data["companies"]:
+        reconcile_market(r)
         mk, x = r.get("market") or {}, r.get("xbrl") or {}
         imp, hist = mk.get("implied") or {}, mk.get("history") or {}
         status = ("upcoming" if not r.get("filed") else "not_earnings" if r.get("not_earnings")
@@ -553,6 +586,8 @@ def export(data=None):
                        eps=eps.get("current"), eps_prior=eps.get("prior"),
                        eps_yoy=g(eps.get("current"), eps.get("prior")) if (eps.get("prior") or 0) > 0 else None,
                        eps_surprise=mk.get("eps_surprise"), rev_surprise=mk.get("rev_surprise"),
+                       eps_basis=mk.get("eps_basis", "provider basis"),
+                       market_note=mk.get("market_note"),
                        r2=mk.get("r2"), r5=mk.get("r5"), headline=r.get("headline"), guidance=r.get("guidance"),
                        quarter=r.get("fiscal_label"),
                        comparison_note=("The year-ago revenue comparison changed in a newer filing. Growth versus last quarter is omitted until the bases are reconciled."

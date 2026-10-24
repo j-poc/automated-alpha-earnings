@@ -128,7 +128,7 @@ window.dash = (() => {
 
   <section class="card" id="reported">
     <h2>Reported</h2>
-    <p class="note">Year-over-year figures follow each company's press release and its stated precision. Year-ago revenue is checked against the available XBRL history, including newer revisions. When the historical base changed, growth versus last quarter is omitted pending reconciliation. EPS is GAAP diluted; one-off charges and gains can swing it hard. Surprises use the analyst consensus's own basis. "Move" uses completed trading sessions only; it stays unavailable until the second session has closed.</p>
+    <p class="note">Year-over-year figures follow each company's press release and its stated precision. Year-ago revenue is checked against the available XBRL history, including newer revisions. When the historical base changed, growth versus last quarter is omitted pending reconciliation. EPS growth is GAAP diluted; one-off charges and gains can swing it hard. Surprises use the analyst consensus's own basis. "Move" uses completed trading sessions only; it stays unavailable until the second session has closed.</p>
     <div class="scroll">
       <table id="rep-table" data-source="season" data-row-key="ticker">
         <thead><tr>
@@ -233,6 +233,11 @@ function drawDetail() {
   if (r.status === 'reported') {
     line('Revenue vs a year ago', 'yoy', sp(r.yoy) + ' (last quarter ' + sp(r.prev_yoy) + ')', cls(r.yoy));
     if (r.comparison_note) line('Comparison', 'comparison_note', r.comparison_note);
+    if (r.market_note) {
+      line('Revenue vs consensus', 'rev_surprise', r.rev_surprise == null ? 'needs review' : (r.rev_surprise * 100).toFixed(2) + '%', cls(r.rev_surprise));
+      line((r.eps_basis === 'adjusted' ? 'Adjusted EPS' : 'EPS') + ' vs consensus', 'eps_surprise', sp(r.eps_surprise), cls(r.eps_surprise));
+      line('Comparison basis', 'market_note', r.market_note);
+    }
     line('Stock move, two days after', 'r2', mv(r.r2) + (r.implied_move != null ? ', options priced ±' + r.implied_move.toFixed(1) + '%' : ''), cls(r.r2));
     if (r.headline) { box.append('div').attr('class', 'k').text('Headline'); box.append('blockquote').attr('data-source', 'season').attr('data-where', w).attr('data-field', 'headline').text(r.headline); }
     if (r.guidance) { box.append('div').attr('class', 'k').text('Outlook'); box.append('blockquote').attr('data-source', 'season').attr('data-where', w).attr('data-field', 'guidance').text(r.guidance); }
@@ -351,7 +356,7 @@ dash.onData(() => {
     [co], [d => fdate(d.date), 'hide-narrow'],
     [d => sp(d.yoy), d => cls(d.yoy)], [d => pp(d.accel), d => cls(d.accel)],
     [d => sp(d.eps_yoy), d => 'hide-narrow ' + cls(d.eps_yoy)],
-    [d => sp(d.rev_surprise), d => cls(d.rev_surprise)], [d => sp(d.eps_surprise), d => 'hide-narrow ' + cls(d.eps_surprise)],
+    [d => sp(d.rev_surprise), d => cls(d.rev_surprise)], [d => sp(d.eps_surprise) + (d.eps_basis === 'adjusted' ? ' adj.' : ''), d => 'hide-narrow ' + cls(d.eps_surprise)],
     [d => mv(d.r2), d => cls(d.r2)]
   ]);
   const up = rows.filter(r => r.status === 'upcoming').sort((a, b) => (a.date || '9') < (b.date || '9') ? -1 : 1);

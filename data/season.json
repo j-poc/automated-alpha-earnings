@@ -1225,8 +1225,8 @@
     "eps_act": 7.4,
     "rev_est": 64635778699,
     "rev_act": 63061000000,
-    "eps_surprise": 0.27830848693188703,
-    "rev_surprise": -0.024363885307757016,
+    "eps_surprise": 0.27830848693188687,
+    "rev_surprise": -0.0005380719425066364,
     "price": 644.645,
     "history": {
      "verdict": "fades its beats",
@@ -1236,7 +1236,20 @@
      "avg_abs_r2": 8.6
     },
     "r2": -6.5,
-    "r5": null
+    "r5": null,
+    "eps_basis": "adjusted",
+    "market_note": "Revenue surprise uses total revenue of $64.601B; the provider actual of $63.061B is advertising revenue. Adjusted EPS of $7.40 excludes the litigation charge; reported diluted EPS is $3.83.",
+    "rev_actual_used": 64601000000.0,
+    "eps_actual_used": 7.4
+   },
+   "consensus_reconciliation": {
+    "source_url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066700/meta-09302026xexhibit991.htm",
+    "issuer_url": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Reports-Third-Quarter-2026-Results/default.aspx",
+    "reported_revenue": 64601000000,
+    "provider_revenue": 63061000000,
+    "reported_eps": 3.83,
+    "adjusted_eps": 7.4,
+    "note": "Revenue surprise uses total revenue of $64.601B; the provider actual of $63.061B is advertising revenue. Adjusted EPS of $7.40 excludes the litigation charge; reported diluted EPS is $3.83."
    }
   },
   {
