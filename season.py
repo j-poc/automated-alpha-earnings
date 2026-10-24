@@ -394,14 +394,14 @@ def market(t, reported, row=None):
     try:
         current = {"date": m["report_date"], "hour": m.get("hour"), "period_end": row.get("period_end")} if m.get("report_date") else None
         p = CACHE / f"yahoo-timing-v4-{t}.json"
-        if p.exists() and time.time() - p.stat().st_mtime < 3 * 3600:
+        if p.exists() and (CACHE / "market-evidence" / f"{t}.json").exists() and time.time() - p.stat().st_mtime < 3 * 3600:
             d = json.loads(p.read_text())
-            raw = DATA / "market-evidence" / f"{t}.json"
+            raw = CACHE / "market-evidence" / f"{t}.json"
             if raw.exists():
                 evidence = json.loads(raw.read_text())
                 d["reaction"] = yahoo.reaction(evidence["quoteSummary"], evidence["chart"], current)
         else:
-            d = yahoo.company(t, current=current, evidence=DATA / "market-evidence", next_hour=m.get("hour"))
+            d = yahoo.company(t, current=current, evidence=CACHE / "market-evidence", next_hour=m.get("hour"))
             CACHE.mkdir(exist_ok=True); p.write_text(json.dumps(d))
         m["price"] = d["price"]["last"]
         rx = d["reaction"]
@@ -506,7 +506,7 @@ def save_market_proof(snapshot):
     """Small provider-input excerpts for offline replay; full responses remain local."""
     proof = {"generated_at": snapshot["generated_at"], "companies": {}}
     for row in snapshot["companies"]:
-        path = DATA / "market-evidence" / f"{row['ticker']}.json"
+        path = CACHE / "market-evidence" / f"{row['ticker']}.json"
         if not path.exists(): continue
         raw = json.loads(path.read_text()); chart = raw["chart"]
         windows = row["market"].get("reaction_history", [])

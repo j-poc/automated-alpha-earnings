@@ -17,7 +17,9 @@ def verify():
     for row in saved['companies']:
         ticker=row['ticker']; assert ticker not in seen;seen.add(ticker)
         mk=row['market']; proof=proofs['companies'].get(ticker)
-        if not proof: continue
+        if not proof:
+            assert not mk.get("price") and not mk.get("reaction_history"), (ticker, "market values have no retained inputs")
+            continue
         prices = {datetime.fromtimestamp(t,timezone.utc).astimezone(ET).date().isoformat(): c
                   for t,c in proof['closes'] if c is not None}
         dates=sorted(prices)

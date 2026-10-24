@@ -103,8 +103,9 @@ window.dash = (() => {
     <div class="card tile"><div class="v"><span data-source="pulse" data-field="accel_pct">—</span>%</div><div class="l">Accelerating: growth above last quarter's</div></div>
     <div class="card tile"><div class="v"><span data-source="pulse" data-field="rev_beat_pct">—</span>%</div><div class="l">Beat revenue consensus</div></div>
     <div class="card tile"><div class="v"><span data-source="pulse" data-field="eps_beat_pct">—</span>%</div><div class="l">Beat EPS consensus</div></div>
-    <div class="card tile"><div class="v"><span data-source="pulse" data-field="median_r2">—</span>%</div><div class="l">Median stock move, two days after the report</div></div>
+    <div class="card tile"><div class="v"><span data-source="pulse" data-field="median_r2">—</span>%</div><div class="l">Median move over two post-release sessions</div></div>
   </section>
+  <p class="note" data-source="pulse" data-field="coverage"></p>
 
   <section class="grid">
     <div class="card" id="accel-card">
@@ -128,7 +129,7 @@ window.dash = (() => {
 
   <section class="card" id="reported">
     <h2>Reported</h2>
-    <p class="note">Year-over-year figures follow each company's press release and its stated precision. Year-ago revenue is checked against the available XBRL history, including newer revisions. When the historical base changed, growth versus last quarter is omitted pending reconciliation. EPS growth is GAAP diluted; one-off charges and gains can swing it hard. Surprises use the analyst consensus's own basis. "Move" uses completed trading sessions only; it stays unavailable until the second session has closed.</p>
+    <p class="note">Year-over-year figures follow each company's press release and its stated precision. Year-ago revenue is checked against the available XBRL history, including newer revisions. When the historical base changed, growth versus last quarter is omitted pending reconciliation. EPS growth uses each row’s labelled GAAP basis (continuing operations where stated); one-off charges and gains can swing it hard. Surprises use the analyst consensus's own basis. Consensus: MarketBeat’s dated earnings reports (Fiscal.ai data). Revenue surprises inside the source’s rounding interval are inline. Missing comparisons are excluded from their own percentages. "Move" uses the last unaffected close to the second post-release session’s close: report day for before-open releases, next day for after-close releases. Returns exclude dividends.</p>
     <div class="scroll">
       <table id="rep-table" data-source="season" data-row-key="ticker">
         <thead><tr>
@@ -194,6 +195,7 @@ dash.calc('pulse', {
       eps_beat_pct: pct(withEps, r => r.eps_surprise > 0),
       median_yoy_pct: m == null ? null : +(m * 100).toFixed(1),
       median_r2: r2 == null ? null : +r2.toFixed(1),
+      coverage: `Comparisons available: revenue ${withRev.length}/${rep.length}; EPS ${withEps.length}/${rep.length}. Revenue results inline: ${withRev.filter(r => r.rev_result === 'inline').length}.`,
       next_up: day ? next.filter(r => r.date === day).map(r => r.ticker).join(', ') + ' on ' + d3.utcFormat('%b %-d')(new Date(day)) : 'none scheduled'
     }];
   }
@@ -234,19 +236,23 @@ function drawDetail() {
     line('Revenue vs a year ago', 'yoy', sp(r.yoy) + ' (last quarter ' + sp(r.prev_yoy) + ')', cls(r.yoy));
     if (r.comparison_note) line('Comparison', 'comparison_note', r.comparison_note);
     if (r.market_note) {
-      line('Revenue vs consensus', 'rev_surprise', r.rev_surprise == null ? 'needs review' : (r.rev_surprise * 100).toFixed(2) + '%', cls(r.rev_surprise));
-      line((r.eps_basis === 'adjusted' ? 'Adjusted EPS' : 'EPS') + ' vs consensus', 'eps_surprise', sp(r.eps_surprise), cls(r.eps_surprise));
+      line('Revenue vs consensus', 'rev_surprise', r.rev_surprise == null ? 'unavailable: basis needs review' : r.rev_result === 'inline' ? 'inline (within source rounding)' : sp(r.rev_surprise), cls(r.rev_surprise));
+      line((r.eps_adjusted ? 'Adjusted EPS' : 'EPS') + ' vs consensus', 'eps_surprise', sp(r.eps_surprise), cls(r.eps_surprise));
       line('Comparison basis', 'market_note', r.market_note);
+      if (r.consensus_note && r.consensus_note.trim()) line('Unavailable comparisons', 'consensus_note', r.consensus_note);
     }
-    line('Stock move, two days after', 'r2', mv(r.r2) + (r.implied_move != null ? ', options priced ±' + r.implied_move.toFixed(1) + '%' : ''), cls(r.r2));
+    line('Two-session stock move', 'r2', mv(r.r2) + (r.implied_move != null ? ', options priced ±' + r.implied_move.toFixed(1) + '%' : ''), cls(r.r2));
+    if (r.reaction_window) { const w = r.reaction_window; line('Price window (USD closes)', 'reaction_window', `${w.baseline_date}: $${w.baseline_close.toFixed(2)} → ${w.end_date}: $${w.end_close.toFixed(2)}`); }
+    line('EPS growth basis', 'eps_growth_basis', r.eps_growth_basis || 'GAAP diluted');
     if (r.headline) { box.append('div').attr('class', 'k').text('Headline'); box.append('blockquote').attr('data-source', 'season').attr('data-where', w).attr('data-field', 'headline').text(r.headline); }
     if (r.guidance) { box.append('div').attr('class', 'k').text('Outlook'); box.append('blockquote').attr('data-source', 'season').attr('data-where', w).attr('data-field', 'guidance').text(r.guidance); }
   } else if (r.status === 'upcoming') {
     line('Options imply', 'implied_move', r.implied_move != null ? '±' + r.implied_move.toFixed(1) + '%' : '—');
-    line('After past reports', 'verdict', r.verdict || '—');
+    line('After past reports', 'verdict', r.avg_abs_r2 == null ? 'unavailable' : r.avg_abs_r2.toFixed(1) + '% average (' + r.history_n + ' reports)');
   } else if (r.status === 'withheld') {
     line('Why withheld', 'reason', r.reason || '—');
   }
+  if (r.consensus_source) box.append('a').attr('href', r.consensus_source).attr('target', '_blank').attr('rel', 'noopener').text('Consensus source · ');
   if (r.source_url) box.append('a').attr('href', r.source_url).attr('target', '_blank').attr('rel', 'noopener').text('Press release on SEC EDGAR');
 }
 
@@ -356,14 +362,14 @@ dash.onData(() => {
     [co], [d => fdate(d.date), 'hide-narrow'],
     [d => sp(d.yoy), d => cls(d.yoy)], [d => pp(d.accel), d => cls(d.accel)],
     [d => sp(d.eps_yoy), d => 'hide-narrow ' + cls(d.eps_yoy)],
-    [d => sp(d.rev_surprise), d => cls(d.rev_surprise)], [d => sp(d.eps_surprise) + (d.eps_basis === 'adjusted' ? ' adj.' : ''), d => 'hide-narrow ' + cls(d.eps_surprise)],
+    [d => sp(d.rev_surprise), d => cls(d.rev_surprise)], [d => sp(d.eps_surprise) + (d.eps_adjusted ? ' adj.' : ''), d => 'hide-narrow ' + cls(d.eps_surprise)],
     [d => mv(d.r2), d => cls(d.r2)]
   ]);
   const up = rows.filter(r => r.status === 'upcoming').sort((a, b) => (a.date || '9') < (b.date || '9') ? -1 : 1);
   fillTable('#up-table', up, [
     [co], [d => fdate(d.date)],
     [d => d.hour === 'bmo' ? 'before open' : d.hour === 'amc' ? 'after close' : '—', 'hide-narrow'],
-    [d => moveBar(d), 'txt'], [d => d.verdict || '—', 'txt hide-narrow']
+    [d => moveBar(d), 'txt'], [d => d.avg_abs_r2 == null ? '—' : d.avg_abs_r2.toFixed(1) + '% (' + d.history_n + ' reports)', 'txt hide-narrow']
   ]);
   drawCal(rows);
   const held = rows.filter(r => r.status === 'withheld');
