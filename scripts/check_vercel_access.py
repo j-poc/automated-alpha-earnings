@@ -18,8 +18,9 @@ def get(path, token):
         with urllib.request.urlopen(request, timeout=30) as response:
             return json.load(response)
     except urllib.error.HTTPError as exc:
-        raise RuntimeError(f'Vercel rejected the deployment credential (HTTP {exc.code}). '
-                           'Replace VERCEL_TOKEN with a token from the expected account, scoped to the Evoa workspace.') from None
+        endpoint = path.split('?', 1)[0]
+        raise RuntimeError(f'Vercel denied {endpoint} (HTTP {exc.code}). '
+                           'Check that VERCEL_TOKEN can access the configured Evoa earnings project.') from None
     except (urllib.error.URLError, TimeoutError, ValueError):
         raise RuntimeError('Could not verify Vercel access; no refresh or deployment was started.') from None
 
