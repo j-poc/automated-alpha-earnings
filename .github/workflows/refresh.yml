@@ -13,17 +13,25 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    env:
+      VERCEL_EXPECTED_USER: evoa3
+      VERCEL_ORG_ID: team_3frY5U1rw8Yv6c0EVZeDBqwB
+      VERCEL_PROJECT_ID: prj_dO9tkbP1346TU7HTrLnQTuxxuqBJ
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.13"
+      - name: Verify Evoa3 deployment access
+        run: python3 scripts/check_vercel_access.py
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       - uses: actions/cache@v4
         with:
           path: cache
           key: cache-${{ github.run_id }}
           restore-keys: cache-
-      - run: pip install pillow && npm i -g vercel
+      - run: pip install pillow && npm i -g vercel@60.1.3
       - name: Build and verify the snapshot
         run: python3 season.py build && python3 test_season.py
         env:
@@ -33,8 +41,6 @@ jobs:
         run: python3 season.py deploy
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_ORG_ID: team_3frY5U1rw8Yv6c0EVZeDBqwB
-          VERCEL_PROJECT_ID: prj_dO9tkbP1346TU7HTrLnQTuxxuqBJ
       - name: Commit the deployed snapshot
         run: |
           git config user.name "refresh-bot"

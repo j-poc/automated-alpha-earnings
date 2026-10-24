@@ -15,3 +15,7 @@ Set the two API keys without printing them. Record the start time, run build, an
 ## Gotchas
 
 Build calls external providers and updates the snapshot. Old article screenshots describe their historical date; a fresh build will differ. Never deploy as part of verification.
+
+## Automatic refresh credentials
+
+The GitHub `refresh` workflow checks the account handle `evoa3` and the exact Evoa workspace/project before building. `scripts/check_vercel_access.py` must pass with the Actions `VERCEL_TOKEN`; a local CLI login does not establish scheduled access. After a secret change, dispatch the workflow once, confirm its access check, deployment and snapshot commit succeed, then check the live dashboard timestamp against that commit. Keep all credential values out of output and proof files.
