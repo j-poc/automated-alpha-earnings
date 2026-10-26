@@ -1,0 +1,21 @@
+name: Verify shared SEC cloud connection
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      DCC_SEC_REQUIRED: "1"
+      DCC_SEC_URL: ${{ secrets.DCC_SEC_URL }}
+      DCC_SEC_TOKEN: ${{ secrets.DCC_SEC_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - run: pip install ./vendor/dcc_sec-0.1.1-py3-none-any.whl
+      - run: python3 -m unittest discover -s tests -p test_shared_sec.py
+      - run: python3 scripts/check_shared_sec.py

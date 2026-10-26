@@ -57,6 +57,15 @@ def fetch(url, ttl=None, headers=None, data=None):
     p = CACHE / key
     if p.exists() and (ttl is None or time.time() - p.stat().st_mtime < ttl):
         return p.read_text("utf-8", "replace")
+    from urllib.parse import urlsplit
+    import shared_sec
+    if urlsplit(url).hostname in {'www.sec.gov', 'data.sec.gov'} and shared_sec.enabled():
+        if data is not None:
+            raise ValueError('SEC shared acquisition only supports GET')
+        body = shared_sec.fetch_text(url, ttl=ttl, cache=CACHE)
+        CACHE.mkdir(exist_ok=True)
+        p.write_text(body, encoding="utf-8")
+        return body
     req = urllib.request.Request(url, data=data, headers=headers or {"User-Agent": UA})
     body = ""
     for attempt in range(4):

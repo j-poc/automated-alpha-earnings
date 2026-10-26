@@ -14,6 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
+      DCC_SEC_REQUIRED: "1"
+      DCC_SEC_URL: ${{ secrets.DCC_SEC_URL }}
+      DCC_SEC_TOKEN: ${{ secrets.DCC_SEC_TOKEN }}
       VERCEL_EXPECTED_USER: evoa3
       VERCEL_ORG_ID: team_3frY5U1rw8Yv6c0EVZeDBqwB
       VERCEL_PROJECT_ID: prj_dO9tkbP1346TU7HTrLnQTuxxuqBJ
@@ -31,7 +34,7 @@ jobs:
           path: cache
           key: cache-${{ github.run_id }}
           restore-keys: cache-
-      - run: pip install pillow
+      - run: pip install pillow ./vendor/dcc_sec-0.1.1-py3-none-any.whl
       - name: Build and verify the snapshot
         run: python3 season.py build && python3 test_season.py
         env:
